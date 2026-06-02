@@ -137,13 +137,6 @@ export function getPosts() {
     const slugFromFile = extractSlugFromFilename(filename)
     const slug = slugFromFile || slugify(title)
 
-    const imgMatch = content.match(/https:\/\/blogger\.googleusercontent\.com\/img\/[^\s"'<>]+/)
-    const featuredImgUrl = imgMatch ? imgMatch[0] : null
-    const featuredLocal  = featuredImgUrl ? findLocalImage(featuredImgUrl) : null
-
-    const description = metaDesc ||
-      content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 160)
-
     const processedContent = rewriteImageUrls(
       content
         .replace(/&lt;/g, '<')
@@ -152,6 +145,36 @@ export function getPosts() {
         .replace(/&quot;/g, '"')
         .replace(/&#39;/g, "'")
     )
+
+    // 1. Extraer la primera imagen de processedContent o fallback a Blogger URLs en content
+    let featuredImg = null
+    const imgTagMatch = processedContent.match(/<img[^>]+src=["']([^"']+)["']/i)
+    if (imgTagMatch) {
+      const src = imgTagMatch[1]
+      if (src.startsWith('/assets/images/')) {
+        featuredImg = src
+      } else {
+        const local = findLocalImage(src)
+        featuredImg = local ? `/assets/images/${local}` : src
+      }
+    } else {
+      const imgMatch = content.match(/https:\/\/blogger\.googleusercontent\.com\/img\/[^\s"'<>]+/)
+      if (imgMatch) {
+        const src = imgMatch[0]
+        const local = findLocalImage(src)
+        featuredImg = local ? `/assets/images/${local}` : src
+      }
+    }
+
+    // 2. Limpiar texto para la descripción (remover comentarios HTML, tags HTML, &nbsp; y colapsar espacios)
+    const cleanDescText = processedContent
+      .replace(/<!--[\s\S]*?-->/g, '') // eliminar comentarios HTML
+      .replace(/<[^>]+>/g, ' ')        // eliminar tags HTML
+      .replace(/&nbsp;/g, ' ')         // eliminar espacios duros
+      .replace(/\s+/g, ' ')            // colapsar espacios
+      .trim();
+
+    const description = metaDesc || (cleanDescText.substring(0, 160) + (cleanDescText.length > 160 ? '...' : ''))
 
     posts.push({
       slug,
@@ -164,7 +187,7 @@ export function getPosts() {
       categories,
       silo,
       filename,
-      featuredImg: featuredLocal ? `/assets/images/${featuredLocal}` : null,
+      featuredImg,
     })
   }
 
