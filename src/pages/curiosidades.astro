@@ -1,0 +1,60 @@
+---
+// src/pages/curiosidades.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPosts, buildBreadcrumbJsonLd, SITE_URL } from '../lib/posts.js';
+
+const posts = getPosts().filter(p => p.silo.id === 'cultura');
+const siloName = 'Curiosidades y Cultura Felina';
+const siloIcon = '✨';
+const siloDesc = 'Conoce la historia, arte, literatura y anécdotas del vínculo emocional único entre humanos y gatos.';
+
+const jsonLd = buildBreadcrumbJsonLd([
+  { name: 'Inicio', url: SITE_URL },
+  { name: siloName, url: `${SITE_URL}/curiosidades/` }
+]);
+---
+<BaseLayout
+  title={`${siloName} | House Gatitos`}
+  description={`Explora artículos, guías y recursos prácticos sobre ${siloName} en House Gatitos. Soluciones reales para el cuidado felino.`}
+  canonical={`${SITE_URL}/curiosidades/`}
+  jsonLd={jsonLd}
+  activeSilo="curiosidades"
+>
+
+  <header class="post-hero" style="padding-bottom:2.5rem; text-align:center;">
+    <div class="container">
+      <nav aria-label="Ruta de navegación" class="breadcrumb" style="justify-content:center;">
+        <a href="/">Inicio</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span aria-current="page">{siloName}</span>
+      </nav>
+      <div style="font-size:3.5rem; margin-bottom:1rem; display:inline-block;">{siloIcon}</div>
+      <h1 class="post-title-h1" style="margin-inline:auto;">{siloName}</h1>
+      <p class="post-description" style="margin-inline:auto;">{siloDesc}</p>
+    </div>
+  </header>
+
+  <main id="main-content" style="padding:3rem 0 4rem;">
+    <div class="container">
+      <div class="posts-grid">
+        {posts.map(p => (
+          <a href={`/${p.slug}/`} class="post-card animate-in" data-silo={p.silo.id}>
+            <div class="post-card-img">
+              {p.featuredImg
+                ? <img src={p.featuredImg} alt={p.title} loading="lazy" width="400" height="225">
+                : <div class="post-card-placeholder">{p.silo.icon}</div>
+              }
+            </div>
+            <div class="post-card-body">
+              <p class="post-card-silo">{p.silo.icon} {p.silo.name}</p>
+              <h3 class="post-card-title">{p.title}</h3>
+              <p class="post-card-desc">{p.description}</p>
+              <time class="post-card-date" datetime={p.datePublished}>{p.datePublished}</time>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </main>
+
+</BaseLayout>

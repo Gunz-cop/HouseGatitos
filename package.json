@@ -5,13 +5,13 @@
   "description": "House Gatitos - Centro de Soluciones y Cuidado Felino",
   "type": "module",
   "scripts": {
-    "build": "node build-blog.js && vite build",
-    "dev": "node build-blog.js && vite",
-    "preview": "vite preview",
-    "build:blog": "node build-blog.js",
-    "build:vite": "vite build"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^4.16.19",
     "vite": "^5.4.0"
   }
 }

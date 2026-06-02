@@ -1,0 +1,187 @@
+---
+// src/pages/calculadora-comida-gatos.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const SITE_URL = 'https://housegatitos.com';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio',          item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'Guías y Recursos', item: `${SITE_URL}/guias/` },
+    { '@type': 'ListItem', position: 3, name: 'Calculadora de Alimento', item: `${SITE_URL}/calculadora-comida-gatos/` }
+  ]
+};
+---
+<BaseLayout
+  title="Calculadora de Comida para Gatos | House Gatitos"
+  description="Calcula de forma exacta la porción de alimento diaria (seco y húmedo) que necesita tu gato según su peso, edad y estado físico. Evita el sobrepeso."
+  canonical={`${SITE_URL}/calculadora-comida-gatos/`}
+  jsonLd={jsonLd}
+  activeSilo="guias"
+>
+
+  <!-- ══ CABECERA DE LA CALCULADORA ══ -->
+  <header class="post-hero" style="padding-bottom:2rem; text-align:center;">
+    <div class="container">
+      <nav aria-label="Ruta de navegación" class="breadcrumb" style="justify-content:center;">
+        <a href="/">Inicio</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <a href="/guias/">📚 Guías y Recursos</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span aria-current="page">Calculadora de Raciones</span>
+      </nav>
+      <div style="font-size:3.5rem; margin-bottom:1rem; display:inline-block;">🍽️</div>
+      <h1 class="post-title-h1" style="margin-inline:auto;">Calculadora de Comida para Gatos</h1>
+      <p class="post-description" style="margin-inline:auto;">Calcula la porción diaria exacta de alimento húmedo y seco según el perfil biológico de tu gato.</p>
+    </div>
+  </header>
+
+  <!-- ══ CONTENIDO / CALCULADORA INTERACTIVA ══ -->
+  <main id="main-content" style="padding:2rem 0 4rem;">
+    <div class="container" style="max-width:800px;">
+
+      <!-- Panel de la calculadora -->
+      <div style="background:var(--clr-bg-card); border:1px solid var(--clr-border); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-md);">
+
+        <form id="calcForm" style="display:flex; flex-direction:column; gap:1.5rem;" onsubmit="event.preventDefault();">
+
+          <!-- Peso -->
+          <div>
+            <label for="weightRange" style="display:flex; justify-content:space-between; font-weight:600; margin-bottom:0.5rem; font-size:1.05rem;">
+              <span>Peso de tu gato:</span>
+              <span style="color:var(--clr-primary);" id="weightVal">4.5 kg</span>
+            </label>
+            <input type="range" id="weightRange" min="1.0" max="12.0" step="0.1" value="4.5" style="width:100%; accent-color:var(--clr-primary);">
+          </div>
+
+          <!-- Estado Físico / Edad -->
+          <div>
+            <label for="catState" style="display:block; font-weight:600; margin-bottom:0.5rem; font-size:1.05rem;">Estado físico y estilo de vida:</label>
+            <select id="catState" style="width:100%; padding:0.75rem; border:1px solid var(--clr-border); border-radius:var(--radius-sm); font-family:var(--ff-body); background:var(--clr-bg); color:var(--clr-text); font-size:0.95rem;">
+              <option value="1.2" selected>Adulto Castrado / Esterilizado (Recomendado)</option>
+              <option value="1.4">Adulto Entero (Sin Castrar)</option>
+              <option value="1.0">Gato Sedentario / Propenso a Obesidad</option>
+              <option value="0.8">Gato en pérdida de peso activa</option>
+              <option value="1.6">Adulto Activo / Exterior</option>
+              <option value="2.5">Gatito Bebé en Crecimiento (menor de 1 año)</option>
+              <option value="1.4">Gato de Edad Avanzada (&gt; 10 años)</option>
+            </select>
+          </div>
+
+          <!-- Proporción Alimento Seco vs Húmedo -->
+          <div>
+            <label for="ratioRange" style="display:flex; justify-content:space-between; font-weight:600; margin-bottom:0.5rem; font-size:1.05rem;">
+              <span>Proporción de dieta mixta:</span>
+              <span id="ratioVal">50% Seco / 50% Húmedo</span>
+            </label>
+            <input type="range" id="ratioRange" min="0" max="100" step="10" value="50" style="width:100%; accent-color:var(--clr-accent);">
+            <p style="font-size:0.8rem; color:var(--clr-text-muted); margin-top:0.25rem;">Recomendamos incluir al menos un 30% de alimento húmedo para cuidar sus riñones.</p>
+          </div>
+
+          <!-- Energía del alimento (Campos Avanzados Colapsables) -->
+          <details style="border:1px solid var(--clr-border); border-radius:var(--radius-sm); padding:0.5rem 0.75rem;">
+            <summary style="font-weight:600; font-size:0.9rem; cursor:pointer; color:var(--clr-text-muted);">⚙️ Ajustar calorías del alimento (Opcional)</summary>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.75rem;">
+              <div>
+                <label for="calDry" style="display:block; font-size:0.8rem; margin-bottom:0.25rem; font-weight:500;">kcal/100g Pienso Seco:</label>
+                <input type="number" id="calDry" value="380" style="width:100%; padding:0.5rem; border:1px solid var(--clr-border); border-radius:var(--radius-sm); font-family:var(--ff-body); background:var(--clr-bg); color:var(--clr-text);">
+              </div>
+              <div>
+                <label for="calWet" style="display:block; font-size:0.8rem; margin-bottom:0.25rem; font-weight:500;">kcal/100g Alimento Húmedo:</label>
+                <input type="number" id="calWet" value="85" style="width:100%; padding:0.5rem; border:1px solid var(--clr-border); border-radius:var(--radius-sm); font-family:var(--ff-body); background:var(--clr-bg); color:var(--clr-text);">
+              </div>
+            </div>
+          </details>
+
+        </form>
+
+        <hr style="border:none; border-top:1px solid var(--clr-border); margin:2rem 0;">
+
+        <!-- Resultados -->
+        <div>
+          <h2 style="font-size:1.3rem; margin-bottom:1.5rem; color:var(--clr-text);">Ración diaria recomendada</h2>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+
+            <div style="background:var(--clr-primary-bg); border-radius:var(--radius-md); padding:1.25rem; text-align:center;">
+              <span style="font-size:1.8rem; display:block;">🍪</span>
+              <span style="font-size:0.85rem; font-weight:600; text-transform:uppercase; color:var(--clr-primary); letter-spacing:0.05em;">Pienso Seco</span>
+              <strong style="font-size:2rem; display:block; color:var(--clr-text); margin-top:0.25rem;" id="resDry">0 g</strong>
+            </div>
+
+            <div style="background:var(--clr-accent-bg); border-radius:var(--radius-md); padding:1.25rem; text-align:center;">
+              <span style="font-size:1.8rem; display:block;">🥫</span>
+              <span style="font-size:0.85rem; font-weight:600; text-transform:uppercase; color:var(--clr-accent); letter-spacing:0.05em;">Alimento Húmedo</span>
+              <strong style="font-size:2rem; display:block; color:var(--clr-text); margin-top:0.25rem;" id="resWet">0 g</strong>
+            </div>
+
+          </div>
+
+          <div style="background:var(--clr-bg-alt); border-radius:var(--radius-md); padding:1rem; font-size:0.88rem; color:var(--clr-text-muted); display:flex; flex-direction:column; gap:0.5rem;">
+            <p><strong>Requerimiento Calórico Estimado:</strong> <span id="resCal" style="color:var(--clr-text); font-weight:600;">0 kcal</span> al día.</p>
+            <p>💡 <em>Nota: Esta cifra es orientativa. Si tu felino sube o baja de peso de forma involuntaria, ajusta las porciones o consulta con su veterinario.</em></p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sección de ayuda de la calculadora -->
+      <section style="margin-top:3rem; font-family:var(--ff-prose); line-height:1.8;">
+        <h2 style="font-family:var(--ff-body); font-size:1.5rem; margin-bottom:1rem; border-bottom:2px solid var(--clr-primary-bg); padding-bottom:0.5rem;">¿Cómo calculamos la porción diaria?</h2>
+        <p style="margin-bottom:1rem;">La calculadora utiliza las pautas nutricionales estándar de la WSAVA (World Small Animal Veterinary Association) y FEDIAF.</p>
+        <p style="margin-bottom:1rem;">Primero calculamos la <strong>Tasa Metabólica de Reposo (RER)</strong> en base a su peso metabólico:</p>
+        <blockquote style="border-left:4px solid var(--clr-primary); padding:0.5rem 1rem; background:var(--clr-primary-bg); font-style:italic; margin-bottom:1.5rem;">
+          RER = 70 x (Peso del gato en kg) ^ 0.75
+        </blockquote>
+        <p style="margin-bottom:1rem;">Posteriormente, aplicamos un factor de multiplicación en función de la actividad biológica y edad. Por ejemplo, los gatos castrados requieren menos energía por su metabolismo ralentizado, mientras que un gatito bebé en fase de desarrollo rápido necesita multiplicar la cifra basal hasta por 2.5.</p>
+      </section>
+
+    </div>
+  </main>
+
+</BaseLayout>
+
+<script is:inline>
+  const weightRange = document.getElementById('weightRange');
+  const weightVal   = document.getElementById('weightVal');
+  const catState    = document.getElementById('catState');
+  const ratioRange  = document.getElementById('ratioRange');
+  const ratioVal    = document.getElementById('ratioVal');
+  const calDry      = document.getElementById('calDry');
+  const calWet      = document.getElementById('calWet');
+  const resDry      = document.getElementById('resDry');
+  const resWet      = document.getElementById('resWet');
+  const resCal      = document.getElementById('resCal');
+
+  function calculate() {
+    const w = parseFloat(weightRange.value);
+    weightVal.textContent = w.toFixed(1) + ' kg';
+
+    const multiplier = parseFloat(catState.value);
+    const rer = 70 * Math.pow(w, 0.75);
+    const dailyCalories = rer * multiplier;
+
+    resCal.textContent = Math.round(dailyCalories) + ' kcal';
+
+    const ratio = parseInt(ratioRange.value) / 100;
+    ratioVal.textContent = Math.round(ratio * 100) + '% Seco / ' + Math.round((1 - ratio) * 100) + '% Húmedo';
+
+    const dryCalPerGram = parseFloat(calDry.value) / 100;
+    const wetCalPerGram = parseFloat(calWet.value) / 100;
+
+    const dryGrams = (dailyCalories * ratio) / dryCalPerGram;
+    const wetGrams = (dailyCalories * (1 - ratio)) / wetCalPerGram;
+
+    resDry.textContent = Math.round(dryGrams) + ' g';
+    resWet.textContent = Math.round(wetGrams) + ' g';
+  }
+
+  [weightRange, catState, ratioRange, calDry, calWet].forEach(el => {
+    el.addEventListener('input', calculate);
+    el.addEventListener('change', calculate);
+  });
+
+  calculate();
+</script>
