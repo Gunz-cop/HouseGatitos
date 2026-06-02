@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /assets/
+Allow: /assets/images/
+
+Sitemap: https://housegatitos.com/sitemap.xml

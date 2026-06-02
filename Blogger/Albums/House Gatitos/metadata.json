@@ -1,0 +1,12 @@
+{
+  "title": "House Gatitos",
+  "remainingCapacity": "19625",
+  "totalItems": "375",
+  "totalItemsAccuracy": "EXACT",
+  "timeInfo": {
+    "startMs": "1580058075000",
+    "endMs": "1763157411000",
+    "creationMs": "1626903685000",
+    "newestOperationTimeMs": "1763157509603"
+  }
+}

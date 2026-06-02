@@ -1,0 +1,17 @@
+{
+  "name": "house-gatitos",
+  "private": true,
+  "version": "1.0.0",
+  "description": "House Gatitos - Centro de Soluciones y Cuidado Felino",
+  "type": "module",
+  "scripts": {
+    "build": "node build-blog.js && vite build",
+    "dev": "node build-blog.js && vite",
+    "preview": "vite preview",
+    "build:blog": "node build-blog.js",
+    "build:vite": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
