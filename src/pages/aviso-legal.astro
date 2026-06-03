@@ -8,12 +8,11 @@ const description = "Aviso legal y condiciones generales de uso de House Gatitos
 const canonical = "https://housegatitos.com/aviso-legal/";
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical}>
-  <main class="container legal-page" style="margin-top: 5rem; margin-bottom: 5rem; max-width: 800px; line-height: 1.7; font-family: 'DM Sans', sans-serif;">
-    <h1 style="font-family: 'EB Garamond', serif; font-size: 2.8rem; margin-bottom: 2rem; color: var(--color-text-dark); border-bottom: 2px solid var(--color-border); padding-bottom: 0.5rem;">
+<BaseLayout title={title} description={description} canonical={canonical}>  <main class="container legal-page" style="margin-top: 6rem; margin-bottom: 6rem; max-width: 740px; line-height: 1.8; font-family: var(--ff-body);">
+    <h1 style="font-family: var(--ff-heading); font-size: 3rem; margin-bottom: 2rem; color: var(--clr-text); border-bottom: 1.5px solid var(--clr-border); padding-bottom: 0.75rem; font-weight: 600;">
       Aviso legal
     </h1>
-    <div class="legal-content" style="color: var(--color-text-dark); font-size: 1.05rem;">
+    <div class="legal-content" style="color: var(--clr-text); font-size: 1.05rem;">
       <h2>Aviso Legal</h2>
 
 <ol>
@@ -24,7 +23,7 @@ const canonical = "https://housegatitos.com/aviso-legal/";
 <ol start="2">
   <li><strong>Objeto del sitio web</strong></li>
 </ol>
-<p>El presente Aviso Legal regula el acceso, uso y navegación del sitio <strong>https://housegatitos.blogspot.com/</strong> (en adelante, "el sitio web"), propiedad de House Gatitos. El acceso a este sitio implica que el usuario acepta íntegramente las condiciones aquí expuestas, así como cualquier otra disposición legal aplicable en Costa Rica.</p>
+<p>El presente Aviso Legal regula el acceso, uso y navegación del sitio <strong>https://housegatitos.com/</strong> (en adelante, "el sitio web"), propiedad de House Gatitos. El acceso a este sitio implica que el usuario acepta íntegramente las condiciones aquí expuestas, así como cualquier otra disposición legal aplicable en Costa Rica.</p>
 <p>Nos reservamos el derecho de modificar este aviso en cualquier momento. El uso continuado del sitio tras la publicación de cambios implicará la aceptación de los mismos.</p>
 
 <ol start="3">
@@ -58,53 +57,61 @@ const canonical = "https://housegatitos.com/aviso-legal/";
 <ol start="8">
   <li><strong>Protección de datos y privacidad</strong></li>
 </ol>
-<p>Este sitio no recopila datos personales directamente. Sin embargo, servicios de terceros como Google Analytics, AdSense, Media.net u otros pueden utilizar cookies o tecnologías similares para recopilar información estadística. Más detalles disponibles en nuestra <a href="/p/politica-de-privacidad.html">Política de Privacidad</a>.</p>
+<p>Este sitio no recopila datos personales directamente. Sin embargo, servicios de terceros como Google Analytics, AdSense, Media.net u otros pueden utilizar cookies o tecnologías similares para recopilar información estadística. Más detalles disponibles en nuestra <a href="/politicas-de-privacidad/">Política de Privacidad</a>.</p>
 
 <ol start="9">
   <li><strong>Política de cookies</strong></li>
 </ol>
-<p>Este sitio utiliza cookies propias y de terceros para mejorar la experiencia de navegación y mostrar contenido personalizado. El usuario puede gestionar o desactivar las cookies desde las preferencias de su navegador. Más información en nuestra <a href="/p/politica-de-cookies.html">Política de Cookies</a>.</p>
+<p>Este sitio utiliza cookies propias y de terceros para mejorar la experiencia de navegación y mostrar contenido personalizado. El usuario puede gestionar o desactivar las cookies desde las preferencias de su navegador. Más información en nuestra <a href="/cookies/">Política de Cookies</a>.</p>
 
 <ol start="10">
   <li><strong>Jurisdicción aplicable</strong></li>
 </ol>
 <p>Este aviso legal se rige por las leyes de la República de Costa Rica. Cualquier conflicto que se derive del uso de este sitio web será resuelto por los tribunales competentes del país, salvo que las partes acuerden otra cosa por escrito.</p>
 
-<p style="text-align: center;"><em>Última actualización: agosto de 2025</em></p>
+<p style="text-align: center; margin-top: 3rem; color: var(--clr-text-muted);"><em>Última actualización: agosto de 2025</em></p>
     </div>
   </main>
 </BaseLayout>
 
 <style is:global>
   .legal-content p {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--clr-text);
   }
   .legal-content h2 {
-    font-family: 'EB Garamond', serif;
+    font-family: var(--ff-heading);
     font-size: 1.8rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: var(--color-text-dark);
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--clr-text);
+    font-weight: 500;
   }
   .legal-content h3 {
-    font-family: 'EB Garamond', serif;
+    font-family: var(--ff-heading);
     font-size: 1.4rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.8rem;
-    color: var(--color-text-dark);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--clr-text);
+    font-weight: 500;
   }
   .legal-content ul, .legal-content ol {
-    margin-bottom: 1.2rem;
-    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1.75rem;
+    color: var(--clr-text);
   }
   .legal-content li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
   }
   .legal-content a {
-    color: var(--color-primary);
-    text-decoration: underline;
+    color: var(--clr-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--clr-border);
+    transition: var(--transition);
   }
   .legal-content a:hover {
-    color: var(--color-text-dark);
+    color: var(--clr-primary-lt);
+    border-bottom-color: var(--clr-primary-lt);
+    text-decoration: none;
   }
 </style>

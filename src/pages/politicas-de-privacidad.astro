@@ -9,16 +9,16 @@ const canonical = "https://housegatitos.com/politicas-de-privacidad/";
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical}>
-  <main class="container legal-page" style="margin-top: 5rem; margin-bottom: 5rem; max-width: 800px; line-height: 1.7; font-family: 'DM Sans', sans-serif;">
-    <h1 style="font-family: 'EB Garamond', serif; font-size: 2.8rem; margin-bottom: 2rem; color: var(--color-text-dark); border-bottom: 2px solid var(--color-border); padding-bottom: 0.5rem;">
+  <main class="container legal-page" style="margin-top: 6rem; margin-bottom: 6rem; max-width: 740px; line-height: 1.8; font-family: var(--ff-body);">
+    <h1 style="font-family: var(--ff-heading); font-size: 3rem; margin-bottom: 2rem; color: var(--clr-text); border-bottom: 1.5px solid var(--clr-border); padding-bottom: 0.75rem; font-weight: 600;">
       Políticas de privacidad
     </h1>
-    <div class="legal-content" style="color: var(--color-text-dark); font-size: 1.05rem;">
+    <div class="legal-content" style="color: var(--clr-text); font-size: 1.05rem;">
       <h2>Política de Privacidad</h2>
 <p><strong>Última actualización:</strong> agosto de 2025</p>
 
 <h3>1. Información general</h3>
-<p>Esta Política de Privacidad establece cómo el sitio web <strong>House Gatitos</strong> recopila, utiliza y protege los datos personales de los usuarios que acceden a <strong>https://housegatitos.blogspot.com/</strong>. Al utilizar este sitio, aceptás los términos descritos a continuación.</p>
+<p>Esta Política de Privacidad establece cómo el sitio web <strong>House Gatitos</strong> recopila, utiliza y protege los datos personales de los usuarios que acceden a <strong>https://housegatitos.com/</strong>. Al utilizar este sitio, aceptás los términos descritos a continuación.</p>
 
 <h3>2. Responsable del tratamiento</h3>
 <p><strong>Nombre comercial:</strong> House Gatitos<br>
@@ -55,7 +55,7 @@ const canonical = "https://housegatitos.com/politicas-de-privacidad/";
 </ul>
 
 <h3>6. Uso de cookies</h3>
-<p>Este sitio utiliza cookies propias y de terceros para fines estadísticos y publicitarios. Podés gestionar las cookies desde la configuración de tu navegador o consultar nuestra <a href="/p/politica-de-cookies.html">Política de Cookies</a> para más información.</p>
+<p>Este sitio utiliza cookies propias y de terceros para fines estadísticos y publicitarios. Podés gestionar las cookies desde la configuración de tu navegador o consultar nuestra <a href="/cookies/">Política de Cookies</a> para más información.</p>
 
 <h3>7. Legitimación del tratamiento</h3>
 <p>El tratamiento de tus datos personales se basa en:</p>
@@ -89,41 +89,49 @@ const canonical = "https://housegatitos.com/politicas-de-privacidad/";
 <h3>10. Cambios en esta política</h3>
 <p>Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier momento. Los cambios se publicarán en esta misma página y tendrán efecto desde su fecha de publicación.</p>
 
-<p style="text-align: center;"><em>Última actualización: agosto de 2025</em></p>
+<p style="text-align: center; margin-top: 3rem; color: var(--clr-text-muted);"><em>Última actualización: agosto de 2025</em></p>
     </div>
   </main>
 </BaseLayout>
 
 <style is:global>
   .legal-content p {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--clr-text);
   }
   .legal-content h2 {
-    font-family: 'EB Garamond', serif;
+    font-family: var(--ff-heading);
     font-size: 1.8rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: var(--color-text-dark);
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--clr-text);
+    font-weight: 500;
   }
   .legal-content h3 {
-    font-family: 'EB Garamond', serif;
+    font-family: var(--ff-heading);
     font-size: 1.4rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.8rem;
-    color: var(--color-text-dark);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--clr-text);
+    font-weight: 500;
   }
   .legal-content ul, .legal-content ol {
-    margin-bottom: 1.2rem;
-    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1.75rem;
+    color: var(--clr-text);
   }
   .legal-content li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
   }
   .legal-content a {
-    color: var(--color-primary);
-    text-decoration: underline;
+    color: var(--clr-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--clr-border);
+    transition: var(--transition);
   }
   .legal-content a:hover {
-    color: var(--color-text-dark);
+    color: var(--clr-primary-lt);
+    border-bottom-color: var(--clr-primary-lt);
+    text-decoration: none;
   }
 </style>
