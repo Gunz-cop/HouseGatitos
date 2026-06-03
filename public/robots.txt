@@ -1,7 +1,13 @@
 User-agent: *
 Allow: /
 
-Disallow: /assets/
-Allow: /assets/images/
+# Evitar el rastreo de archivos de datos e indices internos
+Disallow: /posts-data.json
+Disallow: /search-index.json
 
-Sitemap: https://housegatitos.com/sitemap.xml
+# Evitar el rastreo de busquedas antiguas de Blogger
+Disallow: /search/
+Disallow: /search?*
+
+# Sitemap oficial
+Sitemap: https://housegatitos.com/sitemap-index.xml
