@@ -8,10 +8,23 @@ const siloName = 'Guías y Recursos';
 const siloIcon = '📚';
 const siloDesc = 'Tutoriales detallados, guías prácticas y herramientas para facilitarte el cuidado del gato en el día a día.';
 
+// Seleccionar el post destacado (fuente-agua-gatos-elegir-mejor-opcion)
+const featuredSlug = 'fuente-agua-gatos-elegir-mejor-opcion';
+const featuredPost = posts.find(p => p.slug === featuredSlug) || posts[0];
+const regularPosts = posts.filter(p => p.slug !== featuredPost.slug);
+
 const jsonLd = buildBreadcrumbJsonLd([
   { name: 'Inicio', url: SITE_URL },
   { name: siloName, url: `${SITE_URL}/guias/` }
 ]);
+
+function formatDate(dateStr) {
+  try {
+    return new Date(dateStr).toLocaleDateString('es-ES', {
+      day: 'numeric', month: 'long', year: 'numeric'
+    });
+  } catch { return dateStr; }
+}
 ---
 <BaseLayout
   title={`${siloName} | House Gatitos`}
@@ -21,7 +34,7 @@ const jsonLd = buildBreadcrumbJsonLd([
   activeSilo="guias"
 >
 
-  <header class="post-hero" style="padding-bottom:2.5rem; text-align:center;">
+  <header class="post-hero" style="text-align:center;">
     <div class="container">
       <nav aria-label="Ruta de navegación" class="breadcrumb" style="justify-content:center;">
         <a href="/">Inicio</a>
@@ -34,10 +47,38 @@ const jsonLd = buildBreadcrumbJsonLd([
     </div>
   </header>
 
-  <main id="main-content" style="padding:3rem 0 4rem;">
+  <main id="main-content" style="padding:4rem 0;">
     <div class="container">
+      
+      <!-- Artículo Destacado Principal -->
+      {featuredPost && (
+        <a href={`/${featuredPost.silo.slug}/${featuredPost.slug}/`} class="silo-hero-featured">
+          <div class="silo-featured-img">
+            {featuredPost.featuredImg ? (
+              <img src={featuredPost.featuredImgCard} alt={featuredPost.title} loading="lazy" width="650" height="400">
+            ) : (
+              <div class="post-card-placeholder">{featuredPost.silo.icon}</div>
+            )}
+          </div>
+          <div class="silo-featured-body">
+            <span class="silo-featured-badge">
+              {featuredPost.silo.icon} Guía Destacada
+            </span>
+            <h2 class="silo-featured-title">{featuredPost.title}</h2>
+            <p class="silo-featured-desc">{featuredPost.description}</p>
+            <time class="silo-featured-date" datetime={featuredPost.datePublished}>
+              {formatDate(featuredPost.datePublished)}
+            </time>
+          </div>
+        </a>
+      )}
+
+      <!-- Título de Sección Secundaria -->
+      <h2 class="silo-section-title">Manuales Prácticos y Comparativas</h2>
+
+      <!-- Rejilla de Artículos Restantes -->
       <div class="posts-grid">
-        {posts.map(p => (
+        {regularPosts.map(p => (
           <a href={`/${p.silo.slug}/${p.slug}/`} class="post-card animate-in" data-silo={p.silo.id}>
             <div class="post-card-img">
               {p.featuredImg
@@ -49,11 +90,12 @@ const jsonLd = buildBreadcrumbJsonLd([
               <p class="post-card-silo">{p.silo.icon} {p.silo.name}</p>
               <h3 class="post-card-title">{p.title}</h3>
               <p class="post-card-desc">{p.description}</p>
-              <time class="post-card-date" datetime={p.datePublished}>{p.datePublished}</time>
+              <time class="post-card-date" datetime={p.datePublished}>{formatDate(p.datePublished)}</time>
             </div>
           </a>
         ))}
       </div>
+      
     </div>
   </main>
 

@@ -54,6 +54,13 @@ La **diarrea** felina es el resultado de una alteración en la absorción de agu
 Los **problemas urinarios** representan un capítulo crítico de la medicina felina de urgencia, agrupados bajo el término clínico de **Enfermedad del Tracto Urinario Inferior Felino** (FLUTD). Esta condición engloba patologías como la cistitis idiopática felina (inflamación de la vejiga de origen neurogénico y muy vinculada al estrés ambiental), infecciones del tracto urinario (ITU) y la urolitiasis (presencia de cristales o cálculos de estruvita o fosfato de calcio en la vejiga).
 * **Bloqueo uretral agudo:** Es una emergencia médica de vida o muerte que afecta casi exclusivamente a los machos debido a la longitud y estrechez anatómica de su uretra. Un tapón de moco, cristales o pequeños cálculos puede obstruir por completo el flujo de orina. El gato intentará orinar de forma obsesiva en el arenero, emitiendo maullidos agudos de dolor extremo, adoptando una postura forzada sin lograr evacuar nada de líquido. En menos de 24 horas de obstrucción completa, la acumulación de potasio en el torrente sanguíneo (hiperpotasemia) comprometerá la conducción eléctrica del músculo cardíaco, provocando arritmias severas, bradicardia extrema y paro cardíaco. Además, la presión retrógrada causará insuficiencia renal postrenal aguda irreversible y ruptura de la vejiga.
 
+<figure class="media arenero">
+  <img src="/assets/images/gato-sintomas-arenero.webp" alt="Gato visitando repetidamente su caja de arena en el lavadero, observado discretamente" loading="lazy" width="800" height="533">
+  <figcaption>
+    Las visitas frecuentes al arenero sin producir orina o acompañadas de maullidos son un signo de obstrucción urinaria de extrema urgencia.
+  </figcaption>
+</figure>
+
 ## 3. Sintomatología Respiratoria y Oftálmica (El Complejo Respiratorio Felino)
 
 El aparato respiratorio y el sistema oftálmico del gato son sumamente vulnerables a una amplia variedad de patógenos virales y bacterianos que interactúan de forma sinérgica, dando origen a lo que se conoce en la medicina veterinaria como el **Complejo Respiratorio Felino** o "gripe felina". Las manifestaciones en estas áreas pueden variar de leves a mortales en un periodo de tiempo extremadamente corto, especialmente en cachorros de menos de 6 meses y en gatos con sistemas inmunológicos comprometidos (portadores de la Leucemia Felina [ViLeF] o del Virus de la Inmunodeficiencia Felina [VIF]).
@@ -69,6 +76,13 @@ La dificultad para respirar o **disnea** es una de las emergencias clínicas má
 Las causas de la disnea en el gato son diversas e incluyen el **asma felina** (una patología inflamatoria crónica de las vías respiratorias bajas caracterizada por broncoconstricción inmunomediada), la efusión pleural (acumulación de líquido en el espacio que rodea los pulmones provocada por insuficiencia cardíaca congestiva, piotórax o Peritonitis Infecciosa Felina [PIF]), neumonías bacterianas y metástasis tumorales pulmonares.
 
 El monitoreo de la frecuencia respiratoria en reposo es una herramienta de medicina preventiva en el hogar muy valiosa. Un tutor puede contar las respiraciones del gato mientras este duerme profundamente (un ciclo respiratorio completo consta de una subida y bajada del pecho). Una frecuencia respiratoria en reposo saludable debe situarse siempre por debajo de las **30 respiraciones por minuto**. Si el registro supera de forma recurrente las 40 respiraciones por minuto, es un indicador precoz de edema pulmonar o efusión pleural incipiente que requiere evaluación veterinaria inmediata.
+
+<figure class="media respiratoria">
+  <img src="/assets/images/gato-sintomas-respiratoria.webp" alt="Gato durmiendo en una cama con un teléfono inteligente en primer plano para cronometrar las respiraciones" loading="lazy" width="800" height="533">
+  <figcaption>
+    Monitorear la frecuencia respiratoria del gato mientras duerme es un método preventivo eficaz y no invasivo.
+  </figcaption>
+</figure>
 
 ## 4. Sintomatología Neurológica, Musculoesquelética y Dermatológica
 
@@ -87,6 +101,13 @@ Las convulsiones representan otra emergencia neurológica severa. Pueden present
 Un síntoma neurológico y metabólico crítico es la conducta conocida en medicina veterinaria como **[head pressing](/salud/head-pressing-un-comportamiento/)** (presión de la cabeza):
 * El gato apoyará y presionará de forma continua y rígida la parte frontal de su cabeza contra superficies verticales u horizontales duras (paredes, esquinas de muebles, el suelo) manteniéndose en esa postura de forma ausente y con la mirada perdida.
 * Este síntoma es un indicador clínico directo de encefalopatía o inflamación cerebral severa. Puede ser provocado por una acumulación de toxinas en el cerebro debido a insuficiencia hepática terminal o derivación portosistémica (encefalopatía hepática), intoxicaciones por plomo o etilenglicol, tumores cerebrales primarios, o infecciones del sistema nervioso central como la toxoplasmosis neurológica o la PIF neurogénica. Nunca debe confundirse con el saludo cariñoso del gato (*headbutting*) donde da suaves golpes con su cabeza contra el tutor de forma consciente e interactiva.
+
+<figure class="media headpressing">
+  <img src="/assets/images/gato-sintomas-headpressing.webp" alt="Gato de pie presionando firmemente su frente contra un mueble de cocina" loading="lazy" width="800" height="533">
+  <figcaption>
+    La postura de head pressing (presionar la cabeza contra superficies duras de forma ausente) es un síntoma de encefalopatía severa.
+  </figcaption>
+</figure>
 
 En el plano dermatológico, las alteraciones en la piel y el pelo revelan alergias, parásitos o estrés crónico. El sobre-aseo psicogénico (alopecia autoinducida por lamerse de forma obsesiva) es una patología conductual común provocada por dolor crónico, aburrimiento severo o ansiedad por cambios bruscos en el entorno (mudanzas, introducción de nuevas mascotas). Las dermatitis alérgicas (como la dermatitis alérgica a la picadura de pulga - DAPP) cursan con prurito intenso, costras en la base de la cola y el cuello, y eccemas húmedos secundarios a la autolesión por rascado.
 

@@ -23,10 +23,14 @@
   --clr-accent-lt:   hsl(145, 35%, 48%);
   --clr-accent-bg:   hsl(145, 35%, 94%);
 
-  --clr-silo-razas:     hsl(250, 60%, 55%);
-  --clr-silo-salud:     hsl(0,   72%, 50%);
-  --clr-silo-guias:     hsl(200, 70%, 42%);
-  --clr-silo-cultura:   hsl(340, 60%, 50%);
+  --clr-silo-razas:     hsl(22, 60%, 50%);
+  --clr-silo-salud:     hsl(145, 25%, 45%);
+  --clr-silo-guias:     hsl(35, 30%, 45%);
+  --clr-silo-cultura:   hsl(45, 55%, 45%);
+
+  /* Variables dinámicas de silo por defecto (claro) */
+  --clr-silo-primary:   var(--clr-primary);
+  --clr-silo-bg-light:  var(--clr-bg-alt);
 
   --clr-border:      #dbc1b5; /* tono rosado-arena suave */
   --clr-shadow:      rgba(70, 45, 30, 0.04); /* sombra muy suave */
@@ -70,6 +74,38 @@
 
   --clr-border:      #3e3832; /* borde más contrastado para definir las tarjetas */
   --clr-shadow:      rgba(0, 0, 0, 0.40);
+}
+
+/* ── Variables de Silo Dinámicas ── */
+body[data-silo-theme="razas"] {
+  --clr-silo-primary:   var(--clr-silo-razas);
+  --clr-silo-bg-light:  hsl(22, 50%, 96%);
+}
+body[data-silo-theme="salud"] {
+  --clr-silo-primary:   var(--clr-silo-salud);
+  --clr-silo-bg-light:  hsl(145, 20%, 95%);
+}
+body[data-silo-theme="guias"] {
+  --clr-silo-primary:   var(--clr-silo-guias);
+  --clr-silo-bg-light:  hsl(35, 25%, 95%);
+}
+body[data-silo-theme="curiosidades"] {
+  --clr-silo-primary:   var(--clr-silo-cultura);
+  --clr-silo-bg-light:  hsl(45, 40%, 95%);
+}
+
+/* Modo oscuro para variables de silo */
+[data-theme="dark"] body[data-silo-theme="razas"] {
+  --clr-silo-bg-light:  hsl(22, 30%, 12%);
+}
+[data-theme="dark"] body[data-silo-theme="salud"] {
+  --clr-silo-bg-light:  hsl(145, 15%, 11%);
+}
+[data-theme="dark"] body[data-silo-theme="guias"] {
+  --clr-silo-bg-light:  hsl(35, 20%, 11%);
+}
+[data-theme="dark"] body[data-silo-theme="curiosidades"] {
+  --clr-silo-bg-light:  hsl(45, 25%, 11%);
 }
 
 /* ── Reset ── */
@@ -506,6 +542,10 @@ a:hover { text-decoration: underline; }
   align-items: center;
   gap: 0.3rem;
 }
+.post-card[data-silo="razas"] .post-card-silo { color: var(--clr-silo-razas); }
+.post-card[data-silo="salud"] .post-card-silo { color: var(--clr-silo-salud); }
+.post-card[data-silo="guias"] .post-card-silo { color: var(--clr-silo-guias); }
+.post-card[data-silo="cultura"] .post-card-silo { color: var(--clr-silo-cultura); }
 
 .post-card-title {
   font-size: 1rem;
@@ -535,9 +575,9 @@ a:hover { text-decoration: underline; }
    ARTÍCULO (POST)
 ════════════════════════════════ */
 .post-hero {
-  background: var(--clr-bg-alt);
+  background: linear-gradient(180deg, var(--clr-silo-bg-light) 0%, var(--clr-bg) 100%);
   border-bottom: 1px solid var(--clr-border);
-  padding: 2.5rem 0 0;
+  padding: 3.5rem 0 2.5rem;
 }
 
 .breadcrumb {
@@ -551,8 +591,122 @@ a:hover { text-decoration: underline; }
 }
 
 .breadcrumb a { color: var(--clr-text-muted); }
-.breadcrumb a:hover { color: var(--clr-primary); }
+.breadcrumb a:hover { color: var(--clr-silo-primary); }
 .breadcrumb-sep { color: var(--clr-border); font-size: 0.8rem; }
+
+/* ── Diseño de Silo Editorial ── */
+.silo-hero-featured {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 2rem;
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.silo-hero-featured:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  text-decoration: none;
+}
+
+.silo-featured-img {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: var(--clr-surface);
+}
+
+.silo-featured-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.silo-hero-featured:hover .silo-featured-img img {
+  transform: scale(1.03);
+}
+
+.silo-featured-body {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.silo-featured-badge {
+  align-self: flex-start;
+  background: var(--clr-silo-primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.silo-featured-title {
+  font-family: var(--ff-heading);
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--clr-text);
+}
+
+.silo-featured-desc {
+  font-size: 0.95rem;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.silo-featured-date {
+  font-size: 0.8rem;
+  color: var(--clr-text-light);
+  margin-top: 0.5rem;
+}
+
+.silo-section-title {
+  font-family: var(--ff-heading);
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--clr-border);
+  padding-bottom: 0.5rem;
+  color: var(--clr-text);
+}
+
+.silo-section-title::before {
+  content: '🐾';
+  font-size: 1.1rem;
+}
+
+@media (max-width: 800px) {
+  .silo-hero-featured {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .silo-featured-body {
+    padding: 1.5rem;
+  }
+}
 
 .post-meta {
   display: flex;
