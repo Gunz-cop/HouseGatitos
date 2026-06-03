@@ -71,26 +71,22 @@ const jsonLd = [
   jsonLd={jsonLd}
 >
 
-  <!-- ══ HERO ══ -->
-  <section class="hero" aria-labelledby="hero-title" style="padding: 6.5rem 0 5.5rem; position: relative; overflow: hidden;">
-    <!-- Elementos de fondo artísticos minimalistas -->
-    <div aria-hidden="true" style="position: absolute; top: -10%; left: -5%; opacity: 0.025; font-size: 20rem; pointer-events: none; user-select: none;">🐾</div>
-    <div aria-hidden="true" style="position: absolute; bottom: -10%; right: -5%; opacity: 0.025; font-size: 24rem; pointer-events: none; user-select: none;">🐾</div>
-    
-    <div class="container" style="position: relative; z-index: 1;">
-      <div class="hero-tag" aria-hidden="true">🐾 Un santuario de bienestar para tu gato</div>
-      <h1 id="hero-title" style="font-family: var(--ff-heading); font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 500; line-height: 1.15; margin-bottom: 1.5rem;">
-        Respuestas claras y <em>prácticas</em><br>para el bienestar felino
-      </h1>
-      <p class="hero-sub" style="font-size: 1.15rem; max-width: 620px; color: var(--clr-text-muted); margin-bottom: 2.5rem; line-height: 1.6;">
-        Encuentra pautas clínicas, guías de comportamiento y herramientas interactivas diseñadas por expertos. Sin contenido superficial — utilidad real para el cuidado de tu gato.
-      </p>
+  <!-- ══ HERO EDITORIAL ══ -->
+  <section class="hero-editorial" aria-labelledby="hero-title">
+    <div class="container hero-editorial-grid">
+      <div class="hero-main-content">
+        <span class="editorial-tag">REFERENCIA Felina & CUIDADO CLÍNICO</span>
+        <h1 id="hero-title">
+          Criterio clínico y <em>respuestas claras</em> para el bienestar de tu gato.
+        </h1>
+        <p class="hero-editorial-sub">
+          Encuentra pautas clínicas estructuradas, guías de comportamiento en profundidad y herramientas interactivas de triaje diseñadas por especialistas.
+        </p>
 
-      <!-- Buscador Minimalista Rediseñado -->
-      <div class="search-wrap" role="search" aria-label="Buscar artículos" style="max-width: 650px; margin-inline: auto;">
-        <div style="display: flex; gap: 0.75rem; width: 100%;">
-          <div style="position: relative; flex-grow: 1;">
-            <span class="search-icon" aria-hidden="true" style="left: 1.25rem;">🔍</span>
+        <!-- Buscador Minimalista Tipo Revista -->
+        <div class="search-box-editorial" role="search" aria-label="Buscar en el archivo">
+          <div class="search-input-wrapper">
+            <span class="search-prefix-icon" aria-hidden="true">🔍</span>
             <input
               type="search"
               id="searchInput"
@@ -99,72 +95,88 @@ const jsonLd = [
               aria-label="Buscar en House Gatitos"
               aria-autocomplete="list"
               aria-controls="searchResults"
-              style="padding: 0.9rem 1rem 0.9rem 3rem; border-radius: 999px; height: 56px; border: 1px solid var(--clr-border);"
             >
           </div>
-          <button class="search-btn" id="searchBtn" aria-label="Buscar" style="height: 56px; padding-inline: 2rem; border-radius: 999px;">Buscar →</button>
+          <button class="search-submit-btn" id="searchBtn" aria-label="Buscar">Buscar en el Archivo →</button>
+          <div id="searchResults" class="search-results-overlay" role="listbox" aria-label="Resultados de búsqueda"></div>
         </div>
-        <div id="searchResults" class="search-results" role="listbox" aria-label="Resultados de búsqueda"></div>
+      </div>
+
+      <div class="hero-editorial-sidebar" aria-hidden="true">
+        <div class="editorial-quote-box">
+          <span class="quote-label">Lectura Recomendada</span>
+          <p class="quote-text">
+            “El bienestar de un felino empieza por comprender que su silencio a menudo enmascara malestar. Aprender a observar es el primer paso clínico del tutor.”
+          </p>
+          <div class="quote-footer">
+            <a href="/salud/sintomas-gatos/" class="quote-link">Ver Guía de Triaje Clínico →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ LECTURAS CRÍTICAS (Curated Highlights) ══ -->
-  <section class="posts-section" aria-labelledby="featured-title" style="padding: 6rem 0 5rem;">
+  <!-- ══ LECTURAS CRÍTICAS (Editorial Layout) ══ -->
+  <section class="lecturas-criticas-section" aria-labelledby="featured-title">
     <div class="container">
-      <header class="section-header" style="text-align: left; margin-bottom: 3.5rem;">
-        <span class="section-label">Lecturas Críticas</span>
-        <h2 class="section-title" id="featured-title" style="font-size: 2.2rem;">Guías esenciales y curadas</h2>
-        <p style="color: var(--clr-text-muted); font-size: 1.05rem; margin-top: 0.5rem; max-width: 600px;">
-          Investigaciones y guías de referencia clínica redactadas en profundidad por tutores y especialistas.
-        </p>
+      <header class="editorial-section-header">
+        <div class="header-line"></div>
+        <div class="header-title-row">
+          <span class="section-num">I.</span>
+          <h2 class="editorial-section-title" id="featured-title">Lecturas Críticas</h2>
+          <span class="section-subtitle-editorial">Artículos esenciales seleccionados por el equipo editorial</span>
+        </div>
       </header>
 
-      <div class="featured-layout">
-        <!-- Destacado Principal (Síntomas comunes) -->
+      <div class="featured-editorial-grid">
+        <!-- Destacado Principal -->
         {mainFeatured && (
-          <a href={`/${mainFeatured.silo.slug}/${mainFeatured.slug}/`} class="featured-main-card">
-            <div class="featured-main-img">
+          <a href={`/${mainFeatured.silo.slug}/${mainFeatured.slug}/`} class="featured-editorial-card">
+            <div class="featured-editorial-img-wrapper">
               {mainFeatured.featuredImg ? (
                 <img src={mainFeatured.featuredImgCard} alt={mainFeatured.title} loading="lazy" width="650" height="400">
               ) : (
-                <div class="post-card-placeholder">{mainFeatured.silo.icon}</div>
+                <div class="editorial-placeholder">{mainFeatured.silo.icon}</div>
               )}
-            </div>
-            <div class="featured-main-body">
-              <span class="post-card-silo">
+              <span class="editorial-silo-badge" data-silo={mainFeatured.silo.id}>
                 {mainFeatured.silo.icon} {mainFeatured.silo.name}
               </span>
-              <h3 style="font-family: var(--ff-heading); font-size: 1.85rem; line-height: 1.3; margin-block: 0.5rem 0.8rem; font-weight: 500;">
+            </div>
+            <div class="featured-editorial-body">
+              <h3 class="featured-editorial-title">
                 {mainFeatured.title}
               </h3>
-              <p style="color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+              <p class="featured-editorial-desc">
                 {mainFeatured.description}
               </p>
-              <time style="font-size: 0.82rem; color: var(--clr-text-light); margin-top: 1rem; display: block;" datetime={mainFeatured.datePublished}>
-                {formatDate(mainFeatured.datePublished)}
-              </time>
+              <div class="featured-editorial-meta">
+                <time datetime={mainFeatured.datePublished}>
+                  Publicado el {formatDate(mainFeatured.datePublished)}
+                </time>
+                <span class="read-more-text">Leer Artículo Completo ↗</span>
+              </div>
             </div>
           </a>
         )}
 
-        <!-- Destacados Secundarios (Lista vertical de 3) -->
-        <div class="featured-side-list">
+        <!-- Destacados Secundarios -->
+        <div class="featured-editorial-list">
           {sideFeatured.map(post => (
-            <a href={`/${post.silo.slug}/${post.slug}/`} class="featured-side-item">
-              <div class="featured-side-img">
+            <a href={`/${post.silo.slug}/${post.slug}/`} class="featured-editorial-item">
+              <div class="featured-editorial-item-body">
+                <span class="featured-editorial-item-silo" data-silo={post.silo.id}>
+                  {post.silo.icon} {post.silo.name}
+                </span>
+                <h4 class="featured-editorial-item-title">{post.title}</h4>
+                <p class="featured-editorial-item-desc">{post.description}</p>
+                <span class="featured-editorial-item-link">Leer guía →</span>
+              </div>
+              <div class="featured-editorial-item-img">
                 {post.featuredImg ? (
                   <img src={post.featuredImgThumb} alt={post.title} loading="lazy" width="110" height="110">
                 ) : (
-                  <div class="post-card-placeholder" style="font-size: 2rem;">{post.silo.icon}</div>
+                  <div class="editorial-placeholder-thumb">{post.silo.icon}</div>
                 )}
-              </div>
-              <div class="featured-side-body">
-                <span style="color: var(--clr-primary); font-weight: 600; text-transform: uppercase; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 0.25rem;">
-                  {post.silo.icon} {post.silo.name}
-                </span>
-                <h4 class="featured-side-title" style="margin-block: 0.2rem 0.4rem; font-family: var(--ff-heading); font-size: 1.2rem; font-weight: 500;">{post.title}</h4>
-                <p class="featured-side-desc">{post.description}</p>
               </div>
             </a>
           ))}
@@ -173,108 +185,785 @@ const jsonLd = [
     </div>
   </section>
 
-  <!-- ══ SILOS / 4 PILARES ══ -->
-  <section class="silos-section" aria-labelledby="silos-title" style="background: var(--clr-bg-alt); padding: 6rem 0;">
+  <!-- ══ EL ARCHIVO (Índice de Secciones) ══ -->
+  <section class="archivo-index-section" aria-labelledby="silos-title">
     <div class="container">
-      <header class="section-header" style="text-align: center; margin-bottom: 4rem;">
-        <span class="section-label">Explora el archivo</span>
-        <h2 class="section-title" id="silos-title" style="font-size: 2.2rem;">¿Qué necesita tu gato hoy?</h2>
-        <p style="color: var(--clr-text-muted); font-size: 1.05rem; max-width: 580px; margin-inline: auto; margin-top: 0.5rem;">
-          Accede a todos nuestros artículos clasificados por silos de contenido especializados.
-        </p>
+      <header class="editorial-section-header">
+        <div class="header-line"></div>
+        <div class="header-title-row">
+          <span class="section-num">II.</span>
+          <h2 class="editorial-section-title" id="silos-title">El Archivo</h2>
+          <span class="section-subtitle-editorial">Artículos clasificados por pilares de conocimiento</span>
+        </div>
       </header>
 
-      <div class="silos-grid">
-        <a href="/razas/" class="silo-asymmetric-card animate-in" data-silo="razas">
-          <span class="silo-icon" style="font-size: 2.5rem; display: block; margin-bottom: 0.5rem;">🐱</span>
-          <h3 class="silo-asymmetric-title">Razas y Morfología</h3>
-          <p class="silo-asymmetric-desc">Fichas de comportamiento, pelaje, alimentación y compatibilidad de razas comunes y exóticas.</p>
-          <span class="silo-count" style="margin-top: 1.5rem; font-weight: 600; color: var(--clr-primary); font-size: 0.9rem;">Ver {counts.razas} artículos →</span>
+      <div class="archivo-index-list">
+        <!-- Fila Razas -->
+        <a href="/razas/" class="archivo-index-row" data-silo="razas">
+          <div class="archivo-col-num">01</div>
+          <div class="archivo-col-main">
+            <h3 class="archivo-row-title">Razas y Morfología</h3>
+            <p class="archivo-row-desc">Fichas de comportamiento, genética, pelaje, alimentación específica y compatibilidad.</p>
+          </div>
+          <div class="archivo-col-meta">
+            <span class="archivo-row-count">{counts.razas} guías</span>
+            <span class="archivo-row-arrow">↗</span>
+          </div>
         </a>
 
-        <a href="/salud/" class="silo-asymmetric-card animate-in" data-silo="salud">
-          <span class="silo-icon" style="font-size: 2.5rem; display: block; margin-bottom: 0.5rem;">🩺</span>
-          <h3 class="silo-asymmetric-title">Salud y Síntomas</h3>
-          <p class="silo-asymmetric-desc">Prevención, triaje rápido, signos de malestar y guías ante situaciones clínicas de emergencia.</p>
-          <span class="silo-count" style="margin-top: 1.5rem; font-weight: 600; color: var(--clr-primary); font-size: 0.9rem;">Ver {counts.salud} artículos →</span>
+        <!-- Fila Salud -->
+        <a href="/salud/" class="archivo-index-row" data-silo="salud">
+          <div class="archivo-col-num">02</div>
+          <div class="archivo-col-main">
+            <h3 class="archivo-row-title">Salud y Sintomatología</h3>
+            <p class="archivo-row-desc">Prevención, primeros auxilios, signos comunes de malestar y guías ante situaciones clínicas.</p>
+          </div>
+          <div class="archivo-col-meta">
+            <span class="archivo-row-count">{counts.salud} guías</span>
+            <span class="archivo-row-arrow">↗</span>
+          </div>
         </a>
 
-        <a href="/guias/" class="silo-asymmetric-card animate-in" data-silo="guias">
-          <span class="silo-icon" style="font-size: 2.5rem; display: block; margin-bottom: 0.5rem;">📚</span>
-          <h3 class="silo-asymmetric-title">Guías y Recursos</h3>
-          <p class="silo-asymmetric-desc">Tutoriales prácticos de equipamiento, rascadores, higiene en casa y manuales interactivos.</p>
-          <span class="silo-count" style="margin-top: 1.5rem; font-weight: 600; color: var(--clr-primary); font-size: 0.9rem;">Ver {counts.guias} artículos →</span>
+        <!-- Fila Guías -->
+        <a href="/guias/" class="archivo-index-row" data-silo="guias">
+          <div class="archivo-col-num">03</div>
+          <div class="archivo-col-main">
+            <h3 class="archivo-row-title">Guías y Recursos</h3>
+            <p class="archivo-row-desc">Tutoriales prácticos sobre equipamiento felino, rascadores adecuados y rutinas higiénicas.</p>
+          </div>
+          <div class="archivo-col-meta">
+            <span class="archivo-row-count">{counts.guias} guías</span>
+            <span class="archivo-row-arrow">↗</span>
+          </div>
         </a>
 
-        <a href="/curiosidades/" class="silo-asymmetric-card animate-in" data-silo="cultura">
-          <span class="silo-icon" style="font-size: 2.5rem; display: block; margin-bottom: 0.5rem;">✨</span>
-          <h3 class="silo-asymmetric-title">Curiosidades y Cultura</h3>
-          <p class="silo-asymmetric-desc">Historias, literatura y anécdotas célebres sobre la conexión emocional entre humanos y felinos.</p>
-          <span class="silo-count" style="margin-top: 1.5rem; font-weight: 600; color: var(--clr-primary); font-size: 0.9rem;">Ver {counts.cultura} artículos →</span>
+        <!-- Fila Curiosidades -->
+        <a href="/curiosidades/" class="archivo-index-row" data-silo="cultura">
+          <div class="archivo-col-num">04</div>
+          <div class="archivo-col-main">
+            <h3 class="archivo-row-title">Curiosidades y Cultura</h3>
+            <p class="archivo-row-desc">El vínculo histórico y emocional humano-felino. Anécdotas, literatura y ciencia del comportamiento.</p>
+          </div>
+          <div class="archivo-col-meta">
+            <span class="archivo-row-count">{counts.cultura} guías</span>
+            <span class="archivo-row-arrow">↗</span>
+          </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ══ HERRAMIENTAS INTERACTIVAS ══ -->
-  <section class="tools-section" aria-labelledby="tools-title" style="padding: 6rem 0;">
+  <!-- ══ DIARIO FELINO & HERRAMIENTAS ══ -->
+  <section class="diario-herramientas-section" aria-labelledby="tools-title">
     <div class="container">
-      <header class="section-header" style="text-align: center; margin-bottom: 4rem;">
-        <span class="section-label">Herramientas Especiales</span>
-        <h2 class="section-title" id="tools-title" style="font-size: 2.2rem;">Herramientas Clínicas y de Cuidado</h2>
-        <p style="color: var(--clr-text-muted); font-size: 1.05rem; max-width: 580px; margin-inline: auto; margin-top: 0.5rem;">
-          Pautas y asistentes automatizados gratuitos para monitorear la salud y nutrición diaria de tu felino.
-        </p>
+      <header class="editorial-section-header">
+        <div class="header-line"></div>
+        <div class="header-title-row">
+          <span class="section-num">III.</span>
+          <h2 class="editorial-section-title" id="tools-title">Fichas Técnicas & Registro</h2>
+          <span class="section-subtitle-editorial">Herramientas gratuitas para el monitoreo de tu gato</span>
+        </div>
       </header>
 
-      <div class="tools-editorial-grid">
-        <a href="/calculadora-comida-gatos/" class="tool-editorial-card">
-          <span class="tool-editorial-icon">🍽️</span>
-          <h3 class="tool-editorial-title">Calculadora de Raciones</h3>
-          <p class="tool-editorial-desc">
-            Calcula la porción exacta (seca y húmeda) en base a su nivel de actividad, edad y peso corporal para prevenir la lipidosis hepática y obesidad.
-          </p>
-          <span class="tool-editorial-action">Acceder a la calculadora →</span>
-        </a>
+      <div class="diario-herramientas-grid">
+        <!-- Columna Herramientas -->
+        <div class="herramientas-column">
+          <div class="herramienta-ficha">
+            <span class="ficha-badge">Asistente Clínico</span>
+            <h3 class="ficha-title">Calculadora de Raciones Diarias</h3>
+            <p class="ficha-desc">
+              Determina con exactitud la dosis diaria recomendada de alimento seco y húmedo según peso, edad y actividad, previniendo patologías metabólicas comunes.
+            </p>
+            <a href="/calculadora-comida-gatos/" class="ficha-link">Abrir calculadora →</a>
+          </div>
 
-        <a href="/salud/sintomas-gatos/" class="tool-editorial-card">
-          <span class="tool-editorial-icon">🩺</span>
-          <h3 class="tool-editorial-title">Guía de Síntomas Urgentes</h3>
-          <p class="tool-editorial-desc">
-            Protocolo de triaje completo para examinar el TRC, la frecuencia cardíaca y la temperatura de tu felino antes de contactar a tu clínica.
-          </p>
-          <span class="tool-editorial-action">Ver guía de triaje →</span>
-        </a>
-      </div>
-
-      <!-- Checklist de Rituales Diarios -->
-      <div class="checklist-widget premium-ritual" style="margin-top: 5rem;">
-        <div class="checklist-header-inline">
-          <h3 style="font-family: var(--ff-heading); font-size: 1.6rem; font-weight: 500;">Rituales Diarios del Felino</h3>
-          <div class="checklist-period-badge">
-            <span>🐾</span> Consistencia es amor
+          <div class="herramienta-ficha">
+            <span class="ficha-badge">Manual de Emergencias</span>
+            <h3 class="ficha-title">Guía de Triaje y Monitoreo</h3>
+            <p class="ficha-desc">
+              Aprende a medir constantes críticas (frecuencia respiratoria, tiempo de llenado capilar, hidratación) antes de contactar a tu clínica veterinaria.
+            </p>
+            <a href="/salud/sintomas-gatos/" class="ficha-link">Ver protocolo de examen →</a>
           </div>
         </div>
-        <p style="color: var(--clr-text-muted); font-size: 0.92rem; margin-bottom: 1.5rem; line-height: 1.5;">
-          Marca cada una de las actividades indispensables para mantener el bienestar físico y mental de tu compañero. Tu progreso se guarda automáticamente en el navegador.
-        </p>
 
-        <div class="checklist-progress" aria-hidden="true" style="margin-bottom: 1.8rem; background: var(--clr-surface); height: 6px; border-radius: 999px; overflow: hidden;">
-          <div class="checklist-progress-bar" id="checkProgress" style="width:0%; height: 100%; background: var(--clr-primary); transition: width 0.4s ease;"></div>
-        </div>
+        <!-- Columna Diario Checklist (Rituales) -->
+        <div class="diario-checklist-column">
+          <div class="diario-checklist-card">
+            <div class="diario-checklist-header">
+              <div>
+                <h3 class="diario-card-title">Rituales Diarios del Felino</h3>
+                <span class="diario-card-subtitle">Bitácora de cuidados indispensables de hoy</span>
+              </div>
+              <div class="diario-card-badge">🐾 Rutina de Amor</div>
+            </div>
+            
+            <div class="diario-progress-bar-container" aria-hidden="true">
+              <div class="diario-progress-bar" id="checkProgress" style="width:0%;"></div>
+            </div>
 
-        <div id="checklistItems" style="display: flex; flex-direction: column; gap: 0.5rem;">
-          <!-- Generado dinámicamente por JS en el cliente -->
-        </div>
+            <div id="checklistItems" class="diario-items-list">
+              <!-- Cargado dinámicamente -->
+            </div>
 
-        <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
-          <button class="checklist-reset" id="checklistReset" style="width: auto; padding: 0.6rem 1.5rem; border-radius: 999px; cursor: pointer; transition: background 0.2s;">🔄 Reiniciar rituales</button>
+            <div class="diario-checklist-footer">
+              <button class="diario-reset-btn" id="checklistReset">🔄 Reiniciar bitácora</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
 </BaseLayout>
+
+<!-- ══ ESTILOS EDITORIALES DE LA HOME ══ -->
+<style>
+  /* --- Hero Editorial --- */
+  .hero-editorial {
+    padding: 7rem 0 6rem;
+    background: var(--clr-bg);
+    border-bottom: 1px solid var(--clr-border);
+    position: relative;
+  }
+  .hero-editorial::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(var(--clr-border) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+  .hero-editorial-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .editorial-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clr-primary);
+    margin-bottom: 1.25rem;
+  }
+  .hero-editorial h1 {
+    font-family: var(--ff-heading);
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--clr-text);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+  .hero-editorial h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--clr-primary);
+  }
+  .hero-editorial-sub {
+    font-size: 1.15rem;
+    color: var(--clr-text-muted);
+    line-height: 1.65;
+    max-width: 640px;
+    margin-bottom: 3rem;
+  }
+
+  /* Buscador tipo revista */
+  .search-box-editorial {
+    width: 100%;
+    max-width: 680px;
+    display: flex;
+    gap: 1rem;
+    position: relative;
+  }
+  .search-input-wrapper {
+    position: relative;
+    flex-grow: 1;
+  }
+  .search-prefix-icon {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--clr-text-light);
+    font-size: 1.1rem;
+    pointer-events: none;
+  }
+  .search-box-editorial input {
+    width: 100%;
+    height: 56px;
+    padding: 0.5rem 1rem 0.5rem 3.25rem;
+    border: none;
+    border-bottom: 2px solid var(--clr-border);
+    background: transparent;
+    color: var(--clr-text);
+    font-family: var(--ff-body);
+    font-size: 1.05rem;
+    transition: var(--transition);
+    outline: none;
+  }
+  .search-box-editorial input:focus {
+    border-color: var(--clr-primary);
+  }
+  .search-submit-btn {
+    height: 56px;
+    padding: 0 2rem;
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    color: var(--clr-text);
+    font-family: var(--ff-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .search-submit-btn:hover {
+    background: var(--clr-primary-bg);
+    border-color: var(--clr-primary);
+    color: var(--clr-primary);
+  }
+  .search-results-overlay {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    max-height: 380px;
+    overflow-y: auto;
+    z-index: 99;
+    display: none;
+  }
+  .search-results-overlay.visible {
+    display: block;
+  }
+
+  /* Sidebar Cita Hero */
+  .hero-editorial-sidebar {
+    padding-left: 2rem;
+    border-left: 1px solid var(--clr-border);
+  }
+  .editorial-quote-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .quote-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--clr-text-light);
+  }
+  .quote-text {
+    font-family: var(--ff-heading);
+    font-size: 1.35rem;
+    line-height: 1.5;
+    color: var(--clr-text-muted);
+    font-style: italic;
+  }
+  .quote-footer {
+    margin-top: 0.5rem;
+  }
+  .quote-link {
+    font-weight: 600;
+    color: var(--clr-primary);
+    font-size: 0.9rem;
+    transition: var(--transition);
+  }
+  .quote-link:hover {
+    color: var(--clr-primary-lt);
+    text-decoration: underline;
+  }
+
+  /* --- Estructura Secciones Editoriales --- */
+  .editorial-section-header {
+    margin-bottom: 3.5rem;
+  }
+  .header-line {
+    height: 1px;
+    background: var(--clr-border);
+    margin-bottom: 1.5rem;
+  }
+  .header-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .section-num {
+    font-family: var(--ff-heading);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--clr-primary);
+    font-style: italic;
+  }
+  .editorial-section-title {
+    font-family: var(--ff-heading);
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--clr-text);
+  }
+  .section-subtitle-editorial {
+    font-size: 0.95rem;
+    color: var(--clr-text-muted);
+    margin-left: auto;
+  }
+
+  /* --- Lecturas Críticas Grid --- */
+  .lecturas-criticas-section {
+    padding: 6rem 0 5rem;
+  }
+  .featured-editorial-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+  }
+  .featured-editorial-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+  }
+  .featured-editorial-img-wrapper {
+    aspect-ratio: 16/10;
+    position: relative;
+    overflow: hidden;
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+  }
+  .featured-editorial-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .featured-editorial-card:hover .featured-editorial-img-wrapper img {
+    transform: scale(1.02);
+  }
+  .editorial-silo-badge {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    padding: 0.35rem 0.8rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--clr-text);
+  }
+  .featured-editorial-body {
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .featured-editorial-title {
+    font-family: var(--ff-heading);
+    font-size: 1.85rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--clr-text);
+    transition: color var(--transition);
+  }
+  .featured-editorial-card:hover .featured-editorial-title {
+    color: var(--clr-primary);
+  }
+  .featured-editorial-desc {
+    color: var(--clr-text-muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+  .featured-editorial-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--clr-border);
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--clr-text-light);
+  }
+  .read-more-text {
+    font-weight: 600;
+    color: var(--clr-primary);
+  }
+
+  /* Artículos secundarios */
+  .featured-editorial-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+  .featured-editorial-item {
+    display: flex;
+    gap: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    padding-bottom: 2.25rem;
+    border-bottom: 1px solid var(--clr-border);
+    transition: var(--transition);
+  }
+  .featured-editorial-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .featured-editorial-item-body {
+    flex-grow: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .featured-editorial-item-silo {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--clr-primary);
+  }
+  .featured-editorial-item-title {
+    font-family: var(--ff-heading);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--clr-text);
+    transition: color var(--transition);
+  }
+  .featured-editorial-item:hover .featured-editorial-item-title {
+    color: var(--clr-primary);
+  }
+  .featured-editorial-item-desc {
+    font-size: 0.88rem;
+    color: var(--clr-text-muted);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .featured-editorial-item-link {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--clr-primary);
+    margin-top: 0.5rem;
+  }
+  .featured-editorial-item-img {
+    width: 110px;
+    height: 110px;
+    flex-shrink: 0;
+    border: 1px solid var(--clr-border);
+    background: var(--clr-surface);
+    overflow: hidden;
+  }
+  .featured-editorial-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .editorial-placeholder,
+  .editorial-placeholder-thumb {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--clr-bg-alt);
+    font-size: 3rem;
+  }
+  .editorial-placeholder-thumb {
+    font-size: 1.8rem;
+  }
+
+  /* --- El Archivo Row Index --- */
+  .archivo-index-section {
+    padding: 5rem 0;
+    background: var(--clr-bg-alt);
+    border-block: 1px solid var(--clr-border);
+  }
+  .archivo-index-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--clr-border);
+  }
+  .archivo-index-row {
+    display: grid;
+    grid-template-columns: 0.15fr 1fr 0.25fr;
+    align-items: center;
+    padding: 2.2rem 1.5rem;
+    border-bottom: 1px solid var(--clr-border);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+  }
+  .archivo-index-row:hover {
+    background: var(--clr-bg-card);
+    padding-left: 2rem;
+  }
+  .archivo-col-num {
+    font-family: var(--ff-heading);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--clr-text-light);
+    font-style: italic;
+    transition: var(--transition);
+  }
+  .archivo-index-row:hover .archivo-col-num {
+    color: var(--clr-primary);
+  }
+  .archivo-row-title {
+    font-family: var(--ff-heading);
+    font-size: 1.45rem;
+    font-weight: 500;
+    color: var(--clr-text);
+    margin-bottom: 0.35rem;
+  }
+  .archivo-row-desc {
+    font-size: 0.92rem;
+    color: var(--clr-text-muted);
+    max-width: 780px;
+    line-height: 1.5;
+  }
+  .archivo-col-meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+  }
+  .archivo-row-count {
+    font-size: 0.88rem;
+    color: var(--clr-text-light);
+  }
+  .archivo-row-arrow {
+    font-size: 1.2rem;
+    color: var(--clr-border);
+    transition: var(--transition);
+  }
+  .archivo-index-row:hover .archivo-row-arrow {
+    color: var(--clr-primary);
+    transform: translate(3px, -3px);
+  }
+
+  /* --- Diario & Herramientas Section --- */
+  .diario-herramientas-section {
+    padding: 6rem 0;
+  }
+  .diario-herramientas-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .herramientas-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+  .herramienta-ficha {
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    position: relative;
+  }
+  .ficha-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--clr-primary);
+    border-bottom: 1.5px solid var(--clr-primary);
+    padding-bottom: 0.25rem;
+  }
+  .ficha-title {
+    font-family: var(--ff-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--clr-text);
+  }
+  .ficha-desc {
+    font-size: 0.95rem;
+    color: var(--clr-text-muted);
+    line-height: 1.6;
+  }
+  .ficha-link {
+    font-weight: 600;
+    color: var(--clr-text);
+    border-bottom: 1px solid var(--clr-border);
+    transition: var(--transition);
+    text-decoration: none;
+    font-size: 0.92rem;
+    margin-top: 0.5rem;
+  }
+  .ficha-link:hover {
+    color: var(--clr-primary);
+    border-bottom-color: var(--clr-primary);
+  }
+
+  /* Diario Checklist Card (Ritual) */
+  .diario-checklist-card {
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    padding: 3rem 2.5rem;
+  }
+  .diario-checklist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  .diario-card-title {
+    font-family: var(--ff-heading);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--clr-text);
+  }
+  .diario-card-subtitle {
+    font-size: 0.85rem;
+    color: var(--clr-text-muted);
+    display: block;
+    margin-top: 0.25rem;
+  }
+  .diario-card-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    background: var(--clr-primary-bg);
+    color: var(--clr-primary);
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+  }
+  .diario-progress-bar-container {
+    height: 3px;
+    background: var(--clr-bg-alt);
+    margin-bottom: 2rem;
+  }
+  .diario-progress-bar {
+    height: 100%;
+    background: var(--clr-primary);
+    transition: width 0.4s ease;
+  }
+  .diario-items-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .checklist-item {
+    border-bottom: 1px dashed var(--clr-border);
+    padding: 1.25rem 0;
+    transition: var(--transition);
+  }
+  .checklist-item:last-child {
+    border-bottom: none;
+  }
+  .checklist-item.done {
+    opacity: 0.65;
+  }
+  .checklist-item-checkbox-wrap {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--clr-border);
+    background: transparent;
+    transition: var(--transition);
+  }
+  .checklist-item.done .checklist-item-checkbox-wrap {
+    background: var(--clr-primary);
+    border-color: var(--clr-primary);
+  }
+  .checklist-item-checkbox-wrap::after {
+    font-size: 0.72rem;
+  }
+  .checklist-item-text {
+    font-family: var(--ff-body);
+    font-size: 1rem;
+    color: var(--clr-text);
+    transition: var(--transition);
+  }
+  .checklist-item.done .checklist-item-text {
+    text-decoration: line-through;
+  }
+  .diario-checklist-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+  }
+  .diario-reset-btn {
+    background: transparent;
+    border: none;
+    font-family: var(--ff-body);
+    font-size: 0.85rem;
+    color: var(--clr-text-light);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .diario-reset-btn:hover {
+    color: var(--clr-primary);
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 990px) {
+    .hero-editorial-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .hero-editorial-sidebar {
+      padding-left: 0;
+      border-left: none;
+      border-top: 1px solid var(--clr-border);
+      padding-top: 2rem;
+    }
+    .featured-editorial-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .diario-herramientas-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .hero-editorial {
+      padding: 5rem 0 4rem;
+    }
+    .search-box-editorial {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .search-submit-btn {
+      width: 100%;
+    }
+    .archivo-index-row {
+      grid-template-columns: 0.1fr 1fr;
+      gap: 1rem;
+    }
+    .archivo-col-meta {
+      grid-column: 2;
+      justify-content: flex-start;
+      margin-top: 0.5rem;
+      gap: 1rem;
+    }
+  }
+</style>
 
 <script is:inline>
   // ── Buscador ─────────────────────────────────────────────────────────
@@ -315,14 +1004,14 @@ const jsonLd = [
       return;
     }
     searchResults.innerHTML = matches.map(m => `
-      <a href="/${m.silo?.slug || 'guias'}/${m.slug}/" class="search-result-item">
+      <a href="/${m.silo?.slug || 'guias'}/${m.slug}/" class="search-result-item" style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1rem;border-bottom:1px solid var(--clr-border);text-decoration:none;color:inherit;">
         ${m.featuredImg
-          ? `<img src="${m.featuredImg}" alt="" class="search-result-img" loading="lazy" width="44" height="44">`
-          : `<div class="search-result-img" style="display:flex;align-items:center;justify-content:center;font-size:1.4rem">${m.silo?.icon || '🐱'}</div>`
+          ? `<img src="${m.featuredImg}" alt="" style="width:44px;height:44px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;background:var(--clr-surface);" loading="lazy" width="44" height="44">`
+          : `<div style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;background:var(--clr-surface);border-radius:var(--radius-sm);">${m.silo?.icon || '🐱'}</div>`
         }
-        <div class="search-result-info">
-          <p class="search-result-title">${escHtml(m.title)}</p>
-          <p class="search-result-silo">${m.siloName || ''}</p>
+        <div style="min-width: 0;">
+          <p style="font-weight:600;font-size:0.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0;">${escHtml(m.title)}</p>
+          <p style="font-size:0.78rem;color:var(--clr-text-muted);margin:0;">${m.siloName || ''}</p>
         </div>
       </a>
     `).join('');
@@ -360,7 +1049,7 @@ const jsonLd = [
     container.innerHTML = CHECKLIST_TASKS.map(t => {
       const checked = saved[t.id] || false;
       return `
-        <label class="checklist-item${checked ? ' done' : ''}" for="chk-${t.id}" style="display:flex; align-items:center; gap:0.9rem; padding-block:0.8rem; cursor:pointer;">
+        <label class="checklist-item${checked ? ' done' : ''}" for="chk-${t.id}" style="display:flex; align-items:center; gap:0.9rem; cursor:pointer;">
           <input type="checkbox" id="chk-${t.id}" data-id="${t.id}" ${checked ? 'checked' : ''} style="display:none;">
           <div class="checklist-item-checkbox-wrap"></div>
           <div class="checklist-item-content">
@@ -401,3 +1090,4 @@ const jsonLd = [
   loadSearchIndex();
   loadChecklist();
 </script>
+
