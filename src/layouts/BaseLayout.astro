@@ -45,9 +45,26 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap">
   </noscript>
 
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5094917394495886"
-     crossorigin="anonymous"></script>
+  <!-- Google AdSense Postergado para optimizar FCP y LCP en móviles -->
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      let adsenseLoaded = false;
+      function loadAdSense() {
+        if (adsenseLoaded) return;
+        adsenseLoaded = true;
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5094917394495886";
+        script.crossOrigin = "anonymous";
+        document.head.appendChild(script);
+        window.removeEventListener('scroll', loadAdSense);
+        document.removeEventListener('touchstart', loadAdSense);
+      }
+      setTimeout(loadAdSense, 3500);
+      window.addEventListener('scroll', loadAdSense, { passive: true });
+      document.addEventListener('touchstart', loadAdSense, { passive: true });
+    });
+  </script>
 
   <!-- Open Graph -->
   <meta property="og:type" content={ogType}>

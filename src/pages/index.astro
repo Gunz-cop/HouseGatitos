@@ -968,10 +968,13 @@ const jsonLd = [
 <script is:inline>
   // ── Buscador ─────────────────────────────────────────────────────────
   let searchData = [];
+  let isSearchIndexLoaded = false;
   async function loadSearchIndex() {
+    if (isSearchIndexLoaded) return;
     try {
       const res = await fetch('/search-index.json');
       searchData = await res.json();
+      isSearchIndexLoaded = true;
     } catch {}
   }
 
@@ -983,6 +986,11 @@ const jsonLd = [
     searchBtn.addEventListener('click', () => {
       searchInput.focus();
     });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('focus', loadSearchIndex);
+    searchInput.addEventListener('input', loadSearchIndex);
   }
 
   function escHtml(str) {
@@ -1087,7 +1095,6 @@ const jsonLd = [
   }
 
   // ── Init ─────────────────────────────────────────────────────────────
-  loadSearchIndex();
   loadChecklist();
 </script>
 
