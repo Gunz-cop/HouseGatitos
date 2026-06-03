@@ -12,7 +12,7 @@ export async function GET() {
     silo:          p.silo,
     categories:    p.categories,
     datePublished: p.datePublished,
-    featuredImg:   p.featuredImg,
+    featuredImg:   p.featuredImgThumb,
   }));
 
   return new Response(JSON.stringify(data, null, 2), {

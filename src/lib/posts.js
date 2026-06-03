@@ -113,6 +113,17 @@ export function getPosts() {
       if (!post.datePublished && post.published) {
         post.datePublished = post.published.substring(0, 10);
       }
+      
+      // Mapear rutas de imágenes optimizadas (card y thumb)
+      if (post.featuredImg && post.featuredImg.startsWith('/assets/images/')) {
+        const baseName = path.parse(post.featuredImg).name;
+        post.featuredImgCard = `/assets/images/optimized/${baseName}-card.webp`;
+        post.featuredImgThumb = `/assets/images/optimized/${baseName}-thumb.webp`;
+      } else {
+        post.featuredImgCard = post.featuredImg;
+        post.featuredImgThumb = post.featuredImg;
+      }
+
       posts.push(post);
     } catch (err) {
       console.error(`Error parsing post ${file}:`, err);

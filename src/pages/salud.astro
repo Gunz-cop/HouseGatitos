@@ -41,7 +41,7 @@ const jsonLd = buildBreadcrumbJsonLd([
           <a href={`/${p.silo.slug}/${p.slug}/`} class="post-card animate-in" data-silo={p.silo.id}>
             <div class="post-card-img">
               {p.featuredImg
-                ? <img src={p.featuredImg} alt={p.title} loading="lazy" width="400" height="225">
+                ? <img src={p.featuredImgCard} alt={p.title} loading="lazy" width="400" height="225">
                 : <div class="post-card-placeholder">{p.silo.icon}</div>
               }
             </div>

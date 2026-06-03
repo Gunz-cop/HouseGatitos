@@ -126,7 +126,7 @@ const jsonLd = [
           <a href={`/${mainFeatured.silo.slug}/${mainFeatured.slug}/`} class="featured-main-card">
             <div class="featured-main-img">
               {mainFeatured.featuredImg ? (
-                <img src={mainFeatured.featuredImg} alt={mainFeatured.title} loading="lazy" width="650" height="400">
+                <img src={mainFeatured.featuredImgCard} alt={mainFeatured.title} loading="lazy" width="650" height="400">
               ) : (
                 <div class="post-card-placeholder">{mainFeatured.silo.icon}</div>
               )}
@@ -154,7 +154,7 @@ const jsonLd = [
             <a href={`/${post.silo.slug}/${post.slug}/`} class="featured-side-item">
               <div class="featured-side-img">
                 {post.featuredImg ? (
-                  <img src={post.featuredImg} alt={post.title} loading="lazy" width="110" height="110">
+                  <img src={post.featuredImgThumb} alt={post.title} loading="lazy" width="110" height="110">
                 ) : (
                   <div class="post-card-placeholder" style="font-size: 2rem;">{post.silo.icon}</div>
                 )}

@@ -117,7 +117,7 @@ function slugifyTag(t) {
           {related.map(r => (
             <a href={`/${r.silo.slug}/${r.slug}/`} class="related-card">
               {r.featuredImg
-                ? <img src={r.featuredImg} alt={r.title} loading="lazy">
+                ? <img src={r.featuredImgCard} alt={r.title} loading="lazy">
                 : <div class="related-card-placeholder"></div>
               }
               <p>{r.title}</p>
