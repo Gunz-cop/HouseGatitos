@@ -11,7 +11,7 @@ silo:
   name: "Curiosidades y Cultura Felina"
   slug: "curiosidades"
   icon: "✨"
-filename: "/2021/08/que raza es garfield.html"
+filename: "/2021/08/que-raza-es-garfield.html"
 featuredImg: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiGJExvXT8czupHIKtWN3lR_L2ZjL839svlbAO16zgV8g_IUe71aqjGdIxoAmD5fNnxlVRyPWKsT0TP5NNSn1tt13G3XPssr_ilVEF-wd8T8SKeEQKbJMPAmYRptVSxZxh-WH0xjVBVaU/s16000/Copia+de+Caja+de+arena+autom%25C3%25A1tica+PetSafe+ScoopFree.png"
 ---
 &nbsp;
