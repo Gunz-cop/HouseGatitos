@@ -1,8 +1,34 @@
 ---
 // src/pages/index.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPosts, SITE_URL } from '../lib/posts.js';
 
-const SITE_URL = 'https://housegatitos.com';
+const allPosts = getPosts();
+
+// 1. Calcular silos/counts dinámicos
+const counts = { razas: 0, salud: 0, guias: 0, cultura: 0 };
+allPosts.forEach(p => {
+  if (p.silo && counts[p.silo.id] !== undefined) {
+    counts[p.silo.id]++;
+  }
+});
+
+// 2. Obtener artículos curados para Lecturas Críticas
+const featuredSlugs = ['gato-maine-coon', 'que-come-un-gato-bebe', 'el-bosque-de-noruega', 'sintomas-gatos'];
+const featuredPosts = featuredSlugs
+  .map(slug => allPosts.find(p => p.slug === slug))
+  .filter(Boolean);
+
+const mainFeatured = featuredPosts.find(p => p.slug === 'sintomas-gatos') || featuredPosts[0];
+const sideFeatured = featuredPosts.filter(p => p !== mainFeatured);
+
+function formatDate(dateStr) {
+  try {
+    return new Date(dateStr).toLocaleDateString('es-ES', {
+      day: 'numeric', month: 'long', year: 'numeric'
+    });
+  } catch { return dateStr; }
+}
 
 const jsonLd = [
   {
@@ -39,149 +65,211 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="House Gatitos 🐾 | Tu Centro de Cuidado y Soluciones Felinas"
-  description="House Gatitos: guías prácticas, herramientas y respuestas inmediatas para tutores de gatos. Salud, nutrición, comportamiento, razas y más."
+  title="House Gatitos 🐾 | Centro de Soluciones y Cuidado Felino"
+  description="House Gatitos: guías de salud, comportamiento, nutrición, fichas de razas y herramientas de triaje clínico y raciones diarias diseñadas por expertos."
   canonical={`${SITE_URL}/`}
   jsonLd={jsonLd}
 >
 
   <!-- ══ HERO ══ -->
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="container">
-      <div class="hero-tag" aria-hidden="true">🐾 Tu guía felina de confianza</div>
-      <h1 id="hero-title">
-        Respuestas <em>prácticas</em><br>para el bienestar de tu gato
+  <section class="hero" aria-labelledby="hero-title" style="padding: 6.5rem 0 5.5rem; position: relative; overflow: hidden;">
+    <!-- Elementos de fondo artísticos minimalistas -->
+    <div aria-hidden="true" style="position: absolute; top: -10%; left: -5%; opacity: 0.025; font-size: 20rem; pointer-events: none; user-select: none;">🐾</div>
+    <div aria-hidden="true" style="position: absolute; bottom: -10%; right: -5%; opacity: 0.025; font-size: 24rem; pointer-events: none; user-select: none;">🐾</div>
+    
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="hero-tag" aria-hidden="true">🐾 Un santuario de bienestar para tu gato</div>
+      <h1 id="hero-title" style="font-family: var(--ff-heading); font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 500; line-height: 1.15; margin-bottom: 1.5rem;">
+        Respuestas claras y <em>prácticas</em><br>para el bienestar felino
       </h1>
-      <p class="hero-sub">
-        Busca un síntoma, comportamiento o herramienta y encuentra soluciones reales.
-        No curiosidades vacías — utilidad concreta para tu día a día con tu felino.
+      <p class="hero-sub" style="font-size: 1.15rem; max-width: 620px; color: var(--clr-text-muted); margin-bottom: 2.5rem; line-height: 1.6;">
+        Encuentra pautas clínicas, guías de comportamiento y herramientas interactivas diseñadas por expertos. Sin contenido superficial — utilidad real para el cuidado de tu gato.
       </p>
 
-      <!-- Buscador -->
-      <div class="search-wrap" role="search" aria-label="Buscar artículos">
-        <span class="search-icon" aria-hidden="true">🔍</span>
-        <input
-          type="search"
-          id="searchInput"
-          placeholder="Ej: vómitos, arañar muebles, porción de comida, razas..."
-          autocomplete="off"
-          aria-label="Buscar en House Gatitos"
-          aria-autocomplete="list"
-          aria-controls="searchResults"
-        >
+      <!-- Buscador Minimalista Rediseñado -->
+      <div class="search-wrap" role="search" aria-label="Buscar artículos" style="max-width: 650px; margin-inline: auto;">
+        <div style="display: flex; gap: 0.75rem; width: 100%;">
+          <div style="position: relative; flex-grow: 1;">
+            <span class="search-icon" aria-hidden="true" style="left: 1.25rem;">🔍</span>
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="Busca síntomas, comportamiento, raciones o guías..."
+              autocomplete="off"
+              aria-label="Buscar en House Gatitos"
+              aria-autocomplete="list"
+              aria-controls="searchResults"
+              style="padding: 0.9rem 1rem 0.9rem 3rem; border-radius: 999px; height: 56px; border: 1px solid var(--clr-border);"
+            >
+          </div>
+          <button class="search-btn" id="searchBtn" aria-label="Buscar" style="height: 56px; padding-inline: 2rem; border-radius: 999px;">Buscar →</button>
+        </div>
         <div id="searchResults" class="search-results" role="listbox" aria-label="Resultados de búsqueda"></div>
       </div>
     </div>
   </section>
 
-  <!-- ══ SILOS / 4 PILARES ══ -->
-  <section class="silos-section" aria-labelledby="silos-title">
+  <!-- ══ LECTURAS CRÍTICAS (Curated Highlights) ══ -->
+  <section class="posts-section" aria-labelledby="featured-title" style="padding: 6rem 0 5rem;">
     <div class="container">
-      <header class="section-header">
-        <span class="section-label">Explora por área</span>
-        <h2 class="section-title" id="silos-title">¿Qué necesita tu gato hoy?</h2>
+      <header class="section-header" style="text-align: left; margin-bottom: 3.5rem;">
+        <span class="section-label">Lecturas Críticas</span>
+        <h2 class="section-title" id="featured-title" style="font-size: 2.2rem;">Guías esenciales y curadas</h2>
+        <p style="color: var(--clr-text-muted); font-size: 1.05rem; margin-top: 0.5rem; max-width: 600px;">
+          Investigaciones y guías de referencia clínica redactadas en profundidad por tutores y especialistas.
+        </p>
       </header>
+
+      <div class="featured-layout">
+        <!-- Destacado Principal (Síntomas comunes) -->
+        {mainFeatured && (
+          <a href={`/${mainFeatured.silo.slug}/${mainFeatured.slug}/`} class="featured-main-card">
+            <div class="featured-main-img">
+              {mainFeatured.featuredImg ? (
+                <img src={mainFeatured.featuredImg} alt={mainFeatured.title} loading="lazy" width="650" height="400">
+              ) : (
+                <div class="post-card-placeholder">{mainFeatured.silo.icon}</div>
+              )}
+            </div>
+            <div class="featured-main-body">
+              <span class="post-card-silo">
+                {mainFeatured.silo.icon} {mainFeatured.silo.name}
+              </span>
+              <h3 style="font-family: var(--ff-heading); font-size: 1.85rem; line-height: 1.3; margin-block: 0.5rem 0.8rem; font-weight: 500;">
+                {mainFeatured.title}
+              </h3>
+              <p style="color: var(--clr-text-muted); font-size: 0.95rem; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                {mainFeatured.description}
+              </p>
+              <time style="font-size: 0.82rem; color: var(--clr-text-light); margin-top: 1rem; display: block;" datetime={mainFeatured.datePublished}>
+                {formatDate(mainFeatured.datePublished)}
+              </time>
+            </div>
+          </a>
+        )}
+
+        <!-- Destacados Secundarios (Lista vertical de 3) -->
+        <div class="featured-side-list">
+          {sideFeatured.map(post => (
+            <a href={`/${post.silo.slug}/${post.slug}/`} class="featured-side-item">
+              <div class="featured-side-img">
+                {post.featuredImg ? (
+                  <img src={post.featuredImg} alt={post.title} loading="lazy" width="110" height="110">
+                ) : (
+                  <div class="post-card-placeholder" style="font-size: 2rem;">{post.silo.icon}</div>
+                )}
+              </div>
+              <div class="featured-side-body">
+                <span style="color: var(--clr-primary); font-weight: 600; text-transform: uppercase; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 0.25rem;">
+                  {post.silo.icon} {post.silo.name}
+                </span>
+                <h4 class="featured-side-title" style="margin-block: 0.2rem 0.4rem; font-family: var(--ff-heading); font-size: 1.2rem; font-weight: 500;">{post.title}</h4>
+                <p class="featured-side-desc">{post.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SILOS / 4 PILARES ══ -->
+  <section class="silos-section" aria-labelledby="silos-title" style="background: var(--clr-bg-alt); padding: 6rem 0;">
+    <div class="container">
+      <header class="section-header" style="text-align: center; margin-bottom: 4rem;">
+        <span class="section-label">Explora el archivo</span>
+        <h2 class="section-title" id="silos-title" style="font-size: 2.2rem;">¿Qué necesita tu gato hoy?</h2>
+        <p style="color: var(--clr-text-muted); font-size: 1.05rem; max-width: 580px; margin-inline: auto; margin-top: 0.5rem;">
+          Accede a todos nuestros artículos clasificados por silos de contenido especializados.
+        </p>
+      </header>
+
       <div class="silos-grid">
-        <a href="/razas/" class="silo-card animate-in" data-silo="razas">
-          <span class="silo-icon">🐱</span>
-          <p class="silo-name">Razas y Morfología</p>
-          <p class="silo-desc">Fichas completas de razas domésticas y exóticas. Energía, cepillado, compatibilidad y cuidados específicos por raza.</p>
-          <span class="silo-count" id="count-razas">Ver artículos →</span>
+        <a href="/razas/" class="silo-asymmetric-card animate-in" data-silo="razas">
+          <span class="silo-icon" style="font-size: 2.5rem; display: block; margin-bottom: 0.5rem;">🐱</span>
+          <h3 class="silo-asymmetric-title">Razas y Morfología</h3>
+          <p class="silo-asymmetric-desc">Fichas de comportamiento, pelaje, alimentación y compatibilidad de razas comunes y exóticas.</p>
+          <span class="silo-count" style="margin-top: 1.5rem; font-weight: 600; color: var(--clr-primary); font-size: 0.9rem;">Ver {counts.razas} artículos →</span>
         </a>
-        <a href="/salud/" class="silo-card animate-in" data-silo="salud">
-          <span class="silo-icon">🩺</span>
-          <p class="silo-name">Salud y Síntomas</p>
-          <p class="silo-desc">Guías de síntomas urgentes, salud dental, nutrición y prevención. Respuestas rápidas ante señales de alarma.</p>
-          <span class="silo-count" id="count-salud">Ver artículos →</span>
+
+        <a href="/salud/" class="silo-asymmetric-card animate-in" data-silo="salud">
+          <span class="silo-icon" style="font-size: 2.5rem; display: block; margin-bottom: 0.5rem;">🩺</span>
+          <h3 class="silo-asymmetric-title">Salud y Síntomas</h3>
+          <p class="silo-asymmetric-desc">Prevención, triaje rápido, signos de malestar y guías ante situaciones clínicas de emergencia.</p>
+          <span class="silo-count" style="margin-top: 1.5rem; font-weight: 600; color: var(--clr-primary); font-size: 0.9rem;">Ver {counts.salud} artículos →</span>
         </a>
-        <a href="/guias/" class="silo-card animate-in" data-silo="guias">
-          <span class="silo-icon">📚</span>
-          <p class="silo-name">Guías y Recursos</p>
-          <p class="silo-desc">Tutoriales paso a paso, reseñas de productos y herramientas interactivas. Aprende de forma práctica y aplicada.</p>
-          <span class="silo-count" id="count-guias">Ver artículos →</span>
+
+        <a href="/guias/" class="silo-asymmetric-card animate-in" data-silo="guias">
+          <span class="silo-icon" style="font-size: 2.5rem; display: block; margin-bottom: 0.5rem;">📚</span>
+          <h3 class="silo-asymmetric-title">Guías y Recursos</h3>
+          <p class="silo-asymmetric-desc">Tutoriales prácticos de equipamiento, rascadores, higiene en casa y manuales interactivos.</p>
+          <span class="silo-count" style="margin-top: 1.5rem; font-weight: 600; color: var(--clr-primary); font-size: 0.9rem;">Ver {counts.guias} artículos →</span>
         </a>
-        <a href="/curiosidades/" class="silo-card animate-in" data-silo="cultura">
-          <span class="silo-icon">✨</span>
-          <p class="silo-name">Curiosidades y Cultura</p>
-          <p class="silo-desc">Historias, arte, literatura y conexión emocional felina. Celebramos el vínculo entre humanos y gatos.</p>
-          <span class="silo-count" id="count-cultura">Ver artículos →</span>
+
+        <a href="/curiosidades/" class="silo-asymmetric-card animate-in" data-silo="cultura">
+          <span class="silo-icon" style="font-size: 2.5rem; display: block; margin-bottom: 0.5rem;">✨</span>
+          <h3 class="silo-asymmetric-title">Curiosidades y Cultura</h3>
+          <p class="silo-asymmetric-desc">Historias, literatura y anécdotas célebres sobre la conexión emocional entre humanos y felinos.</p>
+          <span class="silo-count" style="margin-top: 1.5rem; font-weight: 600; color: var(--clr-primary); font-size: 0.9rem;">Ver {counts.cultura} artículos →</span>
         </a>
       </div>
     </div>
   </section>
 
   <!-- ══ HERRAMIENTAS INTERACTIVAS ══ -->
-  <section class="tools-section" aria-labelledby="tools-title">
+  <section class="tools-section" aria-labelledby="tools-title" style="padding: 6rem 0;">
     <div class="container">
-      <header class="section-header">
-        <span class="section-label">Herramientas gratuitas</span>
-        <h2 class="section-title" id="tools-title">Úsalas a diario para el bienestar de tu gato</h2>
-      </header>
-
-      <div class="tools-grid">
-        <div class="tool-card">
-          <span class="tool-icon">✅</span>
-          <p class="tool-name">Checklist Diario Interactivo</p>
-          <p class="tool-desc">Agua fresca, arenero limpio, cepillado, juego y comida. Marca tus tareas diarias — se guardan en tu navegador.</p>
-          <a href="#checklist" class="btn-tool">Abrir Checklist</a>
-        </div>
-        <a href="/calculadora-comida-gatos/" class="tool-card">
-          <span class="tool-icon">🍽️</span>
-          <p class="tool-name">Calculadora de Raciones</p>
-          <p class="tool-desc">Calcula la porción diaria exacta según el peso, la edad y el nivel de actividad de tu gato. Evita la obesidad.</p>
-          <span class="btn-tool">Calcular ahora</span>
-        </a>
-        <a href="/checklist-cuidados-diarios-gato/" class="tool-card">
-          <span class="tool-icon">📋</span>
-          <p class="tool-name">Guía Completa de Cuidados</p>
-          <p class="tool-desc">Todo lo que debes hacer semana a semana para mantener a tu gato sano, feliz y bien estimulado.</p>
-          <span class="btn-tool">Ver guía</span>
-        </a>
-        <a href="/sintomas-comunes-en-gatos/" class="tool-card">
-          <span class="tool-icon">🚨</span>
-          <p class="tool-name">Guía de Síntomas Urgentes</p>
-          <p class="tool-desc">¿Tu gato está raro? Aprende a diferenciar los síntomas que requieren veterinario inmediato de los que no.</p>
-          <span class="btn-tool">Consultar síntomas</span>
-        </a>
-      </div>
-
-      <!-- Checklist Interactivo Inline -->
-      <div class="checklist-widget" id="checklist">
-        <p class="checklist-title">🐾 Checklist diario de tu gato</p>
-        <div class="checklist-progress" aria-hidden="true">
-          <div class="checklist-progress-bar" id="checkProgress" style="width:0%"></div>
-        </div>
-        <div id="checklistItems">
-          <!-- Generado por JS -->
-        </div>
-        <button class="checklist-reset" id="checklistReset">🔄 Reiniciar para mañana</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ POSTS GRID ══ -->
-  <section class="posts-section" aria-labelledby="posts-title">
-    <div class="container">
-      <header class="section-header" style="text-align:left;margin-bottom:1.5rem">
-        <span class="section-label">Todos los artículos</span>
-        <h2 class="section-title" id="posts-title">Guías y recursos felinos</h2>
-      </header>
-
-      <!-- Filtros por silo -->
-      <div class="posts-filter" role="group" aria-label="Filtrar artículos">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="razas">🐱 Razas</button>
-        <button class="filter-btn" data-filter="salud">🩺 Salud</button>
-        <button class="filter-btn" data-filter="guias">📚 Guías</button>
-        <button class="filter-btn" data-filter="cultura">✨ Curiosidades</button>
-      </div>
-
-      <!-- Grid de posts — rellenado por JS -->
-      <div class="posts-grid" id="postsGrid" aria-live="polite">
-        <p class="no-results" id="loadingMsg">
-          <span>🐾</span>
-          Cargando artículos...
+      <header class="section-header" style="text-align: center; margin-bottom: 4rem;">
+        <span class="section-label">Herramientas Especiales</span>
+        <h2 class="section-title" id="tools-title" style="font-size: 2.2rem;">Herramientas Clínicas y de Cuidado</h2>
+        <p style="color: var(--clr-text-muted); font-size: 1.05rem; max-width: 580px; margin-inline: auto; margin-top: 0.5rem;">
+          Pautas y asistentes automatizados gratuitos para monitorear la salud y nutrición diaria de tu felino.
         </p>
+      </header>
+
+      <div class="tools-editorial-grid">
+        <a href="/calculadora-comida-gatos/" class="tool-editorial-card">
+          <span class="tool-editorial-icon">🍽️</span>
+          <h3 class="tool-editorial-title">Calculadora de Raciones</h3>
+          <p class="tool-editorial-desc">
+            Calcula la porción exacta (seca y húmeda) en base a su nivel de actividad, edad y peso corporal para prevenir la lipidosis hepática y obesidad.
+          </p>
+          <span class="tool-editorial-action">Acceder a la calculadora →</span>
+        </a>
+
+        <a href="/salud/sintomas-gatos/" class="tool-editorial-card">
+          <span class="tool-editorial-icon">🩺</span>
+          <h3 class="tool-editorial-title">Guía de Síntomas Urgentes</h3>
+          <p class="tool-editorial-desc">
+            Protocolo de triaje completo para examinar el TRC, la frecuencia cardíaca y la temperatura de tu felino antes de contactar a tu clínica.
+          </p>
+          <span class="tool-editorial-action">Ver guía de triaje →</span>
+        </a>
+      </div>
+
+      <!-- Checklist de Rituales Diarios -->
+      <div class="checklist-widget premium-ritual" style="margin-top: 5rem;">
+        <div class="checklist-header-inline">
+          <h3 style="font-family: var(--ff-heading); font-size: 1.6rem; font-weight: 500;">Rituales Diarios del Felino</h3>
+          <div class="checklist-period-badge">
+            <span>🐾</span> Consistencia es amor
+          </div>
+        </div>
+        <p style="color: var(--clr-text-muted); font-size: 0.92rem; margin-bottom: 1.5rem; line-height: 1.5;">
+          Marca cada una de las actividades indispensables para mantener el bienestar físico y mental de tu compañero. Tu progreso se guarda automáticamente en el navegador.
+        </p>
+
+        <div class="checklist-progress" aria-hidden="true" style="margin-bottom: 1.8rem; background: var(--clr-surface); height: 6px; border-radius: 999px; overflow: hidden;">
+          <div class="checklist-progress-bar" id="checkProgress" style="width:0%; height: 100%; background: var(--clr-primary); transition: width 0.4s ease;"></div>
+        </div>
+
+        <div id="checklistItems" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <!-- Generado dinámicamente por JS en el cliente -->
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+          <button class="checklist-reset" id="checklistReset" style="width: auto; padding: 0.6rem 1.5rem; border-radius: 999px; cursor: pointer; transition: background 0.2s;">🔄 Reiniciar rituales</button>
+        </div>
       </div>
     </div>
   </section>
@@ -189,87 +277,6 @@ const jsonLd = [
 </BaseLayout>
 
 <script is:inline>
-  // ── Datos de Posts ───────────────────────────────────────────────────
-  let allPosts = [];
-  let currentFilter = 'all';
-
-  async function loadPosts() {
-    try {
-      const res = await fetch('/posts-data.json');
-      allPosts = await res.json();
-      renderPosts(allPosts);
-      updateSiloCounts(allPosts);
-    } catch(e) {
-      document.getElementById('loadingMsg').innerHTML =
-        '<span>🙁</span>No se pudieron cargar los artículos.';
-    }
-  }
-
-  function updateSiloCounts(posts) {
-    const counts = { razas: 0, salud: 0, guias: 0, cultura: 0 };
-    posts.forEach(p => {
-      if (p.silo && counts[p.silo.id] !== undefined) counts[p.silo.id]++;
-    });
-    const el = (id, n) => {
-      const e = document.getElementById(id);
-      if (e) e.textContent = `${n} artículos →`;
-    };
-    el('count-razas', counts.razas);
-    el('count-salud', counts.salud);
-    el('count-guias', counts.guias);
-    el('count-cultura', counts.cultura);
-  }
-
-  function formatDate(dateStr) {
-    try {
-      return new Date(dateStr).toLocaleDateString('es-ES', {
-        day: 'numeric', month: 'long', year: 'numeric'
-      });
-    } catch { return dateStr; }
-  }
-
-  function escHtml(str) {
-    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-
-  function renderPosts(posts) {
-    const grid = document.getElementById('postsGrid');
-    if (!posts.length) {
-      grid.innerHTML = `<p class="no-results"><span>🔍</span>No se encontraron artículos con ese filtro.</p>`;
-      return;
-    }
-
-    grid.innerHTML = posts.map((p, i) => `
-      <a href="/${p.slug}/" class="post-card animate-in" data-silo="${p.silo?.id || ''}" style="animation-delay:${(i % 9) * 0.05}s">
-        <div class="post-card-img">
-          ${p.featuredImg
-            ? `<img src="${p.featuredImg}" alt="${escHtml(p.title)}" loading="lazy" width="400" height="225" onerror="this.parentElement.innerHTML='<div class=&quot;post-card-placeholder&quot;>${p.silo?.icon || '🐱'}</div>'">`
-            : `<div class="post-card-placeholder">${p.silo?.icon || '🐱'}</div>`
-          }
-        </div>
-        <div class="post-card-body">
-          <p class="post-card-silo">${p.silo?.icon || ''} ${escHtml(p.silo?.name || '')}</p>
-          <h3 class="post-card-title">${escHtml(p.title)}</h3>
-          <p class="post-card-desc">${escHtml(p.description)}</p>
-          <time class="post-card-date" datetime="${p.datePublished}">${formatDate(p.datePublished)}</time>
-        </div>
-      </a>
-    `).join('');
-  }
-
-  // ── Filtros ──────────────────────────────────────────────────────────
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentFilter = btn.dataset.filter;
-      const filtered = currentFilter === 'all'
-        ? allPosts
-        : allPosts.filter(p => p.silo?.id === currentFilter);
-      renderPosts(filtered);
-    });
-  });
-
   // ── Buscador ─────────────────────────────────────────────────────────
   let searchData = [];
   async function loadSearchIndex() {
@@ -281,6 +288,17 @@ const jsonLd = [
 
   const searchInput = document.getElementById('searchInput');
   const searchResults = document.getElementById('searchResults');
+  const searchBtn = document.getElementById('searchBtn');
+
+  if (searchBtn) {
+    searchBtn.addEventListener('click', () => {
+      searchInput.focus();
+    });
+  }
+
+  function escHtml(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
 
   searchInput.addEventListener('input', () => {
     const q = searchInput.value.trim().toLowerCase();
@@ -297,7 +315,7 @@ const jsonLd = [
       return;
     }
     searchResults.innerHTML = matches.map(m => `
-      <a href="/${m.slug}/" class="search-result-item">
+      <a href="/${m.silo?.slug || 'guias'}/${m.slug}/" class="search-result-item">
         ${m.featuredImg
           ? `<img src="${m.featuredImg}" alt="" class="search-result-img" loading="lazy" width="44" height="44">`
           : `<div class="search-result-img" style="display:flex;align-items:center;justify-content:center;font-size:1.4rem">${m.silo?.icon || '🐱'}</div>`
@@ -324,14 +342,14 @@ const jsonLd = [
     }
   });
 
-  // ── Checklist diario ─────────────────────────────────────────────────
+  // ── Checklist diario de Rituales ──────────────────────────────────────
   const CHECKLIST_TASKS = [
-    { id: 'water',  text: 'Cambiar el agua',           note: 'Siempre fresca, lejos del arenero' },
-    { id: 'food',   text: 'Dar la ración del día',     note: 'Usa la calculadora para la porción exacta' },
-    { id: 'litter', text: 'Limpiar el arenero',        note: 'Al menos una vez al día (dos es ideal)' },
-    { id: 'play',   text: 'Sesión de juego',           note: '10-15 min con caña o juguete interactivo' },
-    { id: 'brush',  text: 'Revisar pelaje / cepillar', note: '3-4x semana para pelo largo; semanal para corto' },
-    { id: 'check',  text: 'Observar su comportamiento',note: 'Notar si come, bebe y usa el arenero normalmente' },
+    { id: 'water',  text: 'Cambiar el agua',           note: 'Siempre fresca, en un recipiente limpio y separado de su comida.' },
+    { id: 'food',   text: 'Dar la ración del día',     note: 'Calculada exactamente según peso, edad y actividad.' },
+    { id: 'litter', text: 'Limpiar el arenero',        note: 'Retirar aglomerados al menos una vez al día para evitar rechazo.' },
+    { id: 'play',   text: 'Sesión de juego interactivo',note: '15 minutos simulando el ciclo de caza con caña o plumas.' },
+    { id: 'brush',  text: 'Revisar pelaje / cepillar', note: 'Especialmente importante en mantos largos para evitar nudos.' },
+    { id: 'check',  text: 'Observar su comportamiento',note: 'Prestar atención a cambios de apetito, letargo u ocultamiento.' },
   ];
 
   const STORAGE_KEY = 'hg-checklist-' + new Date().toDateString();
@@ -342,11 +360,12 @@ const jsonLd = [
     container.innerHTML = CHECKLIST_TASKS.map(t => {
       const checked = saved[t.id] || false;
       return `
-        <label class="checklist-item${checked ? ' done' : ''}" for="chk-${t.id}">
-          <input type="checkbox" id="chk-${t.id}" data-id="${t.id}" ${checked ? 'checked' : ''}>
-          <div>
-            <span class="checklist-item-text">${t.text}</span>
-            <span class="checklist-item-note">${t.note}</span>
+        <label class="checklist-item${checked ? ' done' : ''}" for="chk-${t.id}" style="display:flex; align-items:center; gap:0.9rem; padding-block:0.8rem; cursor:pointer;">
+          <input type="checkbox" id="chk-${t.id}" data-id="${t.id}" ${checked ? 'checked' : ''} style="display:none;">
+          <div class="checklist-item-checkbox-wrap"></div>
+          <div class="checklist-item-content">
+            <span class="checklist-item-text" style="font-weight:500;">${t.text}</span>
+            <span class="checklist-item-note" style="font-size:0.82rem; color:var(--clr-text-muted); display:block; margin-top:0.15rem;">${t.note}</span>
           </div>
         </label>
       `;
@@ -366,16 +385,19 @@ const jsonLd = [
   function updateProgress(state) {
     const done = Object.values(state).filter(Boolean).length;
     const pct = Math.round((done / CHECKLIST_TASKS.length) * 100);
-    document.getElementById('checkProgress').style.width = pct + '%';
+    const progressBar = document.getElementById('checkProgress');
+    if (progressBar) progressBar.style.width = pct + '%';
   }
 
-  document.getElementById('checklistReset').addEventListener('click', () => {
-    localStorage.removeItem(STORAGE_KEY);
-    loadChecklist();
-  });
+  const resetBtn = document.getElementById('checklistReset');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      localStorage.removeItem(STORAGE_KEY);
+      loadChecklist();
+    });
+  }
 
   // ── Init ─────────────────────────────────────────────────────────────
-  loadPosts();
   loadSearchIndex();
   loadChecklist();
 </script>

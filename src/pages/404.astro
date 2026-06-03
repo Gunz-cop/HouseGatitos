@@ -1,0 +1,110 @@
+---
+// src/pages/404.astro
+// Página de error 404 personalizada para House Gatitos.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada | House Gatitos"
+  description="Lo sentimos, parece que el gatito se ha perdido en el bosque y no pudimos encontrar esta página."
+>
+  <main class="error-page container">
+    <div class="error-card">
+      <span class="error-emoji" aria-hidden="true">🐱💤</span>
+      <h1 class="error-title">¡Ups! El gatito se ha perdido...</h1>
+      <p class="error-message">
+        La página que buscas no existe, ha sido movida o el gatito se quedó dormido jugando con el enlace.
+      </p>
+      
+      <div class="error-actions">
+        <a href="/" class="btn btn-primary">Volver al Inicio</a>
+        <a href="/salud/" class="btn btn-secondary">Guías de Salud</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .error-page {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 4rem;
+  }
+  .error-card {
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    padding: 3.5rem 2.25rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    max-width: 500px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .error-emoji {
+    font-size: 4.5rem;
+    display: block;
+    margin-bottom: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  .error-title {
+    font-family: var(--ff-heading);
+    font-size: 2rem;
+    color: var(--clr-text);
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  .error-message {
+    color: var(--clr-text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 2.25rem;
+    line-height: 1.55;
+  }
+  .error-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: var(--transition);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--clr-primary);
+    color: #fff;
+    border: none;
+  }
+  .btn-primary:hover {
+    background: var(--clr-primary-lt);
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+  .btn-secondary {
+    border: 1px solid var(--clr-border);
+    color: var(--clr-text);
+    background: var(--clr-bg-alt);
+  }
+  .btn-secondary:hover {
+    background: var(--clr-surface);
+    text-decoration: none;
+    color: var(--clr-text);
+    transform: translateY(-2px);
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+</style>

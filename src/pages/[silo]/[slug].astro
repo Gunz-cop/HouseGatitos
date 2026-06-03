@@ -1,14 +1,14 @@
 ---
-// src/pages/[slug].astro
-// Genera las 75 páginas de posts individualmente.
+// src/pages/[silo]/[slug].astro
+// Genera las 75 páginas de posts individualmente bajo su silo correspondiente.
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { getPosts, buildJsonLdPost, buildBreadcrumbJsonLd, SITE_URL } from '../lib/posts.js';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPosts, buildJsonLdPost, buildBreadcrumbJsonLd, buildFaqJsonLd, SITE_URL } from '../../lib/posts.js';
 
 export async function getStaticPaths() {
   const posts = getPosts();
   return posts.map(post => ({
-    params: { slug: post.slug },
+    params: { silo: post.silo.slug, slug: post.slug },
     props: { post, allPosts: posts }
   }));
 }
@@ -25,9 +25,14 @@ const jsonLd = [
   buildBreadcrumbJsonLd([
     { name: 'Inicio',        url: SITE_URL },
     { name: post.silo.name,  url: `${SITE_URL}/${post.silo.slug}/` },
-    { name: post.title,      url: `${SITE_URL}/${post.slug}/` }
+    { name: post.title,      url: `${SITE_URL}/${post.silo.slug}/${post.slug}/` }
   ])
 ];
+
+const faqSchema = buildFaqJsonLd(post.content || '');
+if (faqSchema) {
+  jsonLd.push(faqSchema);
+}
 
 // Slugify simple para tags
 function slugifyTag(t) {
@@ -37,7 +42,7 @@ function slugifyTag(t) {
 <BaseLayout
   title={`${post.title} | House Gatitos`}
   description={post.description}
-  canonical={`${SITE_URL}/${post.slug}/`}
+  canonical={`${SITE_URL}/${post.silo.slug}/${post.slug}/`}
   ogType="article"
   ogImage={post.featuredImg || '/assets/images/House Gatitos.webp'}
   articlePublished={post.published}
@@ -93,7 +98,7 @@ function slugifyTag(t) {
       {post.categories.length > 0 && (
         <div class="post-tags" aria-label="Categorías">
           {post.categories.map(cat => (
-            <a href={`/categoria/${slugifyTag(cat)}/`} class="tag">{cat}</a>
+            <span class="tag">{cat}</span>
           ))}
         </div>
       )}
@@ -110,7 +115,7 @@ function slugifyTag(t) {
         </p>
         <div class="related-grid">
           {related.map(r => (
-            <a href={`/${r.slug}/`} class="related-card">
+            <a href={`/${r.silo.slug}/${r.slug}/`} class="related-card">
               {r.featuredImg
                 ? <img src={r.featuredImg} alt={r.title} loading="lazy">
                 : <div class="related-card-placeholder"></div>

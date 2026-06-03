@@ -1,6 +1,7 @@
 ---
 // src/layouts/BaseLayout.astro
 // Layout base compartido por todas las páginas
+import '../style.css';
 
 interface Props {
   title: string;
@@ -61,8 +62,7 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/assets/images/House Gatitos-AMP.png" type="image/png">
 
-  <!-- CSS global -->
-  <link rel="stylesheet" href="/style.css">
+  <!-- CSS global se maneja por importación de Astro -->
 
   <!-- JSON-LD -->
   {jsonLd && (
@@ -70,6 +70,16 @@ const ogImageFull = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage
       ? jsonLd.map(ld => <script type="application/ld+json" set:html={JSON.stringify(ld, null, 2)} />)
       : <script type="application/ld+json" set:html={JSON.stringify(jsonLd, null, 2)} />
   )}
+
+  <!-- Evitar FOUC aplicando el tema guardado inmediatamente -->
+  <script is:inline>
+    (function() {
+      const saved = localStorage.getItem('hg-theme');
+      if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 <body>
 
