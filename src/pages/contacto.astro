@@ -1,54 +1,200 @@
 ---
 // src/pages/contacto.astro
-// Generado automáticamente desde Blogger
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Contacto - House Gatitos";
-const description = "Página de contacto para comunicarse con el equipo de House Gatitos.";
+const description = "Página de contacto para comunicarse con el equipo de House Gatitos. Envíanos tus preguntas, sugerencias o propuestas de colaboración.";
 const canonical = "https://housegatitos.com/contacto/";
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical}>
-  <main class="container legal-page" style="margin-top: 5rem; margin-bottom: 5rem; max-width: 800px; line-height: 1.7; font-family: 'DM Sans', sans-serif;">
-    <h1 style="font-family: 'EB Garamond', serif; font-size: 2.8rem; margin-bottom: 2rem; color: var(--color-text-dark); border-bottom: 2px solid var(--color-border); padding-bottom: 0.5rem;">
-      Contacto
-    </h1>
-    <div class="legal-content" style="color: var(--color-text-dark); font-size: 1.05rem;">
-      <center><iframe frameborder="0" marginheight="0" marginwidth="0" src="https://docs.google.com/forms/d/e/1FAIpQLSeQ0dZ9p0MIsbJ1dRVvFG0FQI60N2FrhwIAx2IyZlec8iCIfQ/viewform?embedded=true" width="100%" height="1000">Cargando…</iframe></center>
+  
+  <!-- Cabecera de Contacto -->
+  <header class="post-hero" style="text-align:center; padding-bottom:3rem;">
+    <div class="container" style="max-width:900px;">
+      <nav aria-label="Ruta de navegación" class="breadcrumb" style="justify-content:center;">
+        <a href="/">Inicio</a>
+        <span class="breadcrumb-sep" aria-hidden="true">›</span>
+        <span aria-current="page">Contacto</span>
+      </nav>
+      <div style="font-size:3.5rem; margin-bottom:1rem; display:inline-block;">📩</div>
+      <h1 class="post-title-h1" style="margin-inline:auto; font-family:var(--ff-heading); font-weight:500;">
+        Ponte en Contacto
+      </h1>
+      <p class="post-description" style="margin-inline:auto;">
+        ¿Tienes alguna duda sobre tu michi? ¿Quieres proponer una colaboración? Escríbenos y charlemos.
+      </p>
+    </div>
+  </header>
+
+  <!-- Contenido en Rejilla de Dos Columnas -->
+  <main id="main-content" style="padding:3.5rem 0 5rem;">
+    <div class="container" style="max-width:1000px;">
+      
+      <div class="contact-layout">
+        
+        <!-- Columna Izquierda: Información de Soporte -->
+        <div class="contact-info-panel">
+          <h2 class="panel-title">Canales de Atención</h2>
+          <p class="panel-intro">Intentamos responder a todas las consultas de la comunidad lo antes posible.</p>
+          
+          <div class="info-block">
+            <span class="info-icon">⏱️</span>
+            <div class="info-text">
+              <strong>Tiempo de Respuesta</strong>
+              <p>Normalmente respondemos en un plazo de 24 a 48 horas hábiles.</p>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <span class="info-icon">📢</span>
+            <div class="info-text">
+              <strong>Redes Sociales</strong>
+              <p>Puedes seguirnos o enviarnos un mensaje directo a través de nuestras redes oficiales.</p>
+              <div class="contact-social-links">
+                <a href="https://www.youtube.com/channel/UCFLfdtZ45cjhbHURSavif-Q" target="_blank" rel="noopener">YouTube</a>
+                <a href="https://www.facebook.com/HouseGatitosOficial" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://twitter.com/housegatitos" target="_blank" rel="noopener">Twitter / X</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <span class="info-icon">🐾</span>
+            <div class="info-text">
+              <strong>¿Buscas respuestas rápidas?</strong>
+              <p>Revisa nuestra <a href="/salud/sintomas-gatos/">guía de síntomas</a> o calcula las porciones en nuestra <a href="/calculadora-comida-gatos/">calculadora de alimento</a>.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Formulario de Google en Iframe -->
+        <div class="contact-form-panel">
+          <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeQ0dZ9p0MIsbJ1dRVvFG0FQI60N2FrhwIAx2IyZlec8iCIfQ/viewform?embedded=true" 
+            width="100%" 
+            height="850" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0"
+            title="Formulario de contacto de Google"
+          >
+            Cargando formulario...
+          </iframe>
+        </div>
+
+      </div>
+
     </div>
   </main>
+
 </BaseLayout>
 
-<style is:global>
-  .legal-content p {
-    margin-bottom: 1.2rem;
+<style>
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 3rem;
+    align-items: start;
   }
-  .legal-content h2 {
-    font-family: 'EB Garamond', serif;
-    font-size: 1.8rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: var(--color-text-dark);
+
+  @media (max-width: 850px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
   }
-  .legal-content h3 {
-    font-family: 'EB Garamond', serif;
-    font-size: 1.4rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.8rem;
-    color: var(--color-text-dark);
+
+  .contact-info-panel {
+    background: var(--clr-bg-alt);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
-  .legal-content ul, .legal-content ol {
-    margin-bottom: 1.2rem;
-    padding-left: 2rem;
+
+  .panel-title {
+    font-family: var(--ff-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--clr-text);
   }
-  .legal-content li {
-    margin-bottom: 0.5rem;
+
+  .panel-intro {
+    font-size: 0.9rem;
+    color: var(--clr-text-muted);
+    line-height: 1.5;
   }
-  .legal-content a {
-    color: var(--color-primary);
+
+  .info-block {
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .info-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .info-text strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--clr-text);
+    margin-bottom: 0.2rem;
+  }
+
+  .info-text p {
+    font-size: 0.88rem;
+    color: var(--clr-text-muted);
+    line-height: 1.45;
+  }
+
+  .info-text a {
+    color: var(--clr-primary);
     text-decoration: underline;
+    font-weight: 500;
   }
-  .legal-content a:hover {
-    color: var(--color-text-dark);
+
+  .contact-social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .contact-social-links a {
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    text-decoration: none;
+    color: var(--clr-text-muted);
+    transition: background var(--transition), border-color var(--transition), color var(--transition);
+  }
+
+  .contact-social-links a:hover {
+    background: var(--clr-primary-bg);
+    border-color: var(--clr-primary);
+    color: var(--clr-primary);
+  }
+
+  .contact-form-panel {
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .contact-form-panel iframe {
+    border: none;
+    display: block;
   }
 </style>
