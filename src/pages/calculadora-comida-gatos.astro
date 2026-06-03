@@ -23,7 +23,7 @@ const jsonLd = {
 >
 
   <!-- ══ CABECERA DE LA CALCULADORA ══ -->
-  <header class="post-hero" style="padding-bottom:2rem; text-align:center;">
+  <header class="post-hero no-print" style="text-align:center;">
     <div class="container">
       <nav aria-label="Ruta de navegación" class="breadcrumb" style="justify-content:center;">
         <a href="/">Inicio</a>
@@ -39,103 +39,170 @@ const jsonLd = {
   </header>
 
   <!-- ══ CONTENIDO / CALCULADORA INTERACTIVA ══ -->
-  <main id="main-content" style="padding:2rem 0 4rem;">
-    <div class="container" style="max-width:800px;">
+  <main id="main-content" style="padding:3rem 0 5rem;">
+    <div class="container">
 
-      <!-- Panel de la calculadora -->
-      <div style="background:var(--clr-bg-card); border:1px solid var(--clr-border); border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-md);">
+      <!-- Contenedor Principal en Rejilla de Dos Columnas -->
+      <div class="calculator-container">
+        
+        <!-- Columna de Entrada (Formulario) -->
+        <div class="calc-panel-inputs no-print">
+          <h2 class="panel-section-title">🐾 Datos de tu Gato</h2>
+          <form id="calcForm" onsubmit="event.preventDefault();">
 
-        <form id="calcForm" style="display:flex; flex-direction:column; gap:1.5rem;" onsubmit="event.preventDefault();">
-
-          <!-- Peso -->
-          <div>
-            <label for="weightRange" style="display:flex; justify-content:space-between; font-weight:600; margin-bottom:0.5rem; font-size:1.05rem;">
-              <span>Peso de tu gato:</span>
-              <span style="color:var(--clr-primary);" id="weightVal">4.5 kg</span>
-            </label>
-            <input type="range" id="weightRange" min="1.0" max="12.0" step="0.1" value="4.5" style="width:100%; accent-color:var(--clr-primary);">
-          </div>
-
-          <!-- Estado Físico / Edad -->
-          <div>
-            <label for="catState" style="display:block; font-weight:600; margin-bottom:0.5rem; font-size:1.05rem;">Estado físico y estilo de vida:</label>
-            <select id="catState" style="width:100%; padding:0.75rem; border:1px solid var(--clr-border); border-radius:var(--radius-sm); font-family:var(--ff-body); background:var(--clr-bg); color:var(--clr-text); font-size:0.95rem;">
-              <option value="1.2" selected>Adulto Castrado / Esterilizado (Recomendado)</option>
-              <option value="1.4">Adulto Entero (Sin Castrar)</option>
-              <option value="1.0">Gato Sedentario / Propenso a Obesidad</option>
-              <option value="0.8">Gato en pérdida de peso activa</option>
-              <option value="1.6">Adulto Activo / Exterior</option>
-              <option value="2.5">Gatito Bebé en Crecimiento (menor de 1 año)</option>
-              <option value="1.4">Gato de Edad Avanzada (&gt; 10 años)</option>
-            </select>
-          </div>
-
-          <!-- Proporción Alimento Seco vs Húmedo -->
-          <div>
-            <label for="ratioRange" style="display:flex; justify-content:space-between; font-weight:600; margin-bottom:0.5rem; font-size:1.05rem;">
-              <span>Proporción de dieta mixta:</span>
-              <span id="ratioVal">50% Seco / 50% Húmedo</span>
-            </label>
-            <input type="range" id="ratioRange" min="0" max="100" step="10" value="50" style="width:100%; accent-color:var(--clr-accent);">
-            <p style="font-size:0.8rem; color:var(--clr-text-muted); margin-top:0.25rem;">Recomendamos incluir al menos un 30% de alimento húmedo para cuidar sus riñones.</p>
-          </div>
-
-          <!-- Energía del alimento (Campos Avanzados Colapsables) -->
-          <details style="border:1px solid var(--clr-border); border-radius:var(--radius-sm); padding:0.5rem 0.75rem;">
-            <summary style="font-weight:600; font-size:0.9rem; cursor:pointer; color:var(--clr-text-muted);">⚙️ Ajustar calorías del alimento (Opcional)</summary>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.75rem;">
-              <div>
-                <label for="calDry" style="display:block; font-size:0.8rem; margin-bottom:0.25rem; font-weight:500;">kcal/100g Pienso Seco:</label>
-                <input type="number" id="calDry" value="380" style="width:100%; padding:0.5rem; border:1px solid var(--clr-border); border-radius:var(--radius-sm); font-family:var(--ff-body); background:var(--clr-bg); color:var(--clr-text);">
-              </div>
-              <div>
-                <label for="calWet" style="display:block; font-size:0.8rem; margin-bottom:0.25rem; font-weight:500;">kcal/100g Alimento Húmedo:</label>
-                <input type="number" id="calWet" value="85" style="width:100%; padding:0.5rem; border:1px solid var(--clr-border); border-radius:var(--radius-sm); font-family:var(--ff-body); background:var(--clr-bg); color:var(--clr-text);">
+            <!-- Peso -->
+            <div class="form-group">
+              <label for="weightRange" class="slider-label">
+                <span>Peso corporal:</span>
+                <span class="slider-value" id="weightVal">4.5 kg</span>
+              </label>
+              <input type="range" id="weightRange" min="1.0" max="12.0" step="0.1" value="4.5" class="slider-input">
+              <div class="slider-ticks">
+                <span>1kg</span>
+                <span>4kg</span>
+                <span>8kg</span>
+                <span>12kg</span>
               </div>
             </div>
-          </details>
 
-        </form>
-
-        <hr style="border:none; border-top:1px solid var(--clr-border); margin:2rem 0;">
-
-        <!-- Resultados -->
-        <div>
-          <h2 style="font-size:1.3rem; margin-bottom:1.5rem; color:var(--clr-text);">Ración diaria recomendada</h2>
-
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
-
-            <div style="background:var(--clr-primary-bg); border-radius:var(--radius-md); padding:1.25rem; text-align:center;">
-              <span style="font-size:1.8rem; display:block;">🍪</span>
-              <span style="font-size:0.85rem; font-weight:600; text-transform:uppercase; color:var(--clr-primary); letter-spacing:0.05em;">Pienso Seco</span>
-              <strong style="font-size:2rem; display:block; color:var(--clr-text); margin-top:0.25rem;" id="resDry">0 g</strong>
+            <!-- Estado Físico / Edad -->
+            <div class="form-group">
+              <label for="catState" class="field-label">Estilo de vida y fisiología:</label>
+              <select id="catState" class="select-input">
+                <option value="1.2" selected>Adulto Esterilizado / Castrado</option>
+                <option value="1.4">Adulto Entero (Sin Castrar)</option>
+                <option value="1.0">Sedentario / Propenso a Obesidad</option>
+                <option value="0.8">Pérdida de peso activa (Control Médico)</option>
+                <option value="1.6">Gato Activo / Exterior</option>
+                <option value="2.5">Gatito en Crecimiento (Menor de 1 año)</option>
+                <option value="1.4">Gato Senior (> 10 años)</option>
+              </select>
             </div>
 
-            <div style="background:var(--clr-accent-bg); border-radius:var(--radius-md); padding:1.25rem; text-align:center;">
-              <span style="font-size:1.8rem; display:block;">🥫</span>
-              <span style="font-size:0.85rem; font-weight:600; text-transform:uppercase; color:var(--clr-accent); letter-spacing:0.05em;">Alimento Húmedo</span>
-              <strong style="font-size:2rem; display:block; color:var(--clr-text); margin-top:0.25rem;" id="resWet">0 g</strong>
+            <!-- Proporción Alimento Seco vs Húmedo -->
+            <div class="form-group">
+              <label for="ratioRange" class="slider-label">
+                <span>Proporción de dieta mixta:</span>
+                <span class="slider-value highlight-accent" id="ratioVal">50% Seco / 50% Húmedo</span>
+              </label>
+              <input type="range" id="ratioRange" min="0" max="100" step="10" value="50" class="slider-input accent-theme">
+              <p class="field-helper">💡 Recomendamos al menos un <strong>30% de alimento húmedo</strong> para promover una hidratación saludable y prevenir problemas renales (FLUTD).</p>
             </div>
 
+            <!-- Ajustes Avanzados de Densidad Calórica -->
+            <details class="advanced-settings">
+              <summary class="advanced-summary">⚙️ Personalizar calorías del alimento (Opcional)</summary>
+              <div class="advanced-grid">
+                <div class="form-group-sub">
+                  <label for="calDry">Calorías Pienso Seco (kcal/100g):</label>
+                  <input type="number" id="calDry" value="380" min="250" max="500" class="number-input">
+                </div>
+                <div class="form-group-sub">
+                  <label for="calWet">Calorías Alimento Húmedo (kcal/100g):</label>
+                  <input type="number" id="calWet" value="85" min="50" max="150" class="number-input">
+                </div>
+              </div>
+            </details>
+
+          </form>
+        </div>
+
+        <!-- Columna de Salida (Resultados) -->
+        <div class="calc-panel-results">
+          
+          <div class="results-header">
+            <h2 class="panel-section-title">🍽️ Ración Diaria Estimada</h2>
+            <button onclick="window.print();" class="print-btn no-print" title="Imprimir raciones">🖨️ Imprimir Ficha</button>
           </div>
 
-          <div style="background:var(--clr-bg-alt); border-radius:var(--radius-md); padding:1rem; font-size:0.88rem; color:var(--clr-text-muted); display:flex; flex-direction:column; gap:0.5rem;">
-            <p><strong>Requerimiento Calórico Estimado:</strong> <span id="resCal" style="color:var(--clr-text); font-weight:600;">0 kcal</span> al día.</p>
-            <p>💡 <em>Nota: Esta cifra es orientativa. Si tu felino sube o baja de peso de forma involuntaria, ajusta las porciones o consulta con su veterinario.</em></p>
+          <!-- Cabecera de Ficha en Modo Impresión -->
+          <div class="print-header-only">
+            <h1>Ficha de Raciones Diarias Personalizada</h1>
+            <p>House Gatitos · Centro de Cuidado Felino</p>
+            <div class="print-meta-grid">
+              <p><strong>Peso de la mascota:</strong> <span id="printWeight">--</span></p>
+              <p><strong>Fisiología:</strong> <span id="printState">--</span></p>
+              <p><strong>Calorías diarias:</strong> <span id="printCal">--</span></p>
+            </div>
           </div>
+
+          <!-- Tarjetas de Ración -->
+          <div class="rations-grid">
+            <!-- Pienso Seco -->
+            <div class="ration-card card-dry">
+              <div class="ration-icon">🍪</div>
+              <div class="ration-meta">
+                <span class="ration-label">Pienso Seco</span>
+                <strong class="ration-amount" id="resDry">0 g</strong>
+              </div>
+            </div>
+
+            <!-- Alimento Húmedo -->
+            <div class="ration-card card-wet">
+              <div class="ration-icon">🥫</div>
+              <div class="ration-meta">
+                <span class="ration-label">Alimento Húmedo</span>
+                <strong class="ration-amount" id="resWet">0 g</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Medidor Visual de Dieta Mixta -->
+          <div class="diet-ratio-meter">
+            <p class="meter-title">Distribución del volumen calórico diario:</p>
+            <div class="meter-bar-container">
+              <div class="meter-bar-dry" id="barDry" style="width: 50%;"></div>
+              <div class="meter-bar-wet" id="barWet" style="width: 50%;"></div>
+            </div>
+            <div class="meter-labels">
+              <span class="label-dry">Seco: <span id="lblDryPct">50%</span></span>
+              <span class="label-wet">Húmedo: <span id="lblWetPct">50%</span></span>
+            </div>
+          </div>
+
+          <!-- Calorías Totales -->
+          <div class="caloric-needs-box">
+            <p>Necesidad energética estimada: <strong id="resCal">0 kcal</strong> diarios (RER adaptado).</p>
+          </div>
+
+          <!-- Consejos de Alimentación -->
+          <div class="calculator-tips">
+            <h3 class="tips-title">💡 Consejos prácticos de ración mixta:</h3>
+            <ul class="tips-list">
+              <li><strong>Pesado de precisión:</strong> Utiliza una báscula de cocina digital. Las diferencias de 5 a 10 gramos pueden alterar significativamente el balance de peso en gatos.</li>
+              <li><strong>Alimentación en porciones:</strong> Divide el pienso seco en dispensadores de comida interactivos o juguetes de inteligencia para fomentar el enriquecimiento ambiental.</li>
+              <li><strong>Conservación húmeda:</strong> Ofrece el alimento húmedo a temperatura ambiente. Si estuvo refrigerado, atempéralo para liberar los aromas atrayentes.</li>
+            </ul>
+          </div>
+
         </div>
 
       </div>
 
-      <!-- Sección de ayuda de la calculadora -->
-      <section style="margin-top:3rem; font-family:var(--ff-prose); line-height:1.8;">
-        <h2 style="font-family:var(--ff-body); font-size:1.5rem; margin-bottom:1rem; border-bottom:2px solid var(--clr-primary-bg); padding-bottom:0.5rem;">¿Cómo calculamos la porción diaria?</h2>
-        <p style="margin-bottom:1rem;">La calculadora utiliza las pautas nutricionales estándar de la WSAVA (World Small Animal Veterinary Association) y FEDIAF.</p>
-        <p style="margin-bottom:1rem;">Primero calculamos la <strong>Tasa Metabólica de Reposo (RER)</strong> en base a su peso metabólico:</p>
-        <blockquote style="border-left:4px solid var(--clr-primary); padding:0.5rem 1rem; background:var(--clr-primary-bg); font-style:italic; margin-bottom:1.5rem;">
-          RER = 70 x (Peso del gato en kg) ^ 0.75
-        </blockquote>
-        <p style="margin-bottom:1rem;">Posteriormente, aplicamos un factor de multiplicación en función de la actividad biológica y edad. Por ejemplo, los gatos castrados requieren menos energía por su metabolismo ralentizado, mientras que un gatito bebé en fase de desarrollo rápido necesita multiplicar la cifra basal hasta por 2.5.</p>
+      <!-- Sección Científica / Pauta Nutricional -->
+      <section class="calc-explanation-section no-print">
+        <h2 class="explanation-title">¿Cómo calculamos las porciones diarias?</h2>
+        <p class="explanation-p">Esta herramienta implementa las fórmulas estandarizadas y validadas internacionalmente por la <strong>FEDIAF</strong> (European Pet Food Industry Federation) y la <strong>WSAVA</strong> (World Small Animal Veterinary Association).</p>
+        
+        <p class="explanation-p">El cálculo consta de dos pasos fisiológicos fundamentales:</p>
+        
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3 class="step-title">Tasa Metabólica de Reposo (RER)</h3>
+            <p class="step-desc">Calculamos la energía mínima que el cuerpo del gato gasta en reposo absoluto para mantener sus funciones vitales básicas (respiración, temperatura, digestión):</p>
+            <code class="formula-box">RER = 70 × (Peso en kg)<sup>0.75</sup></code>
+          </div>
+        </div>
+
+        <div class="step-card" style="margin-top: 1.5rem;">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3 class="step-title">Factor de Ajuste de Estilo de Vida (DER)</h3>
+            <p class="step-desc">Multiplicamos la cifra base (RER) por un factor metabólico individualizado según su estado de castración, edad y niveles de ejercicio diario para obtener el Requerimiento Energético Diario (DER):</p>
+            <code class="formula-box">DER = RER × Factor Metabólico</code>
+          </div>
+        </div>
       </section>
 
     </div>
@@ -143,27 +210,519 @@ const jsonLd = {
 
 </BaseLayout>
 
+<style>
+  /* ── Estilos Locales Modularizados ── */
+  .calculator-container {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .calculator-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .calc-panel-inputs {
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem 2rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  .calc-panel-results {
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem 2rem;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .panel-section-title {
+    font-family: var(--ff-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: var(--clr-text);
+  }
+
+  .form-group {
+    margin-bottom: 1.75rem;
+  }
+
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: var(--clr-text);
+  }
+
+  .slider-value {
+    color: var(--clr-primary);
+    font-size: 1.05rem;
+  }
+  .slider-value.highlight-accent {
+    color: var(--clr-accent);
+  }
+
+  .slider-input {
+    width: 100%;
+    height: 6px;
+    background: var(--clr-surface);
+    border-radius: 999px;
+    outline: none;
+    accent-color: var(--clr-primary);
+    cursor: pointer;
+  }
+  .slider-input.accent-theme {
+    accent-color: var(--clr-accent);
+  }
+
+  .slider-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: var(--clr-text-light);
+    margin-top: 0.25rem;
+    padding-inline: 0.15rem;
+  }
+
+  .field-label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: var(--clr-text);
+  }
+
+  .select-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--ff-body);
+    background: var(--clr-bg);
+    color: var(--clr-text);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color var(--transition);
+  }
+  .select-input:focus {
+    border-color: var(--clr-primary);
+  }
+
+  .field-helper {
+    font-size: 0.8rem;
+    color: var(--clr-text-muted);
+    margin-top: 0.5rem;
+    line-height: 1.45;
+  }
+
+  /* Ajustes avanzados */
+  .advanced-settings {
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    background: var(--clr-bg-alt);
+    margin-top: 0.5rem;
+  }
+
+  .advanced-summary {
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--clr-text-muted);
+    user-select: none;
+  }
+
+  .advanced-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.85rem;
+    padding-top: 0.5rem;
+    border-top: 1px dotted var(--clr-border);
+  }
+
+  .form-group-sub label {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--clr-text-muted);
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+  }
+
+  .number-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--ff-body);
+    background: var(--clr-bg);
+    color: var(--clr-text);
+    font-size: 0.88rem;
+    outline: none;
+  }
+  .number-input:focus {
+    border-color: var(--clr-primary);
+  }
+
+  /* Resultados */
+  .results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--clr-border);
+    padding-bottom: 0.75rem;
+  }
+  .results-header .panel-section-title {
+    margin-bottom: 0;
+  }
+
+  .print-btn {
+    background: none;
+    border: 1px solid var(--clr-border);
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    font-family: var(--ff-body);
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--clr-text-muted);
+    transition: background var(--transition), color var(--transition);
+  }
+  .print-btn:hover {
+    background: var(--clr-primary);
+    border-color: var(--clr-primary);
+    color: #fff;
+  }
+
+  .rations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  @media (max-width: 480px) {
+    .rations-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ration-card {
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .card-dry {
+    background: var(--clr-primary-bg);
+    border: 1px solid hsl(22, 60%, 94%);
+  }
+  [data-theme="dark"] .card-dry {
+    border-color: hsl(22, 30%, 18%);
+  }
+  .card-wet {
+    background: var(--clr-accent-bg);
+    border: 1px solid hsl(145, 35%, 93%);
+  }
+  [data-theme="dark"] .card-wet {
+    border-color: hsl(145, 20%, 16%);
+  }
+
+  .ration-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+  }
+  .ration-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .ration-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .card-dry .ration-label { color: var(--clr-primary); }
+  .card-wet .ration-label { color: var(--clr-accent); }
+
+  .ration-amount {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--clr-text);
+    line-height: 1.1;
+  }
+
+  /* Medidor de barra */
+  .diet-ratio-meter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .meter-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--clr-text-muted);
+  }
+  .meter-bar-container {
+    height: 12px;
+    background: var(--clr-surface);
+    border-radius: 999px;
+    display: flex;
+    overflow: hidden;
+  }
+  .meter-bar-dry {
+    background: var(--clr-primary);
+    transition: width 0.3s ease;
+  }
+  .meter-bar-wet {
+    background: var(--clr-accent);
+    transition: width 0.3s ease;
+  }
+  .meter-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .label-dry { color: var(--clr-primary); }
+  .label-wet { color: var(--clr-accent); }
+
+  .caloric-needs-box {
+    background: var(--clr-bg-alt);
+    border-left: 3px solid var(--clr-primary);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: var(--clr-text-muted);
+  }
+
+  .calculator-tips {
+    border-top: 1px solid var(--clr-border);
+    padding-top: 1.5rem;
+  }
+  .tips-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--clr-text);
+  }
+  .tips-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    font-size: 0.85rem;
+    color: var(--clr-text-muted);
+    line-height: 1.45;
+  }
+  .tips-list li {
+    position: relative;
+    padding-left: 1.25rem;
+  }
+  .tips-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--clr-accent);
+    font-weight: bold;
+  }
+
+  /* Explicación científica */
+  .calc-explanation-section {
+    margin-top: 4.5rem;
+    border-top: 1px solid var(--clr-border);
+    padding-top: 3.5rem;
+    max-width: 800px;
+    margin-inline: auto;
+  }
+  .explanation-title {
+    font-family: var(--ff-heading);
+    font-size: 1.85rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--clr-text);
+  }
+  .explanation-p {
+    font-family: var(--ff-prose);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--clr-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .step-card {
+    background: var(--clr-bg-alt);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: start;
+  }
+  .step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: var(--clr-primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--clr-text);
+  }
+  .step-desc {
+    font-family: var(--ff-prose);
+    font-size: 0.92rem;
+    color: var(--clr-text-muted);
+    line-height: 1.55;
+    margin-bottom: 0.75rem;
+  }
+  .formula-box {
+    display: block;
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem 1rem;
+    font-family: monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--clr-text);
+    text-align: center;
+  }
+
+  /* Modo impresión ocultar */
+  .print-header-only {
+    display: none;
+  }
+
+  /* ── Estilos de Impresión Optimizados ── */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    body {
+      background: #fff !important;
+      color: #000 !important;
+    }
+    .calculator-container {
+      grid-template-columns: 1fr !important;
+      display: block !important;
+    }
+    .calc-panel-results {
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      background: transparent !important;
+    }
+    .print-header-only {
+      display: block !important;
+      border-bottom: 2px solid #000;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+    .print-header-only h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.25rem;
+    }
+    .print-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .rations-grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 2rem !important;
+      margin-bottom: 2rem !important;
+    }
+    .ration-card {
+      border: 1px solid #000 !important;
+      background: transparent !important;
+      padding: 1.5rem !important;
+    }
+    .ration-amount {
+      color: #000 !important;
+    }
+    .diet-ratio-meter {
+      margin-bottom: 2rem;
+    }
+    .meter-bar-container {
+      border: 1px solid #000 !important;
+      background: #ccc !important;
+    }
+    .meter-bar-dry {
+      background: #666 !important;
+    }
+    .meter-bar-wet {
+      background: #000 !important;
+    }
+    .caloric-needs-box {
+      border: 1px solid #000 !important;
+      background: transparent !important;
+    }
+  }
+</style>
+
 <script is:inline>
-  const weightRange = document.getElementById('weightRange');
-  const weightVal   = document.getElementById('weightVal');
-  const catState    = document.getElementById('catState');
-  const ratioRange  = document.getElementById('ratioRange');
-  const ratioVal    = document.getElementById('ratioVal');
-  const calDry      = document.getElementById('calDry');
-  const calWet      = document.getElementById('calWet');
-  const resDry      = document.getElementById('resDry');
-  const resWet      = document.getElementById('resWet');
-  const resCal      = document.getElementById('resCal');
+  const weightRange   = document.getElementById('weightRange');
+  const weightVal     = document.getElementById('weightVal');
+  const catState      = document.getElementById('catState');
+  const ratioRange    = document.getElementById('ratioRange');
+  const ratioVal      = document.getElementById('ratioVal');
+  const calDry        = document.getElementById('calDry');
+  const calWet        = document.getElementById('calWet');
+  
+  const resDry        = document.getElementById('resDry');
+  const resWet        = document.getElementById('resWet');
+  const resCal        = document.getElementById('resCal');
+  
+  const barDry        = document.getElementById('barDry');
+  const barWet        = document.getElementById('barWet');
+  const lblDryPct     = document.getElementById('lblDryPct');
+  const lblWetPct     = document.getElementById('lblWetPct');
+
+  // Nodos de impresión
+  const printWeight   = document.getElementById('printWeight');
+  const printState    = document.getElementById('printState');
+  const printCal      = document.getElementById('printCal');
 
   function calculate() {
     const w = parseFloat(weightRange.value);
     weightVal.textContent = w.toFixed(1) + ' kg';
+    if (printWeight) printWeight.textContent = w.toFixed(1) + ' kg';
 
     const multiplier = parseFloat(catState.value);
+    if (printState) {
+      const selectedOpt = catState.options[catState.selectedIndex];
+      printState.textContent = selectedOpt ? selectedOpt.text : '';
+    }
+
     const rer = 70 * Math.pow(w, 0.75);
     const dailyCalories = rer * multiplier;
 
     resCal.textContent = Math.round(dailyCalories) + ' kcal';
+    if (printCal) printCal.textContent = Math.round(dailyCalories) + ' kcal';
 
     const ratio = parseInt(ratioRange.value) / 100;
     ratioVal.textContent = Math.round(ratio * 100) + '% Seco / ' + Math.round((1 - ratio) * 100) + '% Húmedo';
@@ -176,6 +735,14 @@ const jsonLd = {
 
     resDry.textContent = Math.round(dryGrams) + ' g';
     resWet.textContent = Math.round(wetGrams) + ' g';
+
+    // Actualizar medidor visual
+    const secoPct = Math.round(ratio * 100);
+    const humedoPct = 100 - secoPct;
+    if (barDry) barDry.style.width = secoPct + '%';
+    if (barWet) barWet.style.width = humedoPct + '%';
+    if (lblDryPct) lblDryPct.textContent = secoPct + '%';
+    if (lblWetPct) lblWetPct.textContent = humedoPct + '%';
   }
 
   [weightRange, catState, ratioRange, calDry, calWet].forEach(el => {
