@@ -19,7 +19,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       
       <div class="error-actions">
         <a href="/" class="btn btn-primary">Volver al Inicio</a>
-        <a href="/salud/" class="btn btn-secondary">Guías de Salud</a>
+        <a href="/salud/" class="btn btn-secondary">🩺 Guías de Salud</a>
       </div>
     </div>
   </main>
@@ -27,53 +27,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <style>
   .error-page {
-    min-height: 70vh;
+    min-height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-block: 4rem;
+    padding-block: 6rem;
   }
   .error-card {
     background: var(--clr-bg-card);
     border: 1px solid var(--clr-border);
     border-radius: var(--radius-lg);
-    padding: 3.5rem 2.25rem;
+    padding: 4rem 2.5rem;
     text-align: center;
     box-shadow: var(--shadow-md);
-    max-width: 500px;
+    max-width: 540px;
     width: 100%;
     margin-inline: auto;
+    backdrop-filter: blur(8px);
+    transition: var(--transition);
+  }
+  .error-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--clr-primary);
   }
   .error-emoji {
-    font-size: 4.5rem;
+    font-size: 5rem;
     display: block;
-    margin-bottom: 1.5rem;
-    animation: float 3s ease-in-out infinite;
+    margin-bottom: 2rem;
+    animation: float 4s ease-in-out infinite;
   }
   .error-title {
     font-family: var(--ff-heading);
-    font-size: 2rem;
+    font-size: 2.25rem;
     color: var(--clr-text);
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     line-height: 1.25;
+    font-weight: 600;
   }
   .error-message {
     color: var(--clr-text-muted);
     font-size: 1.05rem;
-    margin-bottom: 2.25rem;
-    line-height: 1.55;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
   }
   .error-actions {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.25rem;
     flex-wrap: wrap;
   }
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.75rem;
+    padding: 0.9rem 2rem;
     border-radius: var(--radius-md);
     font-size: 0.95rem;
     font-weight: 600;
@@ -85,12 +92,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     background: var(--clr-primary);
     color: #fff;
     border: none;
+    box-shadow: 0 4px 14px rgba(210, 114, 56, 0.25);
   }
   .btn-primary:hover {
     background: var(--clr-primary-lt);
     color: #fff;
     text-decoration: none;
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(210, 114, 56, 0.35);
   }
   .btn-secondary {
     border: 1px solid var(--clr-border);
@@ -104,7 +113,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     transform: translateY(-2px);
   }
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
   }
 </style>
