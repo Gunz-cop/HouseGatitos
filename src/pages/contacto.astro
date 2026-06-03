@@ -1,0 +1,54 @@
+---
+// src/pages/contacto.astro
+// Generado automáticamente desde Blogger
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Contacto - House Gatitos";
+const description = "Página de contacto para comunicarse con el equipo de House Gatitos.";
+const canonical = "https://housegatitos.com/contacto/";
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <main class="container legal-page" style="margin-top: 5rem; margin-bottom: 5rem; max-width: 800px; line-height: 1.7; font-family: 'DM Sans', sans-serif;">
+    <h1 style="font-family: 'EB Garamond', serif; font-size: 2.8rem; margin-bottom: 2rem; color: var(--color-text-dark); border-bottom: 2px solid var(--color-border); padding-bottom: 0.5rem;">
+      Contacto
+    </h1>
+    <div class="legal-content" style="color: var(--color-text-dark); font-size: 1.05rem;">
+      <center><iframe frameborder="0" marginheight="0" marginwidth="0" src="https://docs.google.com/forms/d/e/1FAIpQLSeQ0dZ9p0MIsbJ1dRVvFG0FQI60N2FrhwIAx2IyZlec8iCIfQ/viewform?embedded=true" width="100%" height="1000">Cargando…</iframe></center>
+    </div>
+  </main>
+</BaseLayout>
+
+<style is:global>
+  .legal-content p {
+    margin-bottom: 1.2rem;
+  }
+  .legal-content h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-dark);
+  }
+  .legal-content h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-text-dark);
+  }
+  .legal-content ul, .legal-content ol {
+    margin-bottom: 1.2rem;
+    padding-left: 2rem;
+  }
+  .legal-content li {
+    margin-bottom: 0.5rem;
+  }
+  .legal-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .legal-content a:hover {
+    color: var(--color-text-dark);
+  }
+</style>
