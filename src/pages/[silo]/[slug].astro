@@ -15,6 +15,50 @@ export async function getStaticPaths() {
 
 const { post, allPosts } = Astro.props;
 
+// 1. Calcular tiempo de lectura y procesar encabezados para TOC
+let contentHtml = post.content || '';
+const headings = [];
+let headingIndex = 0;
+
+// Reemplazar encabezados para inyectar IDs (si no los tienen) y recopilarlos
+contentHtml = contentHtml.replace(/<h([23])([^>]*)>(.*?)<\/h\1>/gi, (match, level, attrs, text) => {
+  headingIndex++;
+  const cleanText = text.replace(/<[^>]*>/g, '').trim();
+  
+  // Extraer ID existente si hay uno
+  let id = '';
+  const idMatch = attrs.match(/id="([^"]+)"/i);
+  if (idMatch) {
+    id = idMatch[1];
+  } else {
+    // Generar ID único
+    id = `seccion-${headingIndex}-${cleanText.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}`;
+    attrs = ` id="${id}"${attrs}`;
+  }
+  
+  headings.push({
+    level: parseInt(level),
+    text: cleanText,
+    id
+  });
+  
+  return `<h${level}${attrs}>${text}</h${level}>`;
+});
+
+// 2. Calcular tiempo de lectura (aproximado)
+const plainText = contentHtml.replace(/<[^>]*>/g, '');
+const wordCount = plainText.split(/\s+/).filter(Boolean).length;
+const readingTime = Math.max(1, Math.round(wordCount / 200)); // 200 palabras por minuto promedio
+
+// 3. Formatear la fecha en español
+function formatDate(dateStr) {
+  try {
+    return new Date(dateStr).toLocaleDateString('es-ES', {
+      day: 'numeric', month: 'long', year: 'numeric'
+    });
+  } catch { return dateStr; }
+}
+
 // Posts relacionados (mismo silo, excluye el actual, máx 3)
 const related = allPosts
   .filter(p => p.silo.id === post.silo.id && p.slug !== post.slug)
@@ -33,11 +77,6 @@ const faqSchema = buildFaqJsonLd(post.content || '');
 if (faqSchema) {
   jsonLd.push(faqSchema);
 }
-
-// Slugify simple para tags
-function slugifyTag(t) {
-  return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-}
 ---
 <BaseLayout
   title={`${post.title} | House Gatitos`}
@@ -50,6 +89,11 @@ function slugifyTag(t) {
   jsonLd={jsonLd}
   activeSilo={post.silo.slug}
 >
+
+  <!-- Barra de progreso de lectura -->
+  <div class="scroll-progress-container" aria-hidden="true">
+    <div class="scroll-progress-bar" id="scrollBar"></div>
+  </div>
 
   <!-- ══ CABECERA DEL ARTÍCULO ══ -->
   <header class="post-hero">
@@ -67,7 +111,7 @@ function slugifyTag(t) {
       <div class="post-meta">
         <span class="post-silo-badge">{post.silo.icon} {post.silo.name}</span>
         <time class="post-date-meta" datetime={post.published}>
-          Publicado el {post.datePublished} · Por Equipo de House Gatitos
+          Publicado el {formatDate(post.datePublished)} · ⏱️ {readingTime} min de lectura · Por Equipo de House Gatitos
         </time>
       </div>
 
@@ -89,19 +133,36 @@ function slugifyTag(t) {
     )}
   </header>
 
-  <!-- ══ CONTENIDO PRINCIPAL ══ -->
+  <!-- ══ CONTENIDO PRINCIPAL CON SIDEBAR EDITORIAL ══ -->
   <main id="main-content">
-    <div class="container">
-      <article class="post-content" set:html={post.content} />
-
-      <!-- Tags de categorías -->
-      {post.categories.length > 0 && (
-        <div class="post-tags" aria-label="Categorías">
-          {post.categories.map(cat => (
-            <span class="tag">{cat}</span>
-          ))}
-        </div>
+    <div class="post-layout">
+      <!-- Tabla de Contenidos Lateral (Sticky) -->
+      {headings.length > 0 && (
+        <aside class="post-sidebar" aria-label="Tabla de contenidos">
+          <p class="toc-title">En este artículo</p>
+          <nav class="toc-nav">
+            {headings.map(h => (
+              <a href={`#${h.id}`} class={`toc-link level-${h.level}`}>
+                {h.text}
+              </a>
+            ))}
+          </nav>
+        </aside>
       )}
+
+      <!-- Cuerpo del post -->
+      <div class="post-main">
+        <article class="post-content" set:html={contentHtml} />
+
+        <!-- Tags de categorías -->
+        {post.categories.length > 0 && (
+          <div class="post-tags" aria-label="Categorías">
+            {post.categories.map(cat => (
+              <span class="tag">{cat}</span>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   </main>
 
@@ -127,5 +188,45 @@ function slugifyTag(t) {
       </div>
     </section>
   )}
+
+  <!-- Scripts interactivos premium -->
+  <script is:inline>
+    // 1. Barra de progreso de lectura
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      const bar = document.getElementById('scrollBar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // 2. Scrollspy para la Tabla de Contenidos
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -60% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const id = entry.target.getAttribute('id');
+          const link = document.querySelector(`.toc-link[href="#${id}"]`);
+          if (!link) return;
+          
+          if (entry.isIntersecting) {
+            document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.post-content h2, .post-content h3').forEach(heading => {
+        if (heading.getAttribute('id')) {
+          observer.observe(heading);
+        }
+      });
+    });
+  </script>
 
 </BaseLayout>
