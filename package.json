@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy": "npm run build && npx wrangler deploy && npx tsx lib/discovery/run.ts"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.6.0",

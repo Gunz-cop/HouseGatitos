@@ -14,21 +14,7 @@ silo:
 filename: "/2021/07/mi-gato-puede-estar-enfermo-del-estomago.html"
 featuredImg: "/assets/images/Razones-por-las-cuales-mi-gato-puede-estar-enf.webp"
 ---
-<meta content="Señales y causas comunes del malestar estomacal en gatos: vómitos, diarrea, parásitos, intoxicaciones y más. Consejos de alimentación y cuándo ir al veterinario." name="description"></meta>
-<meta content="width=device-width, initial-scale=1" name="viewport"></meta>
 
-<meta content="article" property="og:type"></meta>
-<meta content="es_ES" property="og:locale"></meta>
-<meta content="Mi gato puede estar enfermo del estómago — causas, señales y qué hacer" property="og:title"></meta>
-<meta content="Señales y causas comunes del malestar estomacal en gatos: vómitos, diarrea, parásitos, intoxicaciones y más. Consejos de alimentación y cuándo ir al veterinario." property="og:description"></meta>
-<meta content="/assets/images/Razones-por-las-cuales-mi-gato-puede-estar-enf.webp" property="og:image"></meta>
-
-<meta content="summary_large_image" name="twitter:card"></meta>
-<meta content="Mi gato puede estar enfermo del estómago — causas, señales y qué hacer" name="twitter:title"></meta>
-<meta content="Señales y causas comunes del malestar estomacal en gatos y consejos para ayudarlo." name="twitter:description"></meta>
-<meta content="/assets/images/Razones-por-las-cuales-mi-gato-puede-estar-enf.webp" name="twitter:image"></meta>
-
-<main>
 
 MI GATO PUEDE ESTAR ENFERMO DEL ESTÓMAGO. Así como nosotros podemos **enfermarnos** , nuestras mascotas también pueden sufrir de **enfermedades** y muchas veces no sabemos cómo reconocer cuando están mal.
 
@@ -141,8 +127,6 @@ Esperamos te haya gustado este artículo de razones por las cuales mi gato puede
 Con gusto leeremos todo aquello que quieras decirnos y tomaremos en cuenta cualquier punto donde tú creas que debemos mejorar.
 
 Saludos a tu gato.
-
-</main>
 
 ### Referencias
 

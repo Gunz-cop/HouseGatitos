@@ -15,21 +15,7 @@ silo:
 filename: "/2025/08/por-que-nos-enamoran-los-gatos.html"
 featuredImg: "/assets/images/ChatGPT Image Aug 5, 2025, 12_18_33 AM (1).webp"
 ---
-<meta content="Un viaje emocional por la conexión humano-felina: miradas, ronroneos y pequeñas rutinas que explican por qué los gatos nos enamoran. Con video." name="description"></meta>
-<meta content="width=device-width, initial-scale=1" name="viewport"></meta>
 
-<meta content="article" property="og:type"></meta>
-<meta content="es_ES" property="og:locale"></meta>
-<meta content="¿Por qué los gatos nos enamoran? Una conexión que va más allá de las palabras" property="og:title"></meta>
-<meta content="Un viaje emocional por la conexión humano-felina: miradas, ronroneos y pequeñas rutinas que explican por qué los gatos nos enamoran. Con video." property="og:description"></meta>
-<meta content="/assets/images/ChatGPT Image Aug 5, 2025, 12_18_33 AM (1).webp" property="og:image"></meta>
-
-<meta content="summary_large_image" name="twitter:card"></meta>
-<meta content="¿Por qué los gatos nos enamoran? Una conexión que va más allá de las palabras" name="twitter:title"></meta>
-<meta content="Un viaje emocional por la conexión humano-felina: miradas, ronroneos y pequeñas rutinas que explican por qué los gatos nos enamoran. Con video." name="twitter:description"></meta>
-<meta content="/assets/images/ChatGPT Image Aug 5, 2025, 12_18_33 AM (1).webp" name="twitter:image"></meta>
-
-<main>
 
 ## Introducción: por qué amamos tanto a los gatos
 
@@ -198,8 +184,6 @@ Esperamos que este viaje emocional te haya tocado el alma como lo hacen ellos, c
 😻 Ver más artículos de cat lovers
 
 📖 Ver guías y recursos para cuidar a tu gato
-
-</main>
 
 ### Referencias
 

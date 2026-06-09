@@ -14,22 +14,7 @@ silo:
 filename: "/2025/08/gato-azul-ruso-caracteristicas-cuidados.html"
 featuredImg: "/assets/images/4b82b1bf-8824-49ac-9f0c-8bd2e154322f (1).webp"
 ---
-<meta name="description" content="Descubre el origen del Azul ruso, su carácter leal y silencioso, y aprende los cuidados clave para esta elegante raza de gato.">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta property="og:type" content="article">
-<meta property="og:locale" content="es_ES">
-<meta property="og:title" content="Gato Azul ruso — características y cuidados (guía completa)">
-<meta property="og:description" content="Descubre el origen del Azul ruso, su carácter leal y silencioso, y aprende los cuidados clave para esta elegante raza de gato.">
-<meta property="og:url" content="https://housegatitos.blogspot.com/2025/09/gato-azul-ruso-caracteristicas-cuidados.html">
-<meta property="og:image" content="/assets/images/4b82b1bf-8824-49ac-9f0c-8bd2e154322f (1).webp">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Gato Azul ruso — características y cuidados (guía completa)">
-<meta name="twitter:description" content="Descubre el origen del Azul ruso, su carácter leal y silencioso, y aprende los cuidados clave para esta elegante raza de gato.">
-<meta name="twitter:image" content="/assets/images/4b82b1bf-8824-49ac-9f0c-8bd2e154322f (1).webp">
-
-<main>
 
 El gato Azul ruso es uno de esos felinos que, con su mirada verde y su manto
 plateado, ha despertado la imaginación y la admiración de generaciones enteras.
@@ -439,8 +424,6 @@ que conquiste tu corazón.
 Esperamos que este artículo te haya ayudado a entender la historia, características y cuidados esenciales del Azul ruso. Si te gustó, no olvides seguir explorando nuestro blog lleno de consejos prácticos para mejorar la vida de tu compañero peludo. 🐾
 
 🐾 Explorar más artículos
-
-</main>
 
 ### Referencias
 
