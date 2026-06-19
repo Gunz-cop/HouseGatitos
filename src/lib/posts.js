@@ -174,6 +174,40 @@ export function buildBreadcrumbJsonLd(items) {
   };
 }
 
+export function buildItemListJsonLd({ name, url, posts }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name,
+    url,
+    itemListElement: posts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${SITE_URL}/${post.silo.slug}/${post.slug}/`,
+      name: post.title
+    }))
+  };
+}
+
+export function buildHowToJsonLd(post, steps) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: post.title,
+    description: post.description,
+    image: post.featuredImg
+      ? (post.featuredImg.startsWith('http') ? post.featuredImg : `${SITE_URL}${post.featuredImg}`)
+      : `${SITE_URL}/assets/images/House Gatitos.webp`,
+    totalTime: 'PT15M',
+    step: steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text
+    }))
+  };
+}
+
 export function buildFaqJsonLd(htmlContent) {
   const faqs = [];
   const detailsRegex = /<details[^>]*>([\s\S]*?)<\/details>/gi;

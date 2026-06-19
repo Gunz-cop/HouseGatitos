@@ -127,7 +127,7 @@ Ambos lucen pelajes largos, pero no se comportan igual. El **Persa** posee una s
 
 El **Persa** necesita un ritual diario: 5–15 minutos de cepillado por capas, revisión de ojos y, en algunos casos, limpieza del surco lagrimal para evitar irritaciones. En épocas de muda o si el clima es húmedo, el tiempo puede aumentar. El **Angora** se conforma con 1–2 sesiones semanales centradas en las zonas que más rozan. Ambas razas se benefician de *baños periódicos* (cada 4–8 semanas), secado suave y revisión de uñas y oídos.
 
-**Te puede ayudar:** [Obesidad en gatos](/salud/Obesidad-en-gatos/): causas y soluciones (el exceso de peso empeora problemas respiratorios y de movilidad).
+**Te puede ayudar:** [Obesidad en gatos](/salud/obesidad-en-gatos/): causas y soluciones (el exceso de peso empeora problemas respiratorios y de movilidad).
 
 ### 5) Nivel de actividad y convivencia
 

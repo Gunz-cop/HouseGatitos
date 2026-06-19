@@ -1,5 +1,6 @@
 ---
 title: "🐾 Obesidad en gatos: una amenaza silenciosa para su bienestar"
+slug: "obesidad-en-gatos"
 description: "La obesidad en los gatos es una enfermedad grave que afecta negativamente a la salud del amigo de cuatro patas. porque el sobrepeso acorta la vida"
 published: "2022-02-25T00:02:00.004Z"
 updated: "2025-07-15T05:24:58.560Z"

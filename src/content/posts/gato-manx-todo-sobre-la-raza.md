@@ -211,7 +211,7 @@ Durante esta etapa, el Manx alcanza su tamaño adulto. Su musculatura se fortale
 * 🧠 **Estimulación mental:** esta raza adora retos. Usá juegos tipo rompecabezas o dispensadores de comida para mantener su mente activa.
 * 🛠️ **Chequeos veterinarios anuales:** especialmente para evaluar signos tempranos de malformaciones vertebrales o digestivas.
 
-📌 Leé también: **[Obesidad en gatos](/salud/Obesidad-en-gatos/) – cómo prevenirla**
+📌 Leé también: **[Obesidad en gatos](/salud/obesidad-en-gatos/) – cómo prevenirla**
 
 ### 🐾 Gato Manx adulto (2 a 7 años)
 

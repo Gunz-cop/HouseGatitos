@@ -341,7 +341,7 @@ No existe gato 100% hipoalergénico. Hay individuos que algunas personas toleran
 <details>
 <summary>¿Cómo diferencio Siamés moderno y Thai?</summary>
 
-El Thai conserva un tipo moderado (cabeza menos extrema) y está reconocido como raza aparte en TICA. Ambos son de origen [tailandés](/razas/Gato-Tailandes/).
+El Thai conserva un tipo moderado (cabeza menos extrema) y está reconocido como raza aparte en TICA. Ambos son de origen [tailandés](/razas/gato-tailandes/).
 
 </details>
 
@@ -369,7 +369,7 @@ Finalmente, te mostramos cómo dibujar un gato siamés en la aplicación de Proc
 
 ## Seguí leyendo
 
-* [Obesidad en gatos](/salud/Obesidad-en-gatos/): causas y soluciones
+* [Obesidad en gatos](/salud/obesidad-en-gatos/): causas y soluciones
 * ¿Mi gato puede estar enfermo del estómago?
 * Gato bengalí (alternativa hiperactiva)
 * Gato persa: guía completa

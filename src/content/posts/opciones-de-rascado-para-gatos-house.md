@@ -176,4 +176,4 @@ Invertir en un buen rascador es cuidar su bienestar físico y emocional. Además
 **👉 También te puede interesar:**
 
 * Cómo [cepillar a tu gato en casa](/salud/como-cepillar-a-tu-gato-en-casa/) (guía completa)
-* Conocé al [gato tailandés](/razas/Gato-Tailandes/): personalidad, cuidados y más
+* Conocé al [gato tailandés](/razas/gato-tailandes/): personalidad, cuidados y más

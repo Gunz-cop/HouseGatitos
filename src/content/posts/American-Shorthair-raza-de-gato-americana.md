@@ -172,7 +172,7 @@ La **rotación de juguetes** semanal mantiene el interés alto.
 Por su temple calmado, puede ganar kilos si las raciones no se ajustan. Priorizá alimentos con **proteína animal de calidad** ,
 moderá carbohidratos y medí por **condición corporal** (no solo por etiqueta).
 Si detectás tendencia a engordar, pasá por nuestra guía de
-[obesidad en gatos](/salud/Obesidad-en-gatos/)
+[obesidad en gatos](/salud/obesidad-en-gatos/)
 para ajustar raciones y hábitos.
 
 * Dividí en 2–3 tomas o usá **comederos interactivos** para ralentizar.

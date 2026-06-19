@@ -1,7 +1,7 @@
 ---
 // src/pages/razas.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getPosts, buildBreadcrumbJsonLd, SITE_URL } from '../lib/posts.js';
+import { getPosts, buildBreadcrumbJsonLd, buildItemListJsonLd, SITE_URL } from '../lib/posts.js';
 
 const posts = getPosts().filter(p => p.silo.id === 'razas');
 const siloName = 'Razas y Morfología';
@@ -13,10 +13,13 @@ const featuredSlug = 'gato-maine-coon';
 const featuredPost = posts.find(p => p.slug === featuredSlug) || posts[0];
 const regularPosts = posts.filter(p => p.slug !== featuredPost.slug);
 
-const jsonLd = buildBreadcrumbJsonLd([
-  { name: 'Inicio', url: SITE_URL },
-  { name: siloName, url: `${SITE_URL}/razas/` }
-]);
+const jsonLd = [
+  buildBreadcrumbJsonLd([
+    { name: 'Inicio', url: SITE_URL },
+    { name: siloName, url: `${SITE_URL}/razas/` }
+  ]),
+  buildItemListJsonLd({ name: siloName, url: `${SITE_URL}/razas/`, posts })
+];
 
 function formatDate(dateStr) {
   try {

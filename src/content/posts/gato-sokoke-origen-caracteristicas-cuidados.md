@@ -141,7 +141,7 @@ El Sokoke necesita **juego interactivo diario** (10–15 minutos, 2–3 veces al
 
 Por su constitución atlética, conviene una dieta **rica en proteína animal de calidad** y moderada en grasas, con carbohidratos digestibles. Puedes elegir alimento *completo* seco, húmedo, o mixto. Como pauta general, distribuye la ración diaria en 2–3 tomas (o en comederos interactivos) y ajusta cantidades al peso, edad, esterilización y nivel de actividad. Mantén **agua fresca** siempre disponible; las fuentes favorecen la hidratación.
 
-Si notas tendencia a ganar peso, reduce “premios” y prioriza el juego. Aquí tienes una guía ampliada sobre [obesidad en gatos](/salud/Obesidad-en-gatos/) para prevenir y corregir. Ante vómitos persistentes, heces blandas o inapetencia, consulta al veterinario y revisa estas pautas sobre problemas digestivos en gatos.
+Si notas tendencia a ganar peso, reduce “premios” y prioriza el juego. Aquí tienes una guía ampliada sobre [obesidad en gatos](/salud/obesidad-en-gatos/) para prevenir y corregir. Ante vómitos persistentes, heces blandas o inapetencia, consulta al veterinario y revisa estas pautas sobre problemas digestivos en gatos.
 
 ### Plan veterinario y prevención
 

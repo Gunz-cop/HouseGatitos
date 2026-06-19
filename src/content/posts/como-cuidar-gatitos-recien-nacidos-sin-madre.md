@@ -2,7 +2,7 @@
 title: "Cómo cuidar gatitos recién nacidos sin madre – guía para sacarlos adelante"
 description: "¿Tienes gatitos recién nacidos huérfanos? Te explicamos paso a paso cómo mantenerlos calientes, alimentarlos con biberón y estimular sus necesidades."
 published: "2025-08-04T00:03:00Z"
-updated: "2025-11-16T15:53:01.888Z"
+updated: "2026-06-18T00:00:00.000Z"
 datePublished: "2025-08-04"
 categories:
   - "Cuidado"
@@ -23,6 +23,8 @@ completo del calor, la alimentación y el cariño que normalmente recibirían de
 Sin embargo, en muchos casos —como abandonos, rescates de la calle o muerte de la madre— los humanos asumimos ese rol.
 Aunque puede parecer abrumador, **con la información adecuada y mucho amor, es posible sacar adelante a estos mininos huérfanos**
 y ofrecerles una oportunidad de vida saludable.
+
+**Respuesta rápida:** un gatito recién nacido sin madre necesita calor constante, fórmula maternizada para gatos, tomas frecuentes, estimulación para orinar y defecar, control de peso diario y revisión veterinaria. No le des leche de vaca, no lo bañes y no lo alimentes boca arriba.
 
 ## Preparar un entorno cálido y seguro
 

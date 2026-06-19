@@ -3,7 +3,7 @@
 // Genera las 75 páginas de posts individualmente bajo su silo correspondiente.
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getPosts, buildJsonLdPost, buildBreadcrumbJsonLd, buildFaqJsonLd, SITE_URL } from '../../lib/posts.js';
+import { getPosts, buildJsonLdPost, buildBreadcrumbJsonLd, buildFaqJsonLd, buildHowToJsonLd, SITE_URL } from '../../lib/posts.js';
 
 export async function getStaticPaths() {
   const posts = getPosts();
@@ -76,6 +76,15 @@ const jsonLd = [
 const faqSchema = buildFaqJsonLd(post.content || '');
 if (faqSchema) {
   jsonLd.push(faqSchema);
+}
+
+if (post.slug === 'cuidados-diarios-gato') {
+  jsonLd.push(buildHowToJsonLd(post, [
+    { name: 'Revisar agua y comida', text: 'Comprueba que tu gato tenga agua fresca y la racion diaria adecuada.' },
+    { name: 'Limpiar el arenero', text: 'Retira deposiciones y aglomerados para mantener una rutina higienica.' },
+    { name: 'Jugar y observar conducta', text: 'Dedica unos minutos al juego y revisa cambios de apetito, energia o postura.' },
+    { name: 'Registrar el cuidado diario', text: 'Marca las tareas completadas en una plantilla o checklist visible.' }
+  ]));
 }
 ---
 <BaseLayout

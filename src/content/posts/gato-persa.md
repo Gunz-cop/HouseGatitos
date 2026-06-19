@@ -97,7 +97,7 @@ Dos sesiones cortas al día bastan para mantener tono y ánimo. Evitá el sobree
 * Comida húmeda de calidad + fuente de agua
 
 **Te puede ayudar:**
-[Obesidad en gatos](/salud/Obesidad-en-gatos/): causas y soluciones
+[Obesidad en gatos](/salud/obesidad-en-gatos/): causas y soluciones
 
 ## Salud y prevención (lo que nadie te cuenta)
 

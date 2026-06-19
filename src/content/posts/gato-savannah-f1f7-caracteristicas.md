@@ -141,7 +141,7 @@ Si aparecen vómitos o diarreas recurrentes, explorá causas y pautas en
 ### Peso y condición corporal
 
 Un Savannah sedentario sufre: prevení el aumento de peso con juego y raciones ajustadas. Guía completa en
-[obesidad en gatos](/salud/Obesidad-en-gatos/).
+[obesidad en gatos](/salud/obesidad-en-gatos/).
 
 ## Alimentación
 

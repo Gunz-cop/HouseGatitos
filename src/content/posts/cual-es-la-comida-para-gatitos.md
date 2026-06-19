@@ -1,8 +1,8 @@
 ---
-title: "Comida para gatitos: así alimentas correctamente a tu gatito"
-description: "Descubrí cuál es la mejor comida para gatitos, diferencias entre seca y húmeda, ingredientes clave y consejos para una dieta saludable."
+title: "Comida para gatitos por edad: qué darles, cuánto y qué evitar"
+description: "Guía de comida para gatitos por edad: leche maternizada, comida húmeda, croquetas kitten, transición, porciones, ingredientes y alimentos prohibidos."
 published: "2022-05-24T00:54:00.009Z"
-updated: "2025-10-01T00:18:00.372Z"
+updated: "2026-06-18T00:00:00Z"
 datePublished: "2022-05-24"
 categories:
   - "Salud"
@@ -16,6 +16,8 @@ filename: "/2022/05/cual-es-la-comida-para-gatitos.html"
 featuredImg: "/assets/images/Gatito bebé comiendo croquetas de un plato baj.webp"
 ---
 Durante los primeros meses de vida, la **comida para gatitos** es mucho más que una cuestión de sabor: es la base de su crecimiento saludable, desarrollo del sistema inmune y bienestar futuro. Ya sea que tengas un gatito recién nacido o uno de 2 o 3 meses, saber qué darle de comer —y qué evitar— puede marcar una gran diferencia.
+
+**Respuesta rápida:** un gatito de 0 a 4 semanas necesita leche materna o fórmula maternizada para gatitos, nunca leche de vaca. Desde las 4 semanas puede iniciar destete con comida húmeda kitten o croquetas remojadas. De los 2 a 12 meses debe comer alimento formulado para gatitos, con varias comidas pequeñas al día, agua fresca y transición gradual ante cualquier cambio de marca.
 
 En esta guía práctica te explicamos **qué comen los gatitos según su edad** , cómo elegir entre **comida húmeda o seca** , qué ingredientes buscar y cuáles errores evitar. Además, incluimos recomendaciones reales de marcas y tipos de alimento que funcionan bien para gatitos de todas las razas.
 
@@ -56,7 +58,7 @@ Los gatitos no comen lo mismo durante toda su infancia. Su alimentación debe ad
 </tbody>
 </table>
 
-Recordá que la **leche de vaca puede causar diarrea** y no debe usarse para alimentar gatitos. En caso de que la madre no esté disponible, existen *fórmulas comerciales de leche para gatos recién nacidos* que replican su composición nutricional.
+Recordá que la **leche de vaca puede causar diarrea** y no debe usarse para alimentar gatitos. En caso de que la madre no esté disponible, existen *fórmulas comerciales de leche para gatos recién nacidos* que replican su composición nutricional. Si el gatito es huérfano o tiene menos de 4 semanas, revisá también la guía de [cuidados para gatitos recién nacidos sin madre](/salud/como-cuidar-gatitos-recien-nacidos-sin-madre/).
 
 Durante el destete (4–8 semanas), es clave ofrecer alimento húmedo tibio o croquetas para gatitos previamente remojadas. Esto facilita la transición y evita rechazos o problemas digestivos.
 
@@ -346,7 +348,7 @@ Más sobre salud digestiva: ¿Mi gato puede estar [enfermo del estómago](/salud
 </tbody>
 </table>
 
-Más sobre peso y prevención: [Obesidad en gatos](/salud/Obesidad-en-gatos/): cómo detectarla y prevenirla
+Más sobre peso y prevención: [Obesidad en gatos](/salud/obesidad-en-gatos/): cómo detectarla y prevenirla. Para una lista completa de riesgos, revisá [alimentos prohibidos para gatos](/salud/alimentos-prohibidos-gatos/).
 
 ## 🛒 Lista de compras recomendada
 
@@ -381,3 +383,33 @@ Una buena alimentación también depende de **utensilios y hábitos** . Esta lis
 * 👁️ Observá apetito y comportamiento tras cada comida.
 * 🧼 Lavá platos y bebederos a diario.
 * ⚖️ Control mensual de peso.
+
+## Preguntas frecuentes sobre comida para gatitos
+
+<details>
+<summary>¿Qué puede comer un gatito de un mes?</summary>
+
+Un gatito de un mes suele estar iniciando el destete. Puede tomar fórmula maternizada para gatitos y empezar con comida húmeda kitten muy suave o croquetas remojadas en agua tibia. No debe tomar leche de vaca ni comer alimento de gato adulto.
+
+</details>
+
+<details>
+<summary>¿Cuántas veces al día debe comer un gatito?</summary>
+
+Entre los 2 y 4 meses suele necesitar 4 comidas pequeñas al día. De los 4 a 6 meses puede bajar a 3 comidas, y hacia los 6 a 12 meses muchos gatitos pasan gradualmente a 2 o 3 comidas, según peso, energía y recomendación veterinaria.
+
+</details>
+
+<details>
+<summary>¿Es mejor comida húmeda o croquetas para gatitos?</summary>
+
+Lo ideal suele ser una dieta mixta: comida húmeda para hidratación y palatabilidad, y croquetas kitten para practicidad y masticación. Lo importante es que ambas sean completas, balanceadas y formuladas para crecimiento.
+
+</details>
+
+<details>
+<summary>¿Cuándo puedo cambiar a comida de gato adulto?</summary>
+
+En general, alrededor de los 12 meses. Algunas razas grandes o gatitos con necesidades especiales pueden requerir otro ritmo, así que conviene confirmarlo con el veterinario durante sus controles de crecimiento.
+
+</details>

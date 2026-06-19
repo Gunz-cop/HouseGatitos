@@ -1,5 +1,6 @@
 ---
 title: "Gato Tailandés: características, cuidados y todo sobre esta raza inteligente y sociable"
+slug: "gato-tailandes"
 description: "Conocé al gato tailandés: su origen, carácter, cuidados, salud y por qué es ideal para hogares activos y amantes de gatos inteligentes."
 published: "2022-05-02T19:45:00.004Z"
 updated: "2025-10-01T01:01:59.285Z"

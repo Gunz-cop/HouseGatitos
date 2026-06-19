@@ -1,8 +1,8 @@
 ---
-title: "Alimentos prohibidos para gatos: guía completa de comida peligrosa"
-description: "Descubre qué alimentos son prohibidos y tóxicos para tu gato. Evita intoxicaciones graves en casa y aprende qué hacer en una emergencia."
+title: "Alimentos prohibidos para gatos: lista tóxica y qué hacer si los come"
+description: "Lista de alimentos prohibidos para gatos: cebolla, ajo, chocolate, uvas, alcohol, huesos, leche y sobras. Señales de intoxicación y urgencias."
 published: "2026-06-09T08:00:00.000Z"
-updated: "2026-06-09T08:00:00.000Z"
+updated: "2026-06-18T00:00:00Z"
 datePublished: "2026-06-09"
 categories:
   - "Salud"
@@ -14,6 +14,15 @@ silo:
 filename: "/2026/06/alimentos-prohibidos-gatos.html"
 featuredImg: "/assets/images/alimentos-prohibidos-gato-portada.webp"
 ---
+
+**Respuesta rápida:** si tu gato comió chocolate, cebolla, ajo, uvas, pasas, alcohol, masa cruda, huesos cocidos o cualquier alimento con cafeína, no esperes a ver “si se le pasa”. Retira el alimento, anota cuánto pudo comer, guarda el empaque o foto del ingrediente y llama a tu veterinario o a un centro de toxicología animal. No induzcas el vómito ni des remedios caseros sin indicación profesional.
+
+| Urgencia | Alimentos o señales | Qué hacer |
+|---|---|---|
+| Alta | Chocolate, cafeína, alcohol, uvas, pasas, cebolla, ajo, masa fermentada | Contactar veterinario o urgencias de inmediato |
+| Alta | No puede respirar bien, convulsiona, se desploma, no orina o vomita repetidamente | Traslado urgente a clínica veterinaria |
+| Media | Diarrea, salivación, temblores, apatía o dolor abdominal | Consulta veterinaria el mismo día |
+| Preventiva | Lamió poca comida con sal, lácteos o sobras condimentadas | Observar, evitar repetir y llamar si hay síntomas |
 
 ## Introducción: el peligro de consentir de más a nuestros felinos
 
@@ -249,6 +258,8 @@ En ella comparamos el nivel de peligro de varios alimentos comunes y sus efectos
 | Leche y Queso | 🟡 Moderado | Estómago e Intestinos | Gases dolorosos y diarrea líquida |
 | Aguacate (Palta) | 🟠 Alto | Corazón y Páncreas | Dificultad para respirar y vómitos |
 
+Esta tabla no sustituye una consulta veterinaria. Si no sabes cuánto comió o el alimento aparece como crítico, actúa como si fuera una urgencia.
+
 ### Lista de verificación rápida antes de servir
 
 Antes de darle cualquier alimento natural a tu felino, repasa esta lista mentalmente:
@@ -412,12 +423,26 @@ Debes acudir al hospital veterinario de urgencia inmediatamente. El chocolate co
 </p>
 </details>
 
+<details>
+<summary>¿Puedo inducir el vómito de mi gato si comió algo tóxico?</summary>
+<p>
+No lo hagas por tu cuenta. Inducir el vómito con sal, agua oxigenada, aceite u otros remedios caseros puede causar aspiración, quemaduras o un desequilibrio grave. Llama primero a un veterinario, indica el alimento, la cantidad aproximada y la hora de ingestión.
+</p>
+</details>
+
+<details>
+<summary>¿Qué datos debo tener listos al llamar al veterinario?</summary>
+<p>
+Ten a mano el peso aproximado del gato, edad, alimento ingerido, cantidad estimada, hora de ingestión, síntomas actuales y una foto del empaque o receta. Esa información ayuda a decidir si necesita observación, consulta inmediata u hospitalización.
+</p>
+</details>
+
 ---
 
 ## Fuentes y referencias de autoridad
 
 Para garantizar la veracidad científica de este artículo, nos basamos en información oficial de:
 
-*   **FDA Center for Veterinary Medicine:** Recursos oficiales sobre nutrición animal segura en [fda.gov/animal-veterinary](https://www.fda.gov/animal-veterinary) *(Verificar URL exacta antes de publicar)*.
-*   **World Small Animal Veterinary Association (WSAVA):** Guías globales de salud y nutrición en [wsava.org](https://wsava.org) *(Verificar URL exacta antes de publicar)*.
-*   **ASPCA Animal Poison Control Center:** Base de datos de toxicología de mascotas en [aspca.org/pet-care/animal-poison-control](https://aspca.org/pet-care/animal-poison-control) *(Verificar URL exacta antes de publicar)*.
+*   **ASPCA Animal Poison Control Center:** lista de [people foods to avoid feeding your pets](https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets).
+*   **FDA Center for Veterinary Medicine:** guía de [potentially dangerous items for your pet](https://www.fda.gov/animal-veterinary/animal-health-literacy/potentially-dangerous-items-your-pet).
+*   **WSAVA Global Nutrition Committee:** recursos globales sobre nutrición veterinaria en [wsava.org](https://wsava.org/global-guidelines/global-nutrition-guidelines/).

@@ -1,8 +1,8 @@
 ---
-title: "Checklist imprimible de cuidados diarios para tu gato 🐱📋"
-description: "Descarga nuestro checklist de cuidados diarios para gatos. Una guía práctica y gratuita para organizar su comida, juego y salud en un solo lugar."
+title: "Cuidados diarios de un gato: checklist práctico e imprimible"
+description: "Checklist de cuidados diarios para gatos: comida, agua, arenero, juego, cepillado y señales de salud para organizar una rutina felina saludable."
 published: "2025-08-04T20:28:00Z"
-updated: "2025-09-26T07:16:28.556Z"
+updated: "2026-06-18T00:00:00.000Z"
 datePublished: "2025-08-04"
 categories:
   - "Cuidado"
@@ -17,6 +17,8 @@ filename: "/2025/08/checklist-cuidados-diarios-gato.html"
 featuredImg: "/assets/images/ChatGPT Image Aug 4, 2025, 02_34_44 PM (1).webp"
 ---
 ¿Alguna vez sentiste que tu gato te observa como si supiera exactamente qué viene después? Los gatos, aunque a veces parezcan criaturas misteriosas, aman la rutina. Desde ese primer bostezo matutino hasta el ronroneo nocturno en el sofá, cada pequeño gesto diario fortalece su bienestar y su vínculo con vos. 🐾
+
+**Respuesta rápida:** los cuidados diarios de un gato deben cubrir seis básicos: agua fresca, ración adecuada, arenero limpio, juego, revisión rápida de salud y contacto positivo. Si tienes poco tiempo, empieza por agua, comida y arenero; luego añade juego y observación como parte de la rutina.
 
 En este artículo te traemos un regalo muy especial: un **checklist imprimible de cuidados diarios para tu gato** . Es práctico, visual y pensado para simplificar tu día a día sin descuidar lo esencial. Porque sabemos que amás a tu gato, y también sabemos que a veces, entre tantas tareas, podés olvidarte de pequeños detalles que hacen la diferencia. ¡Acompañanos en esta guía para crear una rutina saludable, amorosa y efectiva! 🐱📋
 
@@ -141,11 +143,11 @@ Esta es la **plantilla diaria de cuidados para tu gato** . Podés imprimirla dir
 
 ![checklist diario de cuidados para gatos impreso y pegado en la pared](/assets/images/ChatGPT Image Aug 4, 2025, 02_48_35 PM (1).webp "Un checklist visible cerca del área de comida ayuda a mantener una rutina diaria organizada.")
 
-<button onclick="printChecklist()" aria-label="Imprimir solo el checklist" style="background-color: #ff6f61; color: white; font-size: 18px; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer;">
+<button onclick="window.print()" aria-label="Imprimir checklist de cuidados diarios" style="background-color: #ff6f61; color: white; font-size: 18px; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer;">
 🖨️ Imprimir solo el checklist
 </button>
 
-Más adelante, también podrás **descargar la versión en PDF** de esta plantilla lista para imprimir. 🐱📄
+También podés guardar esta plantilla como PDF desde la ventana de impresión del navegador, eligiendo la opción “Guardar como PDF”.
 
 ## Consejos extra según la edad del gato
 
