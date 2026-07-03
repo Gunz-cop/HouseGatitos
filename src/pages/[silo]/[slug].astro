@@ -86,6 +86,28 @@ if (post.slug === 'cuidados-diarios-gato') {
     { name: 'Registrar el cuidado diario', text: 'Marca las tareas completadas en una plantilla o checklist visible.' }
   ]));
 }
+
+// 4. Inyección inteligente del Banner Nativo de Adsterra
+let postContentHtml = contentHtml;
+const nativeAdCode = `
+<div class="ad-container ad-native-mid">
+  <span class="ad-label">También te puede interesar</span>
+  <script async="async" data-cfasync="false" src="https://pl16388850.effectivecpmnetwork.com/c8a439525d94bf4cf0e75c4f1c89cee6/invoke.js"></script>
+  <div id="container-c8a439525d94bf4cf0e75c4f1c89cee6"></div>
+</div>
+`;
+
+const h2Regex = /<h2[^>]*>/gi;
+const h2Matches = [...contentHtml.matchAll(h2Regex)];
+
+if (h2Matches.length >= 3) {
+  // Inyectar justo antes del tercer H2
+  const targetIndex = h2Matches[2].index;
+  postContentHtml = contentHtml.slice(0, targetIndex) + nativeAdCode + contentHtml.slice(targetIndex);
+} else {
+  // Si tiene menos de 3 encabezados H2, se añade al final de la lectura
+  postContentHtml = contentHtml + nativeAdCode;
+}
 ---
 <BaseLayout
   title={`${post.title} | House Gatitos`}
@@ -176,7 +198,7 @@ if (post.slug === 'cuidados-diarios-gato') {
           <script is:inline src="https://www.highperformanceformat.com/0eed39984d9749fa223100f8b6207f30/invoke.js"></script>
         </div>
 
-        <article class="post-content" set:html={contentHtml} />
+        <article class="post-content" set:html={postContentHtml} />
 
         <!-- Tags de categorías -->
         {post.categories.length > 0 && (
@@ -186,13 +208,6 @@ if (post.slug === 'cuidados-diarios-gato') {
             ))}
           </div>
         )}
-
-        <!-- NATIVE BANNER DE ADSTERRA (BOTTOM OF CONTENT) -->
-        <div class="ad-container ad-native-bottom">
-          <span class="ad-label">También te puede interesar</span>
-          <script is:inline async="async" data-cfasync="false" src="https://pl16388850.effectivecpmnetwork.com/c8a439525d94bf4cf0e75c4f1c89cee6/invoke.js"></script>
-          <div id="container-c8a439525d94bf4cf0e75c4f1c89cee6"></div>
-        </div>
       </div>
     </div>
   </main>
