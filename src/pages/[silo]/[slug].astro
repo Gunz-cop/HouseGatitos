@@ -161,6 +161,21 @@ if (post.slug === 'cuidados-diarios-gato') {
 
       <!-- Cuerpo del post -->
       <div class="post-main">
+        <!-- BANNER ESTÁTICO DE ADSTERRA (TOP OF CONTENT) -->
+        <div class="ad-container ad-banner-top">
+          <span class="ad-label">Publicidad</span>
+          <script is:inline>
+            atOptions = {
+              'key' : '0eed39984d9749fa223100f8b6207f30',
+              'format' : 'iframe',
+              'height' : 250,
+              'width' : 300,
+              'params' : {}
+            };
+          </script>
+          <script is:inline src="https://www.highperformanceformat.com/0eed39984d9749fa223100f8b6207f30/invoke.js"></script>
+        </div>
+
         <article class="post-content" set:html={contentHtml} />
 
         <!-- Tags de categorías -->
@@ -171,6 +186,13 @@ if (post.slug === 'cuidados-diarios-gato') {
             ))}
           </div>
         )}
+
+        <!-- NATIVE BANNER DE ADSTERRA (BOTTOM OF CONTENT) -->
+        <div class="ad-container ad-native-bottom">
+          <span class="ad-label">También te puede interesar</span>
+          <script is:inline async="async" data-cfasync="false" src="https://pl16388850.effectivecpmnetwork.com/c8a439525d94bf4cf0e75c4f1c89cee6/invoke.js"></script>
+          <div id="container-c8a439525d94bf4cf0e75c4f1c89cee6"></div>
+        </div>
       </div>
     </div>
   </main>

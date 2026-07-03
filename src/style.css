@@ -1721,3 +1721,36 @@ a:hover { text-decoration: underline; }
   gap: 0.6rem;
 }
 
+/* --- Contenedores de Anuncios Adsterra --- */
+.ad-container {
+  margin: 2.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  clear: both;
+}
+
+.ad-label {
+  font-size: 0.72rem;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.65rem;
+  display: block;
+}
+
+/* Evitar salto de contenido reservando espacio mínimo (300x250) */
+.ad-banner-top {
+  min-height: 250px;
+}
+
+.ad-native-bottom {
+  min-height: 250px;
+  border-top: 1px dashed var(--clr-border);
+  padding-top: 2rem;
+}
+
+
