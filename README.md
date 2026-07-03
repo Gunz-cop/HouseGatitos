@@ -2,6 +2,8 @@
 
 **Centro de Soluciones y Cuidado Felino**
 
+> Guia para agentes e IDEs con IA: si vas a generar prompts o imagenes para articulos, lee primero `AGENTS.md`.
+
 Blog estático construido con **Vite + HTML/CSS/Vanilla JS**, desplegado en **Cloudflare Pages** con CI/CD desde **GitHub**.
 
 ---
