@@ -10,6 +10,7 @@ import { marked } from 'marked';
 
 const SITE_URL = 'https://housegatitos.com';
 const POSTS_DIR = path.join(process.cwd(), 'src/content/posts');
+const PUBLIC_DIR = path.join(process.cwd(), 'public');
 
 function parseFrontmatter(yamlContent) {
   const obj = {};
@@ -117,8 +118,13 @@ export function getPosts() {
       // Mapear rutas de imágenes optimizadas (card y thumb)
       if (post.featuredImg && post.featuredImg.startsWith('/assets/images/')) {
         const baseName = path.parse(post.featuredImg).name;
-        post.featuredImgCard = `/assets/images/optimized/${baseName}-card.webp`;
-        post.featuredImgThumb = `/assets/images/optimized/${baseName}-thumb.webp`;
+        const cardPath = `/assets/images/optimized/${baseName}-card.webp`;
+        const thumbPath = `/assets/images/optimized/${baseName}-thumb.webp`;
+        const cardFile = path.join(PUBLIC_DIR, cardPath.replace(/^\//, ''));
+        const thumbFile = path.join(PUBLIC_DIR, thumbPath.replace(/^\//, ''));
+
+        post.featuredImgCard = fs.existsSync(cardFile) ? cardPath : post.featuredImg;
+        post.featuredImgThumb = fs.existsSync(thumbFile) ? thumbPath : post.featuredImg;
       } else {
         post.featuredImgCard = post.featuredImg;
         post.featuredImgThumb = post.featuredImg;
