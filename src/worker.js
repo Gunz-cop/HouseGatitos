@@ -81,6 +81,16 @@ export default {
       });
     }
 
+    if (url.pathname === '/api/geo') {
+      const country = request.cf?.country || request.headers.get('cf-ipcountry') || 'unknown';
+      return new Response(JSON.stringify({ country }), {
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-store, no-cache, must-revalidate',
+        },
+      });
+    }
+
     const response = await env.ASSETS.fetch(request);
     return withSeoHeaders(response);
   },

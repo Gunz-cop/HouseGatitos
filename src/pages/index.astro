@@ -109,7 +109,7 @@ const jsonLd = [
             “El bienestar de un felino empieza por comprender que su silencio a menudo enmascara malestar. Aprender a observar es el primer paso clínico del tutor.”
           </p>
           <div class="quote-footer">
-            <a href="/salud/sintomas-gatos/" class="quote-link">Ver Guía de Triaje Clínico →</a>
+            <a href="/salud/sintomas-gatos/" class="quote-link" data-emergency-link>Ver Guía de Triaje Clínico →</a>
           </div>
         </div>
       </div>
@@ -283,7 +283,7 @@ const jsonLd = [
             <p class="ficha-desc">
               Aprende a medir constantes críticas (frecuencia respiratoria, tiempo de llenado capilar, hidratación) antes de contactar a tu clínica veterinaria.
             </p>
-            <a href="/salud/sintomas-gatos/" class="ficha-link">Ver protocolo de examen →</a>
+            <a href="/salud/sintomas-gatos/" class="ficha-link" data-emergency-link>Ver protocolo de examen →</a>
           </div>
         </div>
 
@@ -1096,5 +1096,42 @@ const jsonLd = [
 
   // ── Init ─────────────────────────────────────────────────────────────
   loadChecklist();
+
+  // ── Geopersonalización para Costa Rica (Directorio de Veterinarias) ─────
+  async function checkCostaRica() {
+    let isCR = false;
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if (tz === 'America/Costa_Rica') {
+        isCR = true;
+      }
+    } catch (e) {}
+
+    try {
+      const res = await fetch('/api/geo');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.country === 'CR') {
+          isCR = true;
+        } else if (data.country && data.country !== 'unknown') {
+          isCR = false;
+        }
+      }
+    } catch (e) {}
+
+    if (isCR) {
+      document.querySelectorAll('[data-emergency-link]').forEach(el => {
+        el.setAttribute('href', 'https://vet24cr.com/');
+        el.setAttribute('target', '_blank');
+        el.setAttribute('rel', 'noopener noreferrer');
+        if (el.classList.contains('quote-link')) {
+          el.textContent = 'Buscar Veterinarias en Costa Rica ↗';
+        } else {
+          el.textContent = 'Buscar Veterinarias 24h ↗';
+        }
+      });
+    }
+  }
+  checkCostaRica();
 </script>
 
