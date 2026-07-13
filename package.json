@@ -8,13 +8,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "npm --cache .npm-cache exec wrangler -- deploy",
     "sdi:run": "sdi run",
     "briefs:clean": "node scripts/organizar-briefs.js"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.6.0",
-    "@sdi/cli": "file:../../SDI/sdi-cli-0.1.0.tgz",
     "astro": "^4.16.19",
     "sharp": "^0.34.5",
     "vite": "^5.4.0",

@@ -3,15 +3,18 @@
 ## Estado
 
 Desde esta etapa, **SDI es el único flujo de discovery activo de
-HouseGatitos**. El flujo operativo es explícito y no encadena efectos ocultos:
+HouseGatitos**. Por decisión del Product Owner, el deploy es exclusivamente
+remoto y parte de GitHub:
 
 ```text
-npm run build -> npm run deploy -> npm run sdi:run
+IDE -> push a GitHub -> Cloudflare build -> Cloudflare deploy
+-> verificar commit publicado -> SDI local
 ```
 
-`deploy` publica únicamente el Worker existente; `sdi:run` solamente se
-ejecuta cuando el deploy anterior terminó correctamente. Si build o deploy
-fallan, no se debe ejecutar el siguiente comando.
+Cloudflare construye y publica el Worker; no ejecuta SDI, no lee state y no
+recibe `@sdi/cli` como dependencia. `sdi:run` solo se ejecuta desde el
+checkout local que preserva el state, tras confirmar que Cloudflare publicó el
+mismo commit. Si el build o deploy remoto fallan, SDI no se ejecuta.
 
 ## Inventario y resolución del legacy
 
@@ -27,8 +30,10 @@ fallan, no se debe ejecutar el siguiente comando.
 | `docs/sdi-stage-6-2/` y `docs/sdi-stage-6-3/` | Evidencia histórica | Conservadas y marcadas como no operativas. |
 
 No quedan imports, scripts de `package.json`, dependencias ni llamadas de
-deploy hacia discovery legacy. Los imports profundos de `@sdi/cli/dist/**` no
-forman parte de la integración productiva.
+deploy hacia discovery legacy. `@sdi/cli` tampoco es dependencia del build
+remoto; el binario SDI se instala y ejecuta solo en la máquina local operadora.
+Los imports profundos de `@sdi/cli/dist/**` no forman parte de la integración
+productiva.
 
 ## State operativo local
 
@@ -37,9 +42,9 @@ mutable local de SDI y está ignorado por Git junto con reportes, lock y backups
 atómicos. El state inicial aprobado es el schema v1 de 6.3: 86 recursos y
 SHA-256 `7e6bc79283dbd68612dafe61ad036728af0519e448f37885c57816c9fa7c9f53`.
 
-- **Persistencia:** conservar `.sdi/` en el directorio de trabajo desde el que
-  se ejecutan los tres comandos. Un deploy no borra `.sdi/`; `dist/` es
-  desechable, el state no.
+- **Persistencia:** conservar `.sdi/` en el checkout local desde el que se
+  ejecuta SDI. Cloudflare nunca recibe este directorio; `dist/` remoto es
+  desechable, el state local no.
 - **Backup:** antes de cambios operativos, copiar `.sdi/state.json`,
   `.sdi/state.json.bak` si existe y `.sdi/last-run.json` a una ruta local
   fechada fuera de Git. El backup histórico previo al primer live está en
@@ -55,15 +60,22 @@ SHA-256 `7e6bc79283dbd68612dafe61ad036728af0519e448f37885c57816c9fa7c9f53`.
 
 ## Operación
 
-Se requiere Node 22.12+ y `npm ci`. `INDEXNOW_KEY` vive solo en `.env` o en el
-entorno; no se imprime ni se versiona. Autenticar Wrangler mediante la sesión
-o token configurado para la cuenta existente. En entornos que usan el store de
-certificados del sistema, antes de deploy y live usar PowerShell:
+Se requiere Node 22.12+ y `npm ci` para el build local de diagnóstico. El
+tarball aprobado de SDI se instala localmente en la máquina operadora, fuera de
+las dependencias de HouseGatitos, por ejemplo:
+
+```powershell
+Set-Location C:\Users\grcx1\OneDrive\Documentos\SDI
+npm run build
+npm pack
+npm install --global .\sdi-cli-0.1.0.tgz
+```
+
+Después de push, revisar que Cloudflare terminó correctamente y publicó el
+commit esperado. Solo entonces, desde el checkout local de HouseGatitos:
 
 ```powershell
 $env:NODE_OPTIONS = (($env:NODE_OPTIONS + ' --use-system-ca').Trim())
-npm run build
-npm run deploy
 npm run sdi:run
 ```
 

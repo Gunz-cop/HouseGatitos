@@ -14,24 +14,27 @@ El build genera `dist/`, sitemaps y el HTML que SDI usa para detectar cambios.
 
 ## Flujo de producción
 
-El único mecanismo activo de discovery es SDI. Ejecutar los comandos en este
-orden y desde el mismo directorio que contiene `.sdi/`:
+Decisión del Product Owner: GitHub es la fuente de verdad y Cloudflare es el
+único ejecutor del deploy:
 
-```powershell
-$env:NODE_OPTIONS = (($env:NODE_OPTIONS + ' --use-system-ca').Trim())
-npm run build
-npm run deploy
-npm run sdi:run
+```text
+IDE → push a GitHub → Cloudflare build → Cloudflare deploy
+→ verificar el commit publicado → SDI local
 ```
 
-- `npm run deploy` despliega solamente el Worker; no construye ni notifica.
-- `npm run sdi:run` ejecuta el binario local `@sdi/cli` después de un deploy
-  exitoso. Requiere `INDEXNOW_KEY` en `.env` o en el entorno.
-- No continúe si un comando falla. Antes de un live, puede revisar el delta con
-  `npx sdi run --dry-run`.
+- Cloudflare ejecuta únicamente `npm run build` y su deploy configurado. El
+  build no ejecuta SDI, no lee `.sdi/` ni necesita `@sdi/cli`.
+- No usar `wrangler deploy` como flujo normal.
+- Tras verificar en Cloudflare que el commit correcto quedó publicado, desde el
+  checkout local que conserva `.sdi/`, ejecutar `npm run sdi:run`.
+- No ejecutar SDI si el build o deploy remoto fallaron, o si el commit publicado
+  no coincide con el checkout local.
 
-Wrangler debe autenticarse con la cuenta existente. No use bypass TLS; cuando
-el entorno lo requiera, `--use-system-ca` se aplica mediante `NODE_OPTIONS`.
+SDI no es dependencia de HouseGatitos: instálelo localmente desde el tarball
+aprobado de SDI para que el binario `sdi` esté disponible en el `PATH` de la
+máquina operadora. `INDEXNOW_KEY` vive solo en `.env` o en el entorno local.
+No use bypass TLS; cuando el entorno lo requiera, aplique `--use-system-ca`
+mediante `NODE_OPTIONS` antes de ejecutar SDI.
 
 `.sdi/state.json` es state operativo local, no se versiona y no debe borrarse
 durante un deploy o checkout. Contiene el snapshot usado para el siguiente
