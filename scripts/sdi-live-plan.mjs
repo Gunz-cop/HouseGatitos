@@ -1,6 +1,5 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import { execFileSync } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { compareRecords } from "@sdi/cli/dist/core/compare.js";
@@ -14,13 +13,16 @@ const sdiCommit = "3546d8d79d4fcc285b2ff662422deb6d13b5eb2d";
 const sdiTarballPath = path.resolve(root, "..", "..", "SDI", "sdi-cli-0.1.0.tgz");
 const approvedTarballSha256 = "aac5aec39ce06f988e09f8751c881a989f0ca15f560c77da06c19529ef9088a1";
 const sdiVersion = "0.1.0";
+// This is the content commit that produced the candidate build. Evidence-only
+// commits deliberately do not change it, so regenerating the committed batch
+// does not introduce a moving HEAD value.
+const houseBuildCommit = "0c07c1439578bcb6ab18a682da58e8c7de1b747c";
 
 const tarballSha256 = createHash("sha256").update(await readFile(sdiTarballPath)).digest("hex");
 if (tarballSha256 !== approvedTarballSha256) {
   throw new Error(`Approved SDI tarball hash mismatch: expected ${approvedTarballSha256}, received ${tarballSha256}`);
 }
 
-const houseCommit = execFileSync("git", ["rev-parse", "HEAD"], { cwd: root, encoding: "utf8" }).trim();
 
 const legacy = JSON.parse(await readFile(legacyPath, "utf8"));
 const source = new AstroBuildSource({
@@ -44,7 +46,7 @@ const report = {
   schemaVersion: 1,
   purpose: "Stage 6.2.1 frozen live-candidate review artifact. Generated from the committed static build and retained legacy state; it does not publish or write SDI state.",
   provenance: {
-    houseCommit,
+    houseCommit: houseBuildCommit,
     sdiCommit,
     sdiVersion,
     sdiTarballPath: "../../SDI/sdi-cli-0.1.0.tgz",
