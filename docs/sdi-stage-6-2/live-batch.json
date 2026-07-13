@@ -1,6 +1,14 @@
 {
   "schemaVersion": 1,
-  "purpose": "Stage 6.2 review artifact. Generated from the current static build and retained legacy state; it does not publish or write SDI state.",
+  "purpose": "Stage 6.2.1 frozen live-candidate review artifact. Generated from the committed static build and retained legacy state; it does not publish or write SDI state.",
+  "provenance": {
+    "houseCommit": "0c07c1439578bcb6ab18a682da58e8c7de1b747c",
+    "sdiCommit": "3546d8d79d4fcc285b2ff662422deb6d13b5eb2d",
+    "sdiVersion": "0.1.0",
+    "sdiTarballPath": "../../SDI/sdi-cli-0.1.0.tgz",
+    "sdiTarballSha256": "aac5aec39ce06f988e09f8751c881a989f0ca15f560c77da06c19529ef9088a1",
+    "generatedOn": "2026-07-13"
+  },
   "inputs": {
     "siteUrl": "https://housegatitos.com",
     "legacyStatePath": "lib/discovery/state/sdi-state.json",

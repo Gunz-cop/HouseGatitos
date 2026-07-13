@@ -5,6 +5,65 @@ HouseGatitos. No autoriza una publicación. En particular, durante esta etapa
 no se ejecutan `npx sdi baseline --confirm` ni `npx sdi run` contra la
 configuración real.
 
+## Subetapa 6.2.1 — candidato live congelado
+
+El candidato de build está fijado en House commit
+`0c07c1439578bcb6ab18a682da58e8c7de1b747c`. Ese commit incorpora solamente
+las dos variantes optimizadas que el código selecciona para el post Savannah:
+`gato-savannah-portada-editorial-card.webp` y
+`gato-savannah-portada-editorial-thumb.webp`. Ambas aparecen referenciadas en
+el HTML compilado.
+
+Los otros 412 derivados no versionados de `public/assets/images/optimized/`
+no están referenciados por el build candidato; se clasificaron como artefactos
+generados ajenos al candidato y no se incluyeron ni se eliminaron del
+worktree editorial original. Los archivos locales restantes (`.agents/`,
+briefs, plan de contenido y `scripts/organizar-briefs.js`) no intervienen en
+el build y permanecen fuera de esta rama. La evidencia se ejecutó en un
+worktree limpio dedicado de la rama de congelación.
+
+El state legacy sigue siendo un archivo local ignorado por diseño. Se copió
+solo como entrada de lectura al worktree de evidencia y se verificó sin
+cambios con SHA-256
+`78a0ee38132869d066cc432acbc858ed720bb6f98dc5701b36c2ea3ee0cf0475`.
+
+### Dependencia SDI fijada
+
+- Commit SDI: `3546d8d79d4fcc285b2ff662422deb6d13b5eb2d`.
+- Paquete instalado: `@sdi/cli` `0.1.0`.
+- Tarball: `../../SDI/sdi-cli-0.1.0.tgz`.
+- SHA-256: `aac5aec39ce06f988e09f8751c881a989f0ca15f560c77da06c19529ef9088a1`.
+- `package-lock.json` conserva la referencia `file:../../SDI/sdi-cli-0.1.0.tgz`
+  y su integridad SHA-512.
+
+### Evidencia de ejecución
+
+- `npm ci`: correcto; npm informó 5 vulnerabilidades de dependencias (no se
+  modificaron dependencias durante esta subetapa).
+- `npm run build`: correcto; 87 páginas generadas.
+- `npm run sdi:shadow:compare`: 86 recursos finales, 2 `created`, 84
+  `updated`, 0 `deleted`, sin duplicados, rechazos, colisiones ni HTML ausente.
+- `npm run sdi:live:plan`: 86 entradas, 2 `created`, 84 `updated`, 0
+  `unchanged`, 0 `deleted`.
+- No se creó `.sdi/state.json`; no se ejecutaron baseline, live, deploy ni
+  llamadas reales a IndexNow.
+
+El lote incluye commit de House, commit/versión/tarball/SHA de SDI, fecha de
+generación, hashes legacy y actuales, resumen completo y entradas ordenadas.
+El plan valida el SHA-256 aprobado antes de escribirlo y no contiene secretos.
+
+### Comparación con 6.2 y reproducibilidad
+
+Frente al lote 6.2 anterior: no hay URLs añadidas/eliminadas, cambios de
+clasificación, cambios de hashes ni diferencias de conteo. La incorporación
+de las dos variantes Savannah elimina la ambigüedad del worktree, pero no
+altera el HTML ya observado en 6.2. Después de limpiar los artefactos de
+build y regenerar build, shadow y plan, los dos lotes tuvieron el mismo
+SHA-256: `911b875b33475418f7f1c61ff4036d2898d9c9af2484c317ed108ca813834562`.
+
+El candidato técnico es **GO** para la revisión de autorización de 6.3. Esto
+no constituye autorización del Product Owner ni permite ejecutar el live.
+
 ## Lote propuesto
 
 `live-batch.json` se regenera con `npm run sdi:live:plan` a partir de `dist/`
@@ -15,15 +74,11 @@ hash actual y evidencia de que no fue eliminada.
 El build revisado produce 86 URLs publicables: 2 `created`, 84 `updated`, 0
 `unchanged` y 0 `deleted`.
 
-### Corrección pendiente antes de 6.3
+### Corrección de 6.2 resuelta
 
-El worktree de House contiene assets sin seguimiento que pueden cambiar los
-HTML (por ejemplo, la selección de variantes de imagen). Por ello este lote es
-determinista para el build inspeccionado, pero no debe considerarse aún el lote
-final de producción ligado a un commit exacto. Antes de aprobar 6.3 se deben
-consolidar o retirar esos cambios ajenos en un commit de House, partir de un
-worktree limpio y repetir `npm run build`, `npm run sdi:live:plan` y la
-revisión humana del lote. No ejecutar live hasta entonces.
+La ambigüedad de assets se resolvió en la subetapa 6.2.1 con el commit y la
+evidencia anteriores. Sigue siendo obligatoria la revisión humana del lote y
+la autorización explícita antes de 6.3.
 
 ## Por qué aparecen 84 updates
 
@@ -131,11 +186,11 @@ run, commit de House, commit/tarball de SDI y SHA-256.
 
 ## Checklist de aprobación para Gonzalo
 
-- [ ] Commit exacto de House revisado.
-- [ ] Worktree de House limpio; lote regenerado desde ese commit exacto.
-- [ ] Commit exacto de SDI revisado.
-- [ ] SHA-256 del tarball de SDI verificado.
-- [ ] Build exitoso y lote regenerado/revisado.
+- [x] Commit exacto de House revisado para el build candidato.
+- [x] Worktree de evidencia limpio; lote regenerado desde ese commit exacto.
+- [x] Commit exacto de SDI revisado.
+- [x] SHA-256 del tarball de SDI verificado.
+- [x] Build exitoso y lote regenerado/revisado.
 - [ ] Deploy exitoso y verificado.
 - [ ] `INDEXNOW_KEY` y `keyLocation` validadas sin filtración.
 - [ ] Estrategia A de state aprobada.
