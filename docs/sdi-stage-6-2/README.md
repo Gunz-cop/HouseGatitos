@@ -15,6 +15,16 @@ hash actual y evidencia de que no fue eliminada.
 El build revisado produce 86 URLs publicables: 2 `created`, 84 `updated`, 0
 `unchanged` y 0 `deleted`.
 
+### Corrección pendiente antes de 6.3
+
+El worktree de House contiene assets sin seguimiento que pueden cambiar los
+HTML (por ejemplo, la selección de variantes de imagen). Por ello este lote es
+determinista para el build inspeccionado, pero no debe considerarse aún el lote
+final de producción ligado a un commit exacto. Antes de aprobar 6.3 se deben
+consolidar o retirar esos cambios ajenos en un commit de House, partir de un
+worktree limpio y repetir `npm run build`, `npm run sdi:live:plan` y la
+revisión humana del lote. No ejecutar live hasta entonces.
+
 ## Por qué aparecen 84 updates
 
 La comparación reproducible contra `379f72e` (2026-06-19, el commit del
@@ -122,6 +132,7 @@ run, commit de House, commit/tarball de SDI y SHA-256.
 ## Checklist de aprobación para Gonzalo
 
 - [ ] Commit exacto de House revisado.
+- [ ] Worktree de House limpio; lote regenerado desde ese commit exacto.
 - [ ] Commit exacto de SDI revisado.
 - [ ] SHA-256 del tarball de SDI verificado.
 - [ ] Build exitoso y lote regenerado/revisado.
