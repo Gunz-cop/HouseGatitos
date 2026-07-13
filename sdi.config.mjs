@@ -12,7 +12,6 @@ export default {
     trailingSlash: "always",
   },
   statePath: "./.sdi/state.json",
-  legacyStatePath: "./lib/discovery/state/sdi-state.json",
   reportPath: "./.sdi/last-run.json",
   indexNow: {
     keyEnv: "INDEXNOW_KEY",

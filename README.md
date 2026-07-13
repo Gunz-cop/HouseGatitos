@@ -1,108 +1,42 @@
-# House Gatitos 🐾
+# House Gatitos
 
-**Centro de Soluciones y Cuidado Felino**
+Sitio estático Astro desplegado como assets del Worker `housegatitos` en
+Cloudflare. Para reglas editoriales de imágenes, consulte `AGENTS.md`.
 
-> Guia para agentes e IDEs con IA: si vas a generar prompts o imagenes para articulos, lee primero `AGENTS.md`.
+## Desarrollo
 
-Blog estático construido con **Vite + HTML/CSS/Vanilla JS**, desplegado en **Cloudflare Pages** con CI/CD desde **GitHub**.
-
----
-
-## Tecnología
-
-| Capa | Tecnología |
-|---|---|
-| Build tool | Vite 5 |
-| Frontend | HTML + CSS + Vanilla JS (sin frameworks) |
-| Generador de contenido | Node.js (`build-blog.js`) |
-| Fuente de datos | `Blogger/Blogs/.../feed.atom` |
-| Imágenes | `Blogger/Albums/House Gatitos/` |
-| Hosting | Cloudflare Pages |
-| Repositorio | GitHub |
-| Dominio | housegatitos.com |
-
----
-
-## Estructura del Proyecto
-
-```
-HouseGatitos/
-├── Blogger/               ← Exportación original de Blogger
-│   ├── Albums/House Gatitos/    ← Imágenes locales (~750 archivos)
-│   └── Blogs/House Gatitos.../
-│       └── feed.atom            ← Fuente de datos (75 posts)
-├── src/
-│   ├── index.html         ← Home (Centro de Soluciones)
-│   └── style.css          ← CSS global premium
-├── templates/
-│   └── post.html          ← Plantilla de artículo
-├── public/
-│   ├── search-index.json  ← Índice de búsqueda (generado)
-│   └── posts-data.json    ← Datos de posts para la home (generado)
-├── dist/                  ← Output de build (para Cloudflare)
-│   ├── index.html
-│   ├── [slug]/index.html  ← Cada post en su propia carpeta
-│   ├── _redirects         ← Redirecciones 301 de URLs antiguas
-│   ├── sitemap.xml
-│   └── robots.txt
-├── build-blog.js          ← Script que parsea el feed y genera HTML
-├── vite.config.js
-└── package.json
-```
-
----
-
-## Desarrollo local
-
-```bash
-# Instalar dependencias (solo la primera vez)
-npm install
-
-# Generar posts + servir en modo dev
+```powershell
+npm ci
 npm run dev
 ```
 
-Esto ejecuta primero `build-blog.js` (genera dist/ con posts, _redirects, sitemap) y luego Vite en modo dev.
+El build genera `dist/`, sitemaps y el HTML que SDI usa para detectar cambios.
 
----
+## Flujo de producción
 
-## Build de producción
+El único mecanismo activo de discovery es SDI. Ejecutar los comandos en este
+orden y desde el mismo directorio que contiene `.sdi/`:
 
-```bash
+```powershell
+$env:NODE_OPTIONS = (($env:NODE_OPTIONS + ' --use-system-ca').Trim())
 npm run build
+npm run deploy
+npm run sdi:run
 ```
 
-La carpeta `dist/` contiene el sitio listo para subir a Cloudflare Pages.
+- `npm run deploy` despliega solamente el Worker; no construye ni notifica.
+- `npm run sdi:run` ejecuta el binario local `@sdi/cli` después de un deploy
+  exitoso. Requiere `INDEXNOW_KEY` en `.env` o en el entorno.
+- No continúe si un comando falla. Antes de un live, puede revisar el delta con
+  `npx sdi run --dry-run`.
 
----
+Wrangler debe autenticarse con la cuenta existente. No use bypass TLS; cuando
+el entorno lo requiera, `--use-system-ca` se aplica mediante `NODE_OPTIONS`.
 
-## Configuración en Cloudflare Pages
+`.sdi/state.json` es state operativo local, no se versiona y no debe borrarse
+durante un deploy o checkout. Contiene el snapshot usado para el siguiente
+delta; su backup y restauración se documentan en
+[`docs/sdi-stage-6-4/README.md`](docs/sdi-stage-6-4/README.md).
 
-En el dashboard de Cloudflare Pages, usa estas opciones:
-
-| Parámetro | Valor |
-|---|---|
-| **Framework preset** | None (Custom) |
-| **Build command** | `npm run build` |
-| **Build output directory** | `dist` |
-| **Root directory** | `/` |
-| **Node.js version** | `20` |
-
----
-
-## SEO
-
-- ✅ URLs limpias (`/nombre-del-post/`) sin fechas ni `.html`
-- ✅ Redirecciones 301 de URLs antiguas de Blogger
-- ✅ Etiquetas canónicas en cada página
-- ✅ JSON-LD `BlogPosting` con autor "Equipo de House Gatitos"
-- ✅ JSON-LD `WebSite` y `Organization` en la Home
-- ✅ Breadcrumbs semánticos con JSON-LD
-- ✅ Sitemap XML con fechas de modificación
-- ✅ Open Graph y Twitter Card en todos los posts
-
----
-
-## Autor del contenido
-
-**Equipo de House Gatitos** — así figura en todos los metadatos y datos estructurados del sitio.
+Una aceptación de IndexNow solo confirma recepción de la notificación; no
+garantiza indexación ni ranking.

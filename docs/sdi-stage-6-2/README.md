@@ -1,5 +1,10 @@
 # SDI — Etapa 6.2: preparación del primer live controlado
 
+> **Archivo histórico (no operativo).** Esta evidencia corresponde a la
+> preparación previa a 6.3. Los scripts que menciona fueron retirados en 6.4;
+> para operar HouseGatitos, siga el flujo de `README.md` y
+> `docs/sdi-stage-6-4/README.md`.
+
 Esta carpeta contiene la evidencia revisable para el primer live de SDI en
 HouseGatitos. No autoriza una publicación. En particular, durante esta etapa
 no se ejecutan `npx sdi baseline --confirm` ni `npx sdi run` contra la

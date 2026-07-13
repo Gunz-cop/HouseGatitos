@@ -1,5 +1,10 @@
 # SDI — Etapa 6.3: primer live controlado
 
+> **Evidencia histórica (no operativa).** El live descrito aquí creó el state
+> v1 que 6.4 adopta como state local operativo. No reutilice los comandos de
+> migración anteriores; use el flujo definitivo documentado en
+> `docs/sdi-stage-6-4/README.md`.
+
 ## Resultado
 
 **GO.** Se ejecutó exactamente un live de SDI contra el Worker productivo de
