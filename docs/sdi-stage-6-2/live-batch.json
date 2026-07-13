@@ -1,0 +1,621 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Stage 6.2 review artifact. Generated from the current static build and retained legacy state; it does not publish or write SDI state.",
+  "inputs": {
+    "siteUrl": "https://housegatitos.com",
+    "legacyStatePath": "lib/discovery/state/sdi-state.json",
+    "sitemapUsed": true,
+    "rawDiscovered": 86
+  },
+  "summary": {
+    "total": 86,
+    "created": 2,
+    "updated": 84,
+    "unchanged": 0,
+    "deleted": 0
+  },
+  "entries": [
+    {
+      "url": "https://housegatitos.com/",
+      "classification": "updated",
+      "legacyHash": "77ad9b17556771f1f3e4d703eec54da0e0cbca7ac5656a7a12554c33c7f6265c",
+      "currentHash": "db713bc46c5d1f7903bd78e628452ab6cc9188511b21c32d1253ce9f182f5781",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/aviso-legal/",
+      "classification": "updated",
+      "legacyHash": "5dc63b1021c070fa7ecdf50a2171ed481a9a8598a94a30bc0445dace26db7c97",
+      "currentHash": "0e98bc633d72fb6b81f3581f7f21f135699e6a5ebfb2c6b5ba9022d9eca8067f",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/calculadora-comida-gatos/",
+      "classification": "updated",
+      "legacyHash": "a6eef2b8c4f6ba38516ae2066246b2ac9a3eebebc431aad06b43117a61b8ee93",
+      "currentHash": "5558251246354d6389301f1265eccef25863a3ada88c2dfc09776d6ddbc5f29d",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/contacto/",
+      "classification": "updated",
+      "legacyHash": "0b70123f35929e37ab0534b90ad8cfcd2027b37df3957b3ad135f18e92d5c00e",
+      "currentHash": "8e9d64c46708fab530c6e7892dd9e374254b69875f5f8687655fcf82387808b1",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/cookies/",
+      "classification": "updated",
+      "legacyHash": "13940b21363b4ebacbb10bd6dbaf65e0452d850dc675c90ec9c3c4a6ef1114ba",
+      "currentHash": "84a9a4f080b4cfeed86ecaaed81338b840626287b42969ae03452142018a544b",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/",
+      "classification": "updated",
+      "legacyHash": "efdae97ae40c705ae8e9c22f7c41520831e341ed98efed7bd62570440a51154d",
+      "currentHash": "aba502f1e76d54f1b7e2f31a419e8229e687fa50c34f6ba0bde49a89a3468b39",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/10-asociaciones-para-ayudar-animales/",
+      "classification": "updated",
+      "legacyHash": "fcb429303c8a29a38acd1c36d894c9462a228b1b9cea572bb892e8e972c01aaf",
+      "currentHash": "c2f67ee9255ce526968ec92e73792809cf31a9d59a4de80519fa2165f5df23df",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/10-gatos-con-nariz-chata/",
+      "classification": "updated",
+      "legacyHash": "b6e08fc5ebae14d83da9ebec8d2580f77f7d30d7883e43309ab441bbd47f3f50",
+      "currentHash": "bad2569a4d9fe9fb6ca2e9f1742cfd6362cdea7d50d1fb4d6f0a0aea27c547c0",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/100-frases-de-gatos-para-que-puedas-presumir/",
+      "classification": "updated",
+      "legacyHash": "e2854ce79f137a6926100147b4188c5bc60f238f601809650f5d3814bd1332fb",
+      "currentHash": "e21734f260c510ec98aa76d47a4d0a8160696768aa85f0a624a1fa5587da8441",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/3-grandes-de-la-literatura-y-sus-poemas/",
+      "classification": "updated",
+      "legacyHash": "c291d5b4b87cfadd9980353b45e8223b5c66ec1a2accd97a01cd5cd636116b45",
+      "currentHash": "efff9ecd906d771eda3dceff2907afdeb45a67ff78619efbf549f749f2fc6f5e",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/4-consejos-para-realizar-teletrabajo/",
+      "classification": "updated",
+      "legacyHash": "28fdaa846de61ee9204180dae011e76054512759d212fa41f8e0f21435728ba8",
+      "currentHash": "7d6c63752bf6a2a2100d5765d57de6c0ef8f20f982e66c32f43c192ecc385b40",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/4-razas-de-gato-sin-pelo-que-no-conocias/",
+      "classification": "updated",
+      "legacyHash": "d0d3c544a75db17053bdce15e8690c2f35cdc93e2a673ec63ec653f4d6dc7531",
+      "currentHash": "aadf508277e3302e5a1da9900483d63ae83f04e42623e76d479984e79e012369",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/6-de-los-gatos-youtubers-mas-famosos/",
+      "classification": "updated",
+      "legacyHash": "7261bbb92f8e84f716111a0fa54470ee8bd3740ee776cd48d9e8010a26ccab44",
+      "currentHash": "e68c940e51df64425bb09bb92503afcc96bf6e02a9f8731c2910ca9edb772784",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/6-diferencias-entre-el-gato-angora-y-el/",
+      "classification": "updated",
+      "legacyHash": "25dab42706067839483463597f3ae141e6eee781b8a6e3d28c108023b20811e4",
+      "currentHash": "23024fa38225fb339e7beb9fcb4976f47052bce823d3c24ff78fbe8e12440ee9",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/6-razas-de-gatos-sin-cola/",
+      "classification": "updated",
+      "legacyHash": "c16173063c9ce6810d8b2f15375cf87ac9b1e7204691067f27118f399ab1553f",
+      "currentHash": "8717dbcca5f950a77c44247f3387b012550e0659406facafff7b301c3b6326bd",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/7-razones-para-tener-un-gatos-siameses/",
+      "classification": "updated",
+      "legacyHash": "6f5f0306fcd6a98c5ed1600c1a506b7db66d047cb0651682fccc7cd76ff5b06d",
+      "currentHash": "253184204385fdfb73ab41576d014c5fd409ad701a93cb4b88a61f436814ce68",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/abogado-usa-filtro-de-gato-en-pleno/",
+      "classification": "updated",
+      "legacyHash": "a7842741556e8e6f4b63e5a305fceb08bc8e71715a6b256918d4155f0a6eaf87",
+      "currentHash": "5ee6c6b1b9b786afe98ff834f57b6ee82a1e35ac836e5e44af2232039644b95b",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/amor-de-gato-la-anecdota-de-un-encuentro/",
+      "classification": "updated",
+      "legacyHash": "ea67a573fa8ad3f2bbea20ae3a2da10715f2ed3930d43ca95a6f9763abd77017",
+      "currentHash": "c0d15b0247e58e359f9dd1772b83ddff881246a7959d29c1bd1014b01ae49e27",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/amor-por-los-gatos/",
+      "classification": "updated",
+      "legacyHash": "a62e6d90e769586b7b764da2deb3e8385d742d6b260b9cb3aadde1cb36e033ca",
+      "currentHash": "467f373e21f300ca3502bd3f1a2b149cdd8c6fb3dd838815fd4ef18c59f8dd87",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/como-dibujar-un-gato/",
+      "classification": "updated",
+      "legacyHash": "0029d06f65e956fc951bd06244e166525679ca78a483246df9046c0d37772987",
+      "currentHash": "61042d7650043b305daa01b618904bc1026d133d5cdb63b79aa8b87b396b752b",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/como-es-la-vida-de-los-pobres-gatos/",
+      "classification": "updated",
+      "legacyHash": "ed836379c7817fcb52f4a78d4fd86f54d3ec93161d6cad47acbafadd62dc5e2e",
+      "currentHash": "a402b196e2ad239c8dd3f7b9b789072f3b1e3a5f12c04247eb805866760bb7d3",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/el-gato-con-botas-el-cuento/",
+      "classification": "updated",
+      "legacyHash": "8237a6b8e4ef2a95f7f26ba1eb4999803a3c060e13607eb87843994fd423e796",
+      "currentHash": "e1e598ed53d83a36e0be71bb4ee23a1435314f94897e9d4bb9628e4d0ec38026",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/el-gran-secreto-felino-de-kurt-cobain/",
+      "classification": "updated",
+      "legacyHash": "82c4e26fc425321f6d612fe907d694f050c602a4065da4ff032dadf476d29075",
+      "currentHash": "e565a0068858585c226757b53e30b8fede1a0008d04c35ad8f081683616cbeec",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/ernest-hemingway-amante-1-de-los-gatos/",
+      "classification": "updated",
+      "legacyHash": "2daf860e97ff1e0c860fc71719265869351ea98af83b99b95980616289ca2324",
+      "currentHash": "5b319ba362338d0b4644a7659a6fadbf737a1d43ced1ad0a9b929dab9ee50d5c",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/freddie-mercury-y-su-infinito-amor-por/",
+      "classification": "updated",
+      "legacyHash": "639fd04914e168e256af2ddd5a185cc2639b6b0b2f81c0115d52c428aa954501",
+      "currentHash": "7d5ef519a1763806a9c9474871ffbb10cbc3be55d59e1ce29d4a13924e586613",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/james-hetfield-amante-de-los-perros-y/",
+      "classification": "updated",
+      "legacyHash": "99fd5967e0390b69fd0fb174e4a8e21a977b5fd9c8815805498bf9975f809a6d",
+      "currentHash": "ae810ea9a36826268e855053d69988170d695883340f5085775e21de6380df71",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/la-aventurera-vida-de-tony-riveros/",
+      "classification": "updated",
+      "legacyHash": "627108527c207baf6c8006d2d4c02e05449bd930029cb15349d3aa890a2e25bb",
+      "currentHash": "93b73d097d2e7e88c84a5261e0bcd628d34772e860da95be328104ca9aff1d36",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/lenguaje-corporal-gatos/",
+      "classification": "updated",
+      "legacyHash": "ef68e9f2a5a7d11c25a33544b9121f8845859bd2eac44ff818a850af14f770bd",
+      "currentHash": "c9981f634cb03fa6343697f4d9f6d9ee9f7f2df5812898ee1b509072adde558a",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/los-mejores-memes-de-gatos/",
+      "classification": "updated",
+      "legacyHash": "3858233a6594168e81f2f828101be498b91ba21c29807572b182d95ab9fa39a3",
+      "currentHash": "87a2fc76dc4982bb87fd5bb56232db3fe91a9c045cd433dff21946d94a69dd66",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/mark-twain-y-sus-19-amores-gatunos/",
+      "classification": "updated",
+      "legacyHash": "0b1f23dbde2005a5e5cf6fcaf762ce13a31ce2338aa5212dc2b9806bfec0fa31",
+      "currentHash": "58c524e9ad19ae0d0d8ef3f6e0eeb65b82107d9c44f52ea7f6da89828c965b87",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/no-deberias-tener-un-gato/",
+      "classification": "updated",
+      "legacyHash": "63f87c71caf8c039aed42ffb7149f6aa2a836741f2436aa2bb0e8b20031cd7b3",
+      "currentHash": "bbb6e6dc04b4024f323256479445f71a9a2747fb68bf676ea2957dffca30fe54",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/nombres-para-gatos/",
+      "classification": "updated",
+      "legacyHash": "86963c4c23726ed25c56e83d17466c2e3f93ceac0aeba2d07961f9c4891f1f4b",
+      "currentHash": "40affd63d6d7c45a0ac92ab8c8f6152dafe44ffaed134f2b1feb134177ed3b1b",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/por-que-maulla-mi-gato-te-damos-4/",
+      "classification": "updated",
+      "legacyHash": "06f265593938830ff9531dbe3d3be6b0da5ef805784193c73d727cf945eef634",
+      "currentHash": "c01e7ac06101a588053bb1e3f462cc05914e8b6f621dd5ae145c254cb2e7696b",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/curiosidades/que-raza-es-garfield/",
+      "classification": "updated",
+      "legacyHash": "f8ac202829f7c9b21a18459620a8abce4957a814d3c13d0c08c5450ab901f369",
+      "currentHash": "ea91d31b90847f90e501e0bb8daedeff760fc41ccabcea948c97c1228072ce1d",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/guias/",
+      "classification": "updated",
+      "legacyHash": "d46704a489af82461193151a690702f626ad9af8f3b6ab69d51083d48ce07321",
+      "currentHash": "27b57a5002ed1151be988d6dd4349d28302aa60ec898414c27e8c27bf97a1278",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/guias/caja-de-arena-automatica-petsafe-scoopfree/",
+      "classification": "updated",
+      "legacyHash": "8ffe7e7a3102a6adf090801182303d913a15a14448d18d267c74e7d99d31ea79",
+      "currentHash": "cfe0a296c72888ec73100f523624d561c97d5989bb4e54f2ceec5ebdea295d10",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/guias/caja-de-arena-feandrea/",
+      "classification": "updated",
+      "legacyHash": "2df3fe99e014575dbf05845c663c6d13d3763528be4336196f388d09be6c12d4",
+      "currentHash": "80fd08d9263915da44111907a38e3f67e7091aad7ef8431278ea709fc69bd3ad",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/guias/caja-de-arena-modkat-flipd/",
+      "classification": "updated",
+      "legacyHash": "4c4c7c71741ddda839823cddeb628b489d242333f73fca4146cffcb4b77b1bf1",
+      "currentHash": "0e3ad0219b16d859cddaad1f23ece41952d21d8c3b1afd3d791f47b13a12c369",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/guias/comportamiento-felino/",
+      "classification": "updated",
+      "legacyHash": "77c1a42bb168b798868983129be38ca183cc93998daecd57f120534d7183a946",
+      "currentHash": "7f4690c7001d765dcdd313b2b51d735783e70b3833a48c73dce6deeae16c7176",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/guias/fuente-agua-gatos-elegir-mejor-opcion/",
+      "classification": "updated",
+      "legacyHash": "ed76e42336b3d12ee7f7bb26796212826125e20e054ec97df67d0706b07150eb",
+      "currentHash": "ee66595158141e5025b66da6a9a8a44d7d8c36aa47f464af9bd7ccb03d37f1bc",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/guias/resena-de-ebook-de-recetas-saludables/",
+      "classification": "updated",
+      "legacyHash": "60ed66c0a790418ae6db49dcd1d2c5145e16d1f1f69e27b978aad9b8bdf18ef5",
+      "currentHash": "4c8028ead002305629caaa3d51c8b70e2912c06a06c612a9eb5884509f0e27ab",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/guias/resena-de-la-caja-de-arena-catit/",
+      "classification": "updated",
+      "legacyHash": "19495ae8a0efb79154224428e164f57f72bcbabbc08b17812983d03e7ca50945",
+      "currentHash": "a545484bdabce6662ec2b7e5349ca7ff053c2f028bb976827b0908986671c8b9",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/guias/sweet-cake-30-recetas-saludables/",
+      "classification": "updated",
+      "legacyHash": "ace3063d0ee95b38d21d9a9db7b105fdd296626812242430c5675990a8029c3d",
+      "currentHash": "5153bff9745e1ba64a0ef9f42c6bc7ba3cf89178d46e609b551c183ff05ef882",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/politicas-de-privacidad/",
+      "classification": "updated",
+      "legacyHash": "074d7724b6af99b541a92a26b0cc807674d82d1b71f5cf6ee58a7af12935e747",
+      "currentHash": "41d88879debf01e2836ca80e99324a721376549506f525ff1a0033b8564ded7b",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/",
+      "classification": "updated",
+      "legacyHash": "58648dea0b76d87d8c24f76c885846dd7030333b50d9fc76613cda8b85aef928",
+      "currentHash": "fa973ef25fda61f8275edf1b0854dafa6497da87b99a51fa3674cccd267f4571",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/American-Shorthair-raza-de-gato-americana/",
+      "classification": "updated",
+      "legacyHash": "9b4cccf7dd066cccbddad3685c729cdea5ca534756483636c241f77f706fc155",
+      "currentHash": "d1f6bde12d7e4f2ca140f5513746cc2e4d480db0009d41beb1886a0da4e2817e",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/cream-point/",
+      "classification": "updated",
+      "legacyHash": "07c814a55f342d72b5491d1f397464f6c3c7096f5b889bed4b848d09156b66fc",
+      "currentHash": "32137051b8e0f86f6d0fa1f4b436efb442afd913affd63f929a5af81375b4a89",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/el-bosque-de-noruega/",
+      "classification": "updated",
+      "legacyHash": "b95457a770814354f82e6f13d187b9109639c255952a770966cecc9cc8d1d698",
+      "currentHash": "8a70e4b2cbed70b8362d3f315e698f0e90c514d32a7ed547fa9895ef6e3a8585",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/el-gato-siames/",
+      "classification": "updated",
+      "legacyHash": "6870c249323d666d942209458f51351ee296653a87f06df595dc4da99376c4e5",
+      "currentHash": "839ea49540a232aa0b84b5fd0c8a525d03d22728c7f82a0fcaaab37ba001babb",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-abisinio/",
+      "classification": "updated",
+      "legacyHash": "5acea3e9a52c2584c3580d688a6dbbdffe3a55c4871eab64b9659fbb79f7b026",
+      "currentHash": "b303082b82c50f7f108cd6448de786bf26f3bf2bf3ad41d586ce09df67699686",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-angora/",
+      "classification": "updated",
+      "legacyHash": "dcece5186e19799eb6372531342cdaeb676dce272b311a655bbd601c0a977c3c",
+      "currentHash": "8e3b9b56596ef86d64f5578bb426aeb2d2c3f97c528b4b328fe7f15f81b5db24",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-azul-ruso/",
+      "classification": "updated",
+      "legacyHash": "e026b54500c98cc036c1eaa51ef9fea7a8f180c81d6a03d4ff2d659bd85e2560",
+      "currentHash": "c9b49c2523a0539a6bc86c5421444deee094a070cc10efc490f30282ffe19efd",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-bengali/",
+      "classification": "updated",
+      "legacyHash": "ab20f48f1c3b069535aeac43c4997c2663790637f64a485793a0311678a5e132",
+      "currentHash": "f1f878190c62992dae6e6d8785c1513d2af2b0d6a4ff2f9402550be260bada0d",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-british-shorthair/",
+      "classification": "updated",
+      "legacyHash": "a61773fc4081b8c12fcd9b9debf1bc11d913c02beef978f83c6df8fc85fc0711",
+      "currentHash": "b4ce8a94fe1f8b1d96cee2eda9b2115c0e62b0db8b13dc78275ed5a6bc063419",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-esfinge-sphynx/",
+      "classification": "updated",
+      "legacyHash": "0afd817ff94b6c1794ed0e9276f23c79f3f1b1d53dd3c1805d150e3427a2b0fe",
+      "currentHash": "beda5adf5abde3d9515f9409a1cf8d4f5b571bc968f0ef0b72eb3a1e7d0ccad1",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-maine-coon/",
+      "classification": "updated",
+      "legacyHash": "d31ea716a93b8fea999eece219befd5f0d56bc86ff46b3fafc41789ba3a90cd0",
+      "currentHash": "7d4c1ac3bc90bea305ee71d10b4c784fb5f2e79702c79bb6ac8316805a3aee92",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-manx-todo-sobre-la-raza/",
+      "classification": "updated",
+      "legacyHash": "071e1e5d8e16d11edfb2b9661d5a528139dc928bc41c9cb7a2dfeaff2c3bee7b",
+      "currentHash": "34692dae2f8ec453ac221d616ce663227e15d8b448d2fd8b4d17e704d77dc0d7",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-persa/",
+      "classification": "updated",
+      "legacyHash": "d0c507753a23edc1ff45eb76ab7e0e7f7461bb96b544f65f78ded1c9ddd7c971",
+      "currentHash": "8e99114fda800a3b491fdb785cdf440458453a7a19d05146572ebfbbdc5305c0",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-ragdoll/",
+      "classification": "updated",
+      "legacyHash": "98bc4a5a512e509c73eb2edce83051de73e934c18fadcd995904d75fb73415c7",
+      "currentHash": "b703f650418032969399595377dc51683788f450172f255758752fe0232382e5",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-sagrado-de-birmania/",
+      "classification": "updated",
+      "legacyHash": "5e8b02ce8dc004d8be1d9d3db444591b3b6ef8dc141231f839582886b1794e6d",
+      "currentHash": "d3fa7ae86565ad45a2d1946af10394b1dd60bc027688ca9ebba4797badf5d6c3",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-savannah-f1f7-caracteristicas/",
+      "classification": "updated",
+      "legacyHash": "46abfc9c07701bb42d8d2920f5ec30d89b298dbef49b7d602beab1165561f0e5",
+      "currentHash": "92dfda5ba970371b81b932a09473c36947c4b5f4a09d0dc8feb36b656638743a",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-sokoke-origen-caracteristicas-cuidados/",
+      "classification": "updated",
+      "legacyHash": "36421429d1346064950e7335e76c2858907c63f875441d006dd4bf852a746426",
+      "currentHash": "39cf23e7106b4b69dfbd48f34afbbdcf23568088b8583a3bf3cbd7f83b64e664",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-somali/",
+      "classification": "created",
+      "legacyHash": null,
+      "currentHash": "d50a00b9db0519465cd03d98c3f1313045e18a44c4850eca4c06ccf132232fd9",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/gato-tailandes/",
+      "classification": "updated",
+      "legacyHash": "001d7f71a3e182d0ef5a26395166d2f1cce4754a9e79f44a3bb8e02fb1994641",
+      "currentHash": "96230e0c1b44654ccb2a1a1c6f5299cf69b7efac8c426e6c968c8505c8938d0f",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/razas/point-carey/",
+      "classification": "updated",
+      "legacyHash": "25c1594f4deecb1920955adac2157c61221d059b2012a19362ab33e336b2ea10",
+      "currentHash": "4a44b727e7bdf6b5ebd8da73b9a011a13235ca085247a592ae72bd73135cb807",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/",
+      "classification": "updated",
+      "legacyHash": "414743986b433b30b46bffe17b2e5713fca84ebe08a706c12c1992124902244d",
+      "currentHash": "3ba3eb980c8642e3d32ad0298a4f3d68ff3ca7a1a792b54ff75d5158f6203edc",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/alimentos-prohibidos-gatos/",
+      "classification": "updated",
+      "legacyHash": "2fd8343e0619739d9c0e6708511f0c22ec56e0f5adbb5f60e2bebd7a7f82a3c8",
+      "currentHash": "abbdc7b686826137eddad9aa472d2232f2d5eed57e75e5682384dcc7dc521237",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/como-cepillar-a-tu-gato-en-casa/",
+      "classification": "updated",
+      "legacyHash": "661c44528d3787e682c9f17b65edff49c74d6401e971934297d4c38d47f6796a",
+      "currentHash": "4f49ec82a93a909eef437b5152343916add6aa0ca10bf2de0c81d4d8e56ca197",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/como-cuidar-gatitos-recien-nacidos-sin-madre/",
+      "classification": "updated",
+      "legacyHash": "e878f5bd21fd422dbfe375d0b748989de1e002e53a68116f90417ec78a5450bf",
+      "currentHash": "d3a6b072269691f54e5d3b4d3d72a8f12a74f2f27f4626f239d150e77a9680ba",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/como-educar-nuestro-gato-en-8-sencillos/",
+      "classification": "updated",
+      "legacyHash": "f5b31f4a43bfe731a911b21272f822d5372014dcb5017a8abeb592fa376d0251",
+      "currentHash": "c65c2c595f775f5c9306aadcd0c5bb8c30676186220834ec5a37c5fa7a3296d3",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/como-saber-el-sexo-de-mi-gato-en-4/",
+      "classification": "updated",
+      "legacyHash": "e64b03bb502813822efe4bd0864558fa6d2aa27df741e0a4d6a296b595bbfc40",
+      "currentHash": "bf730a8c96b1884559717c4bde493a168db83da6ed551d6136685f9b3901f81d",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/cual-es-la-comida-para-gatitos/",
+      "classification": "updated",
+      "legacyHash": "3f8547237da2476c291cac6e81fc0ed4d099b5c3eee82b0a4cc1af71316f1bbf",
+      "currentHash": "00181a1cb946b135400b493e41b1777d08e20a1227fba1ac1b408987c3f51c60",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/cual-es-la-edad-de-mi-gato-5-maneras/",
+      "classification": "updated",
+      "legacyHash": "d74d5559a5ace832fb3be7e94676ccc7dbb3fa50668d0468521c425e1c064f72",
+      "currentHash": "6f4898cd9557f3387a3c33910dbd7ed77d4e6f6cf0b58812e78db16386b9d332",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/cuidados-diarios-gato/",
+      "classification": "updated",
+      "legacyHash": "bacd37743b9e2a1b56b8d90a9d26187136d3dbff456f3d9121e244e68a10aabb",
+      "currentHash": "b356948ec7d81e4a12eccc3112b7ff7c7b7cbf0f30569c03f5a81bd64e3b901b",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/deberiamos-o-no-deberiamos-dejar-salir/",
+      "classification": "updated",
+      "legacyHash": "3d484a03c2b36e09848b16776649839c117f9e16ccfdd455f6f67c6d72e74cd0",
+      "currentHash": "b2f5e316e12d22950afba6d13bd56da1f6f92e63aad44c799993cfa056b57707",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/head-pressing-un-comportamiento/",
+      "classification": "updated",
+      "legacyHash": "2c02ca9128946aac3f3bdbe554a6160a9c7c27b684b9d8cf4d031c6ad3bd0add",
+      "currentHash": "5fa117e013300378999056bbc30c198fac524f5ae5835075366fd8ee8f1aa210",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/la-mejor-manera-de-banar-un-gato-en-2021/",
+      "classification": "updated",
+      "legacyHash": "20ee9acee2a85990295cd24a113e23d0c6fde7210cc092850cfef5eda4641367",
+      "currentHash": "470cf05421b6ade79ba1833975b9c4fcfe016b6aa7cfb91d0b7cfe3b929d14d8",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/mi-gato-puede-estar-enfermo-del-estomago/",
+      "classification": "updated",
+      "legacyHash": "c1d6c463159d4d57c983390fd343b956f4c2251794f6d226e09df101a5de3767",
+      "currentHash": "d65eba7f7d286dd1d241cdeb9069265ca8243b97d14978177bb4cc670d9fcf2a",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/obesidad-en-gatos/",
+      "classification": "updated",
+      "legacyHash": "034caa836bedd6a0f310afa4f2d28ab6116d2f7f8aa174579517d1b8a478144f",
+      "currentHash": "5aef7a5cba12350f2f2e9c6229310f5e418a5b032d0e57035108b68c71d316d8",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/opciones-de-rascado-para-gatos-house/",
+      "classification": "updated",
+      "legacyHash": "8af561463c5dc1dfbeac156435391a4f47dab5441a2afaedc1dd5c0b76204ad2",
+      "currentHash": "bd2797b7a20e866a75ee7768edfcea63932c121d3e2c993ca11e47e87d46bbd8",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/por-que-los-gatos-aranan-los-muebles/",
+      "classification": "updated",
+      "legacyHash": "3a02e99a643fa20d8adf99846ecbf55288efe5e766c85f889aa77d3bfe583992",
+      "currentHash": "81348024a6c076de88e77984481235ae886541d3d887564c3fe9674ab4daa497",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/por-que-mi-gato-maulla-noche/",
+      "classification": "created",
+      "legacyHash": null,
+      "currentHash": "f50b043bfd0aa8de41aa6a1922bba99a3138c12f2d4d6198414e0c0bab7c39b9",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/que-come-un-gato-bebe/",
+      "classification": "updated",
+      "legacyHash": "1ac6c1495b9403d68fb6ad0d6535deff44af0c41146f3c8c03501a0822fba2bd",
+      "currentHash": "c588d49c86ddbfba0477b4a9baadf4d832f0ca81f024912c73ccaaaaffcb270c",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/sintomas-gatos/",
+      "classification": "updated",
+      "legacyHash": "9af7aed93efc0af1262999a4be4de3009fb7c077153ec134a27bc8d51695ba9f",
+      "currentHash": "8ea301b257b5b864acce2c92bc8e2835857849983648170c1511aba8c8c8c064",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/salud/viajar-con-tu-gato-coche-avion/",
+      "classification": "updated",
+      "legacyHash": "2d18489d4cd811c0e3718e2ab19052497c63ef48a0c81d7e5b11fe175d6dfdb8",
+      "currentHash": "603ad54fc4b2028f995d81edd161e4b813dbd78f3f32747d43aaf212b19d6afc",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    },
+    {
+      "url": "https://housegatitos.com/sobre-de-mi/",
+      "classification": "updated",
+      "legacyHash": "3a305f8f9956a4c8e142c2f5517cfe993c2a9ee9e68d7f88d0419204aa942d82",
+      "currentHash": "70949a615115991c5656eea075e42fc3eecafbfff19a0ac6d5f4dcb6f930339e",
+      "deletionEvidence": "present in the current composed inventory; compareRecords did not classify it as deleted"
+    }
+  ]
+}

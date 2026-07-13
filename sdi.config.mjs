@@ -1,3 +1,5 @@
+const indexNowKey = process.env.INDEXNOW_KEY;
+
 export default {
   siteId: "housegatitos",
   siteUrl: "https://housegatitos.com",
@@ -12,4 +14,10 @@ export default {
   statePath: "./.sdi/state.json",
   legacyStatePath: "./lib/discovery/state/sdi-state.json",
   reportPath: "./.sdi/last-run.json",
+  indexNow: {
+    keyEnv: "INDEXNOW_KEY",
+    ...(indexNowKey === undefined || indexNowKey.trim() === ""
+      ? {}
+      : { keyLocation: `https://housegatitos.com/${indexNowKey}.txt` }),
+  },
 };
