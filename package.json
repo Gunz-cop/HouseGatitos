@@ -9,11 +9,13 @@
     "build": "astro build",
     "preview": "astro preview",
     "discovery": "node scripts/discovery-runner.mjs",
+    "sdi:shadow:compare": "node --import tsx scripts/sdi-shadow-compare.mjs",
     "deploy": "npm run build && npm --cache .npm-cache exec wrangler -- deploy && npm run discovery",
     "briefs:clean": "node scripts/organizar-briefs.js"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.6.0",
+    "@sdi/cli": "file:../../SDI/sdi-cli-0.1.0.tgz",
     "astro": "^4.16.19",
     "sharp": "^0.34.5",
     "tsx": "^4.22.4",
