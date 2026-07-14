@@ -60,15 +60,19 @@ SHA-256 `7e6bc79283dbd68612dafe61ad036728af0519e448f37885c57816c9fa7c9f53`.
 
 ## Operación
 
-Se requiere Node 22.12+ y `npm ci` para el build local de diagnóstico. El
-tarball aprobado de SDI se instala localmente en la máquina operadora, fuera de
-las dependencias de HouseGatitos, por ejemplo:
+Se requiere Node 22.12+ y `npm ci` para el build local de diagnóstico. SDI se
+instala localmente en la máquina operadora desde el tarball aprobado y
+congelado, fuera de las dependencias de HouseGatitos. No ejecutar `npm run
+build` ni `npm pack` en SDI como parte de la operación normal. Verificar su
+SHA-256 antes de instalarlo:
 
 ```powershell
-Set-Location C:\Users\grcx1\OneDrive\Documentos\SDI
-npm run build
-npm pack
-npm install --global .\sdi-cli-0.1.0.tgz
+$tarball = 'C:\Users\grcx1\OneDrive\Documentos\SDI\sdi-cli-0.1.0.tgz'
+$expectedSha256 = 'aac5aec39ce06f988e09f8751c881a989f0ca15f560c77da06c19529ef9088a1'
+if ((Get-FileHash -LiteralPath $tarball -Algorithm SHA256).Hash.ToLowerInvariant() -ne $expectedSha256) {
+  throw 'El tarball de SDI no coincide con el artefacto aprobado.'
+}
+npm install --global $tarball
 ```
 
 Después de push, revisar que Cloudflare terminó correctamente y publicó el
