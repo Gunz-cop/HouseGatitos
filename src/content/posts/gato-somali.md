@@ -562,7 +562,7 @@ El Somali tiene mas presencia de manto y cola, pero exige mas cepillado. El Abis
 
 El **gato Somali** es una raza preciosa, pero su encanto no esta solo en la cola plumosa ni en el pelaje ticked. Esta en su forma de vivir la casa: atento, curioso, cercano, atletico y siempre dispuesto a participar.
 
-No es un gato para decorar un sofa. Es un gato para compartir rutinas, juego, altura y presencia.
+No es un gato para decorar un sofa. Es un gato para compartir rutinas, juego, altura y presencia. Una rutina de juego breve y constante suele ayudarle a canalizar mejor su curiosidad diaria.
 
 Si te enamora el Abisinio pero quieres una version visualmente mas suave, con manto semilargo y ese aire de pequeño zorro domestico, el Somali puede ser una eleccion maravillosa. La pregunta clave es sencilla:
 
